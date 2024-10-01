@@ -10,10 +10,16 @@
   border-bottom-left-radius: 16px;
   border-bottom-right-radius: 16px;
 }
+.nav__log {
+  background-color: transparent;
+  border: none;
+  padding: 1em;
+}
 .nav__log__image {
-  object-fit: contain;
-  height: 90px;
-  width: 90px;
+  height: 75px;
+  width: 80px;
+  border: none;
+  cursor: pointer;
 }
 .nav__entry {
   display: flex;

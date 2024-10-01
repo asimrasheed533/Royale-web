@@ -110,10 +110,9 @@ export default function header() {
               <line y1="6.5" x2="14" y2="6.5" stroke="#C4C4C4" />
             </svg>
           </button>
-
-          <div className="nav__log">
+          <button onClick={() => router.push("/")} className="nav__log">
             <Image className="nav__log__image" src={menuLogo} alt="logo" />
-          </div>
+          </button>
           <div className="nav__register">
             <button
               onClick={() => router.push("/signIn")}
