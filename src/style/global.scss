@@ -1,0 +1,23 @@
+:root {
+  --white: #ffffff;
+  --offWhite: #f2eee9;
+  --offLightWhite: #f8f7f6;
+  --black: #1e1e1e;
+  --black2: #1e1e1e;
+  --primary: #948a7f;
+  --darkGray: #484847;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+*::-webkit-scrollbar {
+  width: 10px;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+  background-color: var(--white);
+}
