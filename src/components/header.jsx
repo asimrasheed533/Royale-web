@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useEffect, useState } from "react";
 import ClickAwayListener from "react-click-away-listener";
 import "@/style/header.scss";
@@ -118,9 +117,35 @@ export default function header() {
               onClick={() => router.push("/signIn")}
               className="nav__register__button"
             >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="30"
+                height="30"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="feather feather-user"
+              >
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </button>
+            <button
+              onClick={() => router.push("/signIn")}
+              className="nav__register__button"
+            >
               Login
             </button>
-            /<button className="nav__register__button">Register</button>
+            /
+            <button
+              onClick={() => router.push("/signUp")}
+              className="nav__register__button"
+            >
+              Register
+            </button>
           </div>
         </div>
       </ClickAwayListener>

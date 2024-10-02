@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 import Header from "@/components/header";
 
-const ROUTES_NO_HEADER_FOOTER = ["/signIn"];
+const ROUTES_NO_HEADER_FOOTER = ["/signIn", "/signUp"];
 
 export default function Layout({ children }) {
   const pathname = usePathname();

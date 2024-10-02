@@ -14,6 +14,7 @@
   background-color: transparent;
   border: none;
   padding: 1em;
+  flex: 1;
 }
 .nav__log__image {
   height: 75px;
@@ -28,6 +29,7 @@
   gap: 1em;
   transition: 300ms ease-in-out;
   position: relative;
+  flex: 1;
 }
 .nav__entry__item {
   font-weight: 500;
@@ -50,6 +52,7 @@
   align-items: center;
   justify-content: center;
   color: white;
+  flex: 1;
 }
 .nav__register__button {
   background-color: transparent;
@@ -145,6 +148,10 @@
   .header__container__menu__icon {
     display: flex;
     cursor: pointer;
+  }
+  .nav__log__image {
+    height: 55px;
+    width: 60px;
   }
   .menu__close {
     display: flex;

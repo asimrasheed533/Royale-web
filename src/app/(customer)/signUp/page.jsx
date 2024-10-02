@@ -17,50 +17,68 @@ export default function signIn() {
 
   //   const from = new URLSearchParams(window.location.search).get("from");
 
+  const [name, setName] = useState("");
+  const [nameError, setNameError] = useState(false);
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState(false);
   const [password, setPassword] = useState("");
   const [passwordError, setPasswordError] = useState(false);
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [confirmPasswordError, setConfirmPasswordError] = useState(false);
   const [processing, setProcessing] = useState(false);
 
-  const handleLogin = async (e) => {
+  const handelSubmit = async (e) => {
     e.preventDefault();
     try {
       setProcessing(true);
-
+      if (!name) {
+        setNameError("Enter name");
+      }
       if (!email) {
-        setEmailError("Enter the email");
-        return;
+        setEmailError("Enter email");
       }
       if (!password) {
-        setPasswordError("Enter the password");
-        return;
+        setPasswordError("Enter password");
       }
-
-      const res = await axios.post("/customers/login", { email, password });
-
-      if (res.data.error) {
-        toast.error(res.data.error);
-        return;
+      if (!confirmPassword) {
+        setConfirmPasswordError("Enter confirm password");
       }
+      if (password !== confirmPassword) {
+        setConfirmPasswordError("Password not match");
+      }
+      if (name && email && email.includes("@") && password && confirmPassword) {
+        const res = await axios.post("/customers/register", {
+          name,
+          email,
+          password,
+        });
 
-      toast.success("Login success");
+        if (res.data.error) {
+          toast.error(res.data.error);
+          return;
+        }
 
-      setUser(res.data.data.token);
+        toast.success("Account created successfully");
 
-      navigate("/", { replace: true });
-    } catch (error) {
-      toast.error(error.response.data.message);
+        setNameError("");
+        setEmailError("");
+        setPasswordError("");
+        setConfirmPasswordError("");
+        setName("");
+        setEmail("");
+        setPassword("");
+        setConfirmPassword("");
+
+        navigate("/signin?from=createaccount", {
+          replace: true,
+        });
+      }
+    } catch (err) {
+      toast.error(err.response.data.error);
     } finally {
       setProcessing(false);
     }
   };
-
-  //   if (isLoggedIn) {
-  //     router.replace("/");
-  //     // <router to="/" replace={true} />;
-  //   }
-
   return (
     <>
       <div className="create__container">
@@ -72,7 +90,7 @@ export default function signIn() {
           />
         </div>
         <form
-          // onSubmit={handleLogin}
+          //   onSubmit={handleLogin}
           className="create__container__from__warper"
         >
           <div className="create__container__from__heading">
@@ -82,10 +100,53 @@ export default function signIn() {
           <div className="create__container__from__sub__heading">
             Already have an account?
             <span>
-              <Link href="/signUp" className="create__container__link">
-                Sign Up
+              <Link href="/signIn" className="create__container__link">
+                Sign In
               </Link>
             </span>
+          </div>
+          <div className="create__account__input">
+            <div className="create__account__input_svg">
+              <svg
+                width="16"
+                height="17"
+                viewBox="0 0 16 17"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1 15.9993V15.166C1 12.4046 3.23857 10.166 6 10.166H9.33333C12.0947 10.166 14.3333 12.4046 14.3333 15.166V15.9993"
+                  stroke="#AAAAAA"
+                  strokeWidth="1.66667"
+                  strokeLinecap="round"
+                />
+                <path
+                  d="M7.66536 7.66667C5.82441 7.66667 4.33203 6.17428 4.33203 4.33333C4.33203 2.49238 5.82441 1 7.66536 1C9.50628 1 10.9987 2.49238 10.9987 4.33333C10.9987 6.17428 9.50628 7.66667 7.66536 7.66667Z"
+                  stroke="#AAAAAA"
+                  strokeWidth="1.66667"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </div>
+            <input
+              required
+              maxLength={50}
+              value={name}
+              onChange={(e) => {
+                if (!e.target.value) {
+                  setNameError("Enter the name");
+                } else {
+                  setNameError("");
+                }
+                setName(e.target.value);
+              }}
+              className="create__account__input__entry"
+              type="text"
+            />
+            {nameError !== "" ? (
+              <div className="error__input">{nameError}</div>
+            ) : null}
+            <div className="create__account__input__label">Full Name</div>
           </div>
           <div className="create__account__input">
             <div className="create__account__input_svg">
@@ -102,7 +163,6 @@ export default function signIn() {
                 />
               </svg>
             </div>
-
             <input
               required
               value={email}
@@ -170,10 +230,56 @@ export default function signIn() {
             ) : null}
             <div className="create__account__input__label">Password</div>
           </div>
-
-          <Link href="/forgot" className="forgot__password">
-            Forgot Password?
-          </Link>
+          <div className="create__account__input">
+            <div className="create__account__input_svg">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1 10.7996C1 8.82001 1 7.82951 1.6153 7.21491C2.2299 6.59961 3.2204 6.59961 5.2 6.59961H10.8C12.7796 6.59961 13.7701 6.59961 14.3847 7.21491C15 7.82951 15 8.82001 15 10.7996C15 12.7792 15 13.7697 14.3847 14.3843C13.7701 14.9996 12.7796 14.9996 10.8 14.9996H5.2C3.2204 14.9996 2.2299 14.9996 1.6153 14.3843C1 13.7697 1 12.7792 1 10.7996Z"
+                  stroke="#AAAAAA"
+                  strokeWidth="1.05"
+                />
+                <path
+                  d="M3.80078 6.6V5.2C3.80078 4.08609 4.24328 3.0178 5.03093 2.23015C5.81859 1.4425 6.88687 1 8.00078 1C9.11469 1 10.183 1.4425 10.9706 2.23015C11.7583 3.0178 12.2008 4.08609 12.2008 5.2V6.6"
+                  stroke="#AAAAAA"
+                  strokeWidth="1.05"
+                  strokeLinecap="round"
+                />
+                <path
+                  d="M5.19922 10.8008H5.20552M7.99292 10.8008H7.99922M10.7929 10.8008H10.7992"
+                  stroke="#AAAAAA"
+                  strokeWidth="1.4"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+            <input
+              required
+              value={confirmPassword}
+              onChange={(e) => {
+                if (!e.target.value) {
+                  setConfirmPasswordError("Enter the password");
+                } else {
+                  setConfirmPasswordError("");
+                }
+                setConfirmPassword(e.target.value);
+              }}
+              className="create__account__input__entry"
+              type="password"
+            />
+            {confirmPasswordError !== "" ? (
+              <div className="error__input">{confirmPasswordError}</div>
+            ) : null}
+            <div className="create__account__input__label">
+              Confirm Password
+            </div>
+          </div>
 
           <div className="signin__submit__btn">
             <button
