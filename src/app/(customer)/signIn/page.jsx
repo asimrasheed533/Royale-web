@@ -23,43 +23,26 @@ export default function signIn() {
   const [passwordError, setPasswordError] = useState(false);
   const [processing, setProcessing] = useState(false);
 
-  const handleLogin = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      setProcessing(true);
+      const result = await signIn("credentials", {
+        redirect: false,
+        email,
+        password,
+      });
 
-      if (!email) {
-        setEmailError("Enter the email");
-        return;
+      if (result?.error) {
+        // Handle error (e.g., show error message)
+        console.error(result.error);
+      } else {
+        // Redirect to dashboard or home page
+        router.push("/dashboard");
       }
-      if (!password) {
-        setPasswordError("Enter the password");
-        return;
-      }
-
-      const res = await axios.post("/customers/login", { email, password });
-
-      if (res.data.error) {
-        toast.error(res.data.error);
-        return;
-      }
-
-      toast.success("Login success");
-
-      setUser(res.data.data.token);
-
-      navigate("/", { replace: true });
     } catch (error) {
-      toast.error(error.response.data.message);
-    } finally {
-      setProcessing(false);
+      console.error("An error occurred", error);
     }
   };
-
-  //   if (isLoggedIn) {
-  //     router.replace("/");
-  //     // <router to="/" replace={true} />;
-  //   }
 
   return (
     <>
@@ -72,7 +55,7 @@ export default function signIn() {
           />
         </div>
         <form
-          // onSubmit={handleLogin}
+          onSubmit={handleSubmit}
           className="create__container__from__warper"
         >
           <div className="create__container__from__heading">

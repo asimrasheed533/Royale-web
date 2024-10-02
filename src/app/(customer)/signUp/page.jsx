@@ -47,7 +47,7 @@ export default function signIn() {
         setConfirmPasswordError("Password not match");
       }
       if (name && email && email.includes("@") && password && confirmPassword) {
-        const res = await axios.post("/customers/register", {
+        const res = await axios.post("/api/register", {
           name,
           email,
           password,
