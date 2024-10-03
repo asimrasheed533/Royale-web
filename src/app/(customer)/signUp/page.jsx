@@ -2,13 +2,12 @@
 import { useRouter } from "next/navigation";
 import "@/style/signin.scss";
 import Link from "next/link";
+import axios from "axios";
 import MoonLoader from "react-spinners/MoonLoader";
-// import axios from "@/utils/axios";
 import banner from "@/public/banner_1.jpg";
 import { toast } from "react-toastify";
 import { useState } from "react";
 import Image from "next/image";
-// import useUser from "@/hooks/useUser";
 
 export default function signIn() {
   const router = useRouter();
@@ -69,12 +68,12 @@ export default function signIn() {
         setPassword("");
         setConfirmPassword("");
 
-        navigate("/signin?from=createaccount", {
+        navigate("/signIn", {
           replace: true,
         });
       }
     } catch (err) {
-      toast.error(err.response.data.error);
+      toast.error(err);
     } finally {
       setProcessing(false);
     }
@@ -90,7 +89,7 @@ export default function signIn() {
           />
         </div>
         <form
-          //   onSubmit={handleLogin}
+          onSubmit={handelSubmit}
           className="create__container__from__warper"
         >
           <div className="create__container__from__heading">

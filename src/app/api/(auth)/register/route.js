@@ -7,7 +7,7 @@ const prisma = new PrismaClient();
 export async function POST(request) {
   const body = await request.json();
   const { email, password, name } = body;
-
+  console.log("data", name, password, email);
   if (!name || !email || !password) {
     return NextResponse.json(
       { message: "Email and password are required" },
@@ -29,6 +29,7 @@ export async function POST(request) {
 
     const user = await prisma.user.create({
       data: {
+        name,
         email,
         password: hashedPassword,
       },
@@ -40,39 +41,7 @@ export async function POST(request) {
     );
   } catch (error) {
     return NextResponse.json(
-      { message: "Something went wrong" },
-      { status: 500 }
-    );
-  }
-}
-
-// src/app/api/auth/login/route.js
-
-import { NextResponse } from "next/server";
-import { signIn } from "next-auth/react";
-
-export async function POST(request) {
-  const body = await request.json();
-  const { email, password } = body;
-
-  try {
-    const result = await signIn("credentials", {
-      redirect: false,
-      email,
-      password,
-    });
-
-    if (result?.error) {
-      return NextResponse.json(
-        { message: "Invalid credentials" },
-        { status: 401 }
-      );
-    }
-
-    return NextResponse.json({ message: "Login successful" }, { status: 200 });
-  } catch (error) {
-    return NextResponse.json(
-      { message: "Something went wrong" },
+      { message: "Something went wrong", error: error.message },
       { status: 500 }
     );
   }

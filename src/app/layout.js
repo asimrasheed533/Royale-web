@@ -1,8 +1,8 @@
 import "react-toastify/dist/ReactToastify.css";
 import "@/style/global.scss";
 
-// import { SessionProvider } from "next-auth/react";
-// import Toast from "@/components/Toast";
+import { AuthProvider } from "@/app/provider";
+import { ToastContainer } from "react-toastify";
 
 import { Plus_Jakarta_Sans } from "next/font/google";
 const plus_jakarta_sans = Plus_Jakarta_Sans({ subsets: ["latin"] });
@@ -16,9 +16,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={plus_jakarta_sans.className}>
-        {/* <SessionProvider>{children}</SessionProvider> */}
-        {children}
-        {/* <Toast /> */}
+        <AuthProvider>
+          {children}
+          <ToastContainer
+            position="bottom-right"
+            theme="dark"
+            autoClose={1500}
+          />
+        </AuthProvider>
       </body>
     </html>
   );
