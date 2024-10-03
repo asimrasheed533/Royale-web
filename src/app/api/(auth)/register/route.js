@@ -5,17 +5,17 @@ import bcrypt from "bcrypt";
 const prisma = new PrismaClient();
 
 export async function POST(request) {
-  const body = await request.json();
-  const { email, password, name } = body;
-  console.log("data", name, password, email);
-  if (!name || !email || !password) {
-    return NextResponse.json(
-      { message: "Email and password are required" },
-      { status: 400 }
-    );
-  }
-
   try {
+    const body = await request.json();
+    const { email, password, name } = body;
+
+    if (!name || !email || !password) {
+      return NextResponse.json(
+        { message: "All fields are required" },
+        { status: 400 }
+      );
+    }
+
     const existingUser = await prisma.user.findUnique({ where: { email } });
 
     if (existingUser) {
@@ -40,9 +40,12 @@ export async function POST(request) {
       { status: 201 }
     );
   } catch (error) {
+    console.error("Registration error:", error);
     return NextResponse.json(
-      { message: "Something went wrong", error: error.message },
+      { message: "An error occurred while creating the user" },
       { status: 500 }
     );
+  } finally {
+    await prisma.$disconnect();
   }
 }

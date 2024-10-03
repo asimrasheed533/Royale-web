@@ -12,10 +12,6 @@ import Image from "next/image";
 export default function signIn() {
   const router = useRouter();
 
-  //   const [_, setUser, isLoggedIn] = useUser();
-
-  //   const from = new URLSearchParams(window.location.search).get("from");
-
   const [name, setName] = useState("");
   const [nameError, setNameError] = useState(false);
   const [email, setEmail] = useState("");
@@ -68,12 +64,14 @@ export default function signIn() {
         setPassword("");
         setConfirmPassword("");
 
-        navigate("/signIn", {
+        router("/signIn", {
           replace: true,
         });
       }
-    } catch (err) {
-      toast.error(err);
+    } catch (error) {
+      const errorMessage =
+        error.response?.data?.message || "An error occurred while registering";
+      toast.error(errorMessage);
     } finally {
       setProcessing(false);
     }

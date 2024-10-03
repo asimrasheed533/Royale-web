@@ -15,7 +15,6 @@
     "bcrypt": "^5.1.1",
     "next": "14.2.13",
     "next-auth": "^4.24.8",
-    "prisma": "^5.20.0",
     "react": "^18",
     "react-click-away-listener": "^2.2.3",
     "react-dom": "^18",
@@ -24,5 +23,8 @@
     "react-ui-scrollspy": "^2.3.0",
     "sass": "^1.79.3",
     "swiper": "^11.1.14"
+  },
+  "devDependencies": {
+    "prisma": "^5.20.0"
   }
 }
