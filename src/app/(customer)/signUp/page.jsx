@@ -52,9 +52,7 @@ export default function signIn() {
           toast.error(res.data.error);
           return;
         }
-
         toast.success("Account created successfully");
-
         setNameError("");
         setEmailError("");
         setPasswordError("");
@@ -63,7 +61,6 @@ export default function signIn() {
         setEmail("");
         setPassword("");
         setConfirmPassword("");
-
         router("/signIn", {
           replace: true,
         });

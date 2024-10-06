@@ -7,8 +7,9 @@ import burger from "@/public/burger.webp";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Navigation } from "swiper/modules";
-import coupon from "@/public/coupon.png";
+
 import "swiper/css/navigation";
+import ScrollTicket from "@/components/ScrollTicket";
 
 export default function Home() {
   const [isSelected, setISSelected] = useState(false);
@@ -267,78 +268,7 @@ export default function Home() {
   ];
   return (
     <>
-      <div className="scroll__container">
-        <div className="scroll__container__inner">
-          <div className="scroll__text__warper">
-            <Image src={coupon} className="scroll__image" alt="sale" />
-            <div className="scroll__text">10 % OFF All Orders</div>
-          </div>
-
-          <div className="scroll__text__warper">
-            <Image src={coupon} className="scroll__image" alt="sale" />
-            <div className="scroll__text">10 % OFF All Orders</div>
-          </div>
-          <div className="scroll__text__warper">
-            <Image src={coupon} className="scroll__image" alt="sale" />
-            <div className="scroll__text">10 % OFF All Orders</div>
-          </div>
-          <div className="scroll__text__warper">
-            <Image src={coupon} className="scroll__image" alt="sale" />
-            <div className="scroll__text">10 % OFF All Orders</div>
-          </div>
-          <div className="scroll__text__warper">
-            <Image src={coupon} className="scroll__image" alt="sale" />
-            <div className="scroll__text">10 % OFF All Orders</div>
-          </div>
-          <div className="scroll__text__warper">
-            <Image src={coupon} className="scroll__image" alt="sale" />
-            <div className="scroll__text">10 % OFF All Orders</div>
-          </div>
-          <div className="scroll__text__warper">
-            <Image src={coupon} className="scroll__image" alt="sale" />
-            <div className="scroll__text">10 % OFF All Orders</div>
-          </div>
-          <div className="scroll__text__warper">
-            <Image src={coupon} className="scroll__image" alt="sale" />
-            <div className="scroll__text">10 % OFF All Orders</div>
-          </div>
-        </div>
-        <div className="scroll__container__inner">
-          <div className="scroll__text__warper">
-            <Image src={coupon} className="scroll__image" alt="sale" />
-            <div className="scroll__text">10 % OFF All Orders</div>
-          </div>
-
-          <div className="scroll__text__warper">
-            <Image src={coupon} className="scroll__image" alt="sale" />
-            <div className="scroll__text">10 % OFF All Orders</div>
-          </div>
-          <div className="scroll__text__warper">
-            <Image src={coupon} className="scroll__image" alt="sale" />
-            <div className="scroll__text">10 % OFF All Orders</div>
-          </div>
-          <div className="scroll__text__warper">
-            <Image src={coupon} className="scroll__image" alt="sale" />
-            <div className="scroll__text">10 % OFF All Orders</div>
-          </div>
-          <div className="scroll__text__warper">
-            <Image src={coupon} className="scroll__image" alt="sale" />
-            <div className="scroll__text">10 % OFF All Orders</div>
-          </div>
-          <div className="scroll__text__warper">
-            <Image src={coupon} className="scroll__image" alt="sale" />
-            <div className="scroll__text">10 % OFF All Orders</div>
-          </div>
-          <div className="scroll__text__warper">
-            <Image src={coupon} className="scroll__image" alt="sale" />
-            <div className="scroll__text">10 % OFF All Orders</div>
-          </div>
-          <div className="scroll__text__warper">
-            <Image src={coupon} className="scroll__image" alt="sale" />
-            <div className="scroll__text">10 % OFF All Orders</div>
-          </div>
-        </div>
-      </div>
+      <ScrollTicket />
 
       <div className="order__products__container__upper">
         <Swiper

@@ -98,7 +98,6 @@
   transition: 300ms ease-in-out;
   border-radius: 12px;
   background-color: aliceblue;
-  cursor: pointer;
 }
 .product__main__card:hover {
   border: 1px solid coral;
@@ -147,6 +146,7 @@
   border-radius: 30px;
   transition: 300ms ease-in-out;
   border: none;
+  cursor: pointer;
 }
 .products__add svg {
   color: white;
