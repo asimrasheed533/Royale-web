@@ -50,6 +50,7 @@ export default function signIn() {
 
         if (res.data.error) {
           toast.error(res.data.error);
+          console.log(res.data.error);
           return;
         }
         toast.success("Account created successfully");
@@ -68,6 +69,7 @@ export default function signIn() {
     } catch (error) {
       const errorMessage =
         error.response?.data?.message || "An error occurred while registering";
+      console.log(errorMessage, "errorMessage");
       toast.error(errorMessage);
     } finally {
       setProcessing(false);
@@ -87,10 +89,7 @@ export default function signIn() {
           onSubmit={handelSubmit}
           className="create__container__from__warper"
         >
-          <div className="create__container__from__heading">
-            {/* {from === "createaccount" ? "Sign In" : "Welcome Back!"}*/}
-            Welcome Back!
-          </div>
+          <div className="create__container__from__heading">Welcome Back!</div>
           <div className="create__container__from__sub__heading">
             Already have an account?
             <span>
