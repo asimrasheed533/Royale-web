@@ -3,19 +3,15 @@ import { useRouter } from "next/navigation";
 import "@/style/signin.scss";
 import Link from "next/link";
 import MoonLoader from "react-spinners/MoonLoader";
-// import axios from "@/utils/axios";
 import banner from "@/public/banner_1.jpg";
+import google from "@/public/gogle.png";
 import { toast } from "react-toastify";
 import { useState } from "react";
 import Image from "next/image";
-// import useUser from "@/hooks/useUser";
+import axios from "axios";
 
 export default function signIn() {
   const router = useRouter();
-
-  //   const [_, setUser, isLoggedIn] = useUser();
-
-  //   const from = new URLSearchParams(window.location.search).get("from");
 
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState(false);
@@ -26,24 +22,43 @@ export default function signIn() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const result = await signIn("credentials", {
+      const result = signIn("credentials", {
         redirect: false,
         email,
         password,
       });
 
       if (result?.error) {
-        // Handle error (e.g., show error message)
         console.error(result.error);
       } else {
-        // Redirect to dashboard or home page
         router.push("/dashboard");
       }
     } catch (error) {
       console.error("An error occurred", error);
     }
   };
+  const handleGoogleSignIn = async () => {
+    try {
+      setProcessing(true);
+      const result = signIn("google", {
+        callbackUrl: "/dashboard",
+        redirect: false,
+      });
 
+      if (result?.error) {
+        toast.error("Failed to sign in with Google");
+      } else {
+        toast.success("Signed in successfully!");
+        router.push("/dashboard");
+        router.refresh();
+      }
+    } catch (error) {
+      console.error("Google sign in error:", error);
+      toast.error("Something went wrong with Google sign in");
+    } finally {
+      setProcessing(false);
+    }
+  };
   return (
     <>
       <div className="create__container">
@@ -167,6 +182,14 @@ export default function signIn() {
               {processing ? <MoonLoader color="#fff" size={16} /> : "Sign In"}
             </button>
           </div>
+          <button
+            onClick={handleGoogleSignIn}
+            className="google-signin-button"
+            disabled={processing}
+          >
+            <Image src={google} alt="Google" width={20} height={20} />
+            Sign in with Google
+          </button>
         </form>
       </div>
     </>

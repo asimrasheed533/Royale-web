@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import Header from "@/components/header";
+import Header from "@/components/Header";
 
 const ROUTES_NO_HEADER_FOOTER = ["/signIn", "/signUp"];
 
