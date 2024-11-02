@@ -184,7 +184,7 @@ export default function signIn() {
           </div>
           <button
             onClick={handleGoogleSignIn}
-            className="google-signin-button"
+            className="google__signIn__button"
             disabled={processing}
           >
             <Image src={google} alt="Google" width={20} height={20} />

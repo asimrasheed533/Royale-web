@@ -1,0 +1,716 @@
+.track__order__container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3em 0;
+}
+.track__container__img {
+  width: 50%;
+  display: flex;
+  align-self: end;
+  justify-content: flex-end;
+}
+.track__container__img__image {
+  width: 100%;
+  max-width: 100%;
+  object-fit: cover;
+}
+.track__container__from__warper {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 1em;
+  margin-left: 5em;
+}
+.track__container__from__sub__heading {
+  color: #aaaaaa;
+  font-size: 14px;
+  margin-bottom: 1em;
+}
+.track__container__from__sub__heading span {
+  color: black;
+  cursor: pointer;
+  margin: 0 0.2em;
+  font-weight: 700;
+}
+.track__container__from__text__link {
+  color: var(--orange);
+  padding: 0 0.3em;
+}
+.track__container__from__sub__heading span:hover {
+  text-decoration: underline;
+}
+.honda__accessories__bg {
+  background-repeat: no-repeat;
+  width: 100%;
+  // margin: 2em 0;
+  height: 370px;
+  position: relative;
+}
+.honda__accessories__bg__image {
+  width: 100%;
+  height: 350px;
+}
+.honda__accessories__container {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2em;
+  max-width: 1366px;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.honda__accessories__text {
+  color: white;
+}
+.honda__accessories__text__heading {
+  font-size: 1.7rem;
+  font-weight: bolder;
+  text-align: center;
+}
+.honda__accessories__text__btn {
+  background-color: #fcb316;
+  color: var(--blue);
+  padding: 0.8em 2em;
+  border-radius: 10px;
+  border: none;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 1em;
+  width: 70%;
+  transition: 300ms ease-in-out;
+  text-decoration: none;
+}
+.honda__accessories__text__btn:hover {
+  background-color: #000000;
+  color: white;
+  cursor: pointer;
+  transition: 300ms ease-in-out;
+  box-shadow: 0 0 10px 0 #f3f2f12a;
+}
+.honda__accessories__text__sub__heading {
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin-bottom: 0.5em;
+  font-style: italic;
+}
+.honda__accessories__img__image {
+  width: 100%;
+  max-width: 450px;
+  object-fit: cover;
+}
+.accessories__online__store {
+  width: 100%;
+  background-image: url("../assets/bglight.webp");
+}
+.accessories__online__store__container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 4em 2em;
+  max-width: 1366px;
+  margin: 0 auto;
+  font-size: 14px;
+  position: relative;
+  margin-top: -2em;
+}
+.accessories__container__heading {
+  font-size: 1.8rem;
+  font-weight: 900;
+  margin: 1em 0;
+  text-align: center;
+}
+.accessories__container__sub__heading {
+  font-weight: 400;
+  margin-bottom: 0.5em;
+  text-align: center;
+}
+.accessories__container__sub__heading2 {
+  font-weight: 400;
+  margin-bottom: 0.5em;
+  text-align: center;
+  padding: 1em 0;
+}
+.track__order__items__container__bg {
+  width: 100%;
+}
+.track__order__items__container__heading {
+  width: 100%;
+  max-width: 1300px;
+  font-size: 1.4rem;
+  margin: 0 auto;
+  font-weight: 700;
+  margin: 1em 0;
+}
+.track__order__items__container {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  border-radius: 12px;
+  border: 1px solid #d9d9d9;
+  padding: 1em;
+}
+.review__cart__list__des__row:hover {
+  background-color: #f7f8f9;
+  transition: 300ms ease-in-out;
+  border-radius: 8px;
+}
+.track__order__content__upper__row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  gap: 1em;
+  transition: 300ms ease-in-out;
+  cursor: pointer;
+  border-bottom: 1px solid #d9d9d9;
+  padding-bottom: 1em;
+  flex-wrap: wrap;
+  margin-top: 1em;
+}
+.track__order__items__container__heading__warper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.5em;
+}
+.review__btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1em;
+}
+.review__btn__button {
+  width: 130px;
+  height: 36px;
+  text-decoration: none;
+  border-radius: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  font-size: 0.8rem;
+  background-color: var(--blue);
+  border: none;
+}
+.submit__btn__button {
+  width: 130px;
+  text-decoration: none;
+  border-radius: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--blue);
+  cursor: pointer;
+  font-size: 0.8rem;
+  background-color: #d9d9d9;
+  border: none;
+}
+.submit__btn__button:hover {
+  background-color: var(--orange);
+  transition: 300ms ease-in-out;
+  color: white;
+}
+.review__btn__button:hover {
+  background-color: var(--orange);
+  transition: 300ms ease-in-out;
+}
+.review__entry__col__content__review {
+  padding: 0.5em 1em;
+  border-radius: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  background-color: var(--blue);
+  border: none;
+  margin: 0 0.5em;
+  font-size: 0.7rem;
+}
+.review__entry__col__content__review:hover {
+  background-color: var(--orange);
+  transition: 300ms ease-in-out;
+}
+.Addrma__entry__col__content__review {
+  padding: 0.5em 1em;
+  border-radius: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--blue);
+  cursor: pointer;
+  background-color: rgba(0, 38, 59, 0.253) b;
+  border: none;
+  margin: 0 0.5em;
+  font-size: 12px;
+}
+.Addrma__entry__col__content__review:hover {
+  background-color: var(--orange);
+  transition: 300ms ease-in-out;
+}
+.track__order__status__container {
+  max-width: 1366px;
+  margin: 0em auto;
+  margin-top: 1.5em;
+}
+.order__history__container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-top: 2em;
+}
+.track__order__status {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 10px;
+}
+.track__order__status__entry {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #7f819a;
+  min-width: 150px;
+  font-size: 14px;
+}
+.track__order__status__entry__icon {
+  background-color: #f9fafc;
+  height: 35px;
+  width: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  position: relative;
+  margin-bottom: 0.5em;
+}
+.track__orderstatus__line {
+  height: 2px;
+  width: 250px;
+  background-color: #d9d9d9;
+  margin-bottom: 1em;
+}
+.track__order__status__entry__icon::after {
+  content: "";
+  height: 2px;
+  width: 17vw;
+  background-color: #d9d9d9;
+  position: absolute;
+  top: 50%;
+  left: 100%;
+}
+.track__order__status__entry:last-child
+  .track__order__status__entry__icon::after {
+  display: none;
+}
+.track__order__status__entry__active {
+  color: #ffbd55;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.track_order__status__entry__active .track__order__status__entry__icon {
+  background-color: #ffbd55;
+}
+.track__order__status__entry__active .track__order__status__entry__icon svg {
+  color: #ffbd55;
+}
+.track__order__status__entry__icon svg {
+  color: #7f819a;
+}
+.track__orderstatus__entry__active .track__order__status__entry__title {
+  color: #7f819a;
+}
+.rma__heading {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  padding-top: 1em;
+  padding-left: 1em;
+  font-size: 22px;
+  font-weight: 700;
+}
+.rma__find__btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 0.8rem;
+  padding: 0.5em 2em;
+}
+.rma__find__btn button {
+  padding: 0.8em 2.5em;
+  border-radius: 8px;
+  background-color: var(--blue);
+  border: none;
+  text-decoration: none;
+  color: white;
+}
+.rma__find__btn button:hover {
+  transition: 300ms ease-in-out;
+  cursor: pointer;
+  background-color: var(--orange);
+}
+.rma__find__btn__button {
+  width: 140px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background-color: var(--blue);
+  text-decoration: none;
+  border: none;
+  font-size: 0.8rem;
+  color: white;
+}
+.rma__find__btn__button:hover {
+  transition: 300ms ease-in-out;
+  cursor: pointer;
+  background-color: var(--orange);
+}
+.order__return__container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.order__return__container__from {
+  width: 100%;
+}
+.order__return__container__from__title {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #4c4c4c;
+  margin-top: 1em;
+}
+.order__return__from__radio {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2em;
+}
+.order__return__from__radio__entry input[type="radio"] {
+  width: 30px;
+  height: 30px;
+  margin: 0;
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+.order__return__from__radio__entry
+  input[type="radio"]:checked
+  + .order__return__from__radio__label::before {
+  background-color: var(--orange);
+}
+.order__return__from__radio__entry {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 2em;
+  margin-top: 1em;
+  gap: 0.5em;
+}
+.order__return__from__radio__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.order__return__from__radio__entry
+  input[type="radio"]
+  + .order__return__from__radio__label::before {
+  content: "";
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 1px solid #ff9300;
+  background-color: #fff;
+  margin-right: 10px;
+}
+.order__return__entry {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  margin-top: 1em;
+  position: relative;
+}
+.order__return__entry__label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #4c4c4c;
+  padding: 0.5em 0;
+}
+.order__return__entry__input {
+  width: 100%;
+  padding: 0.8em 1em;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  outline: none;
+}
+.order__return__comment__title {
+  margin-top: 1em;
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-weight: 600;
+  color: #6a6a6a;
+}
+.order__return__comment__dec {
+  font-size: 0.7rem;
+  color: #6a6a6a;
+  margin-top: 0.5em;
+}
+.order__return__comment__textarea {
+  width: 100%;
+  height: 130px;
+  padding: 0.8em 1em;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  outline: none;
+  margin-top: 1em;
+  resize: none;
+}
+.order__submit__warper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 1em;
+}
+.order__submit__button {
+  background-color: #007893;
+  padding: 0.8em 2em;
+  border-radius: 8px;
+  border: none;
+  color: white;
+  font-size: 0.8rem;
+}
+.order__submit__button:hover {
+  background-color: var(--orange);
+  transition: 300ms ease-in-out;
+  cursor: pointer;
+}
+.billing__detail__container {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 1366px;
+  margin: 0 auto;
+  flex-direction: column;
+  margin: 1.5em 0;
+}
+.billing__detail__heading {
+  font-size: 1.2em;
+  font-weight: 700;
+}
+.billing__detail__col__warper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1em;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 8px;
+  padding: 2em;
+}
+.billing__detail__col {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.billing__detail__entry {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  max-width: 200px;
+}
+.billing__detail__entry__title {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+.billing__detail__entry__text {
+  font-size: 0.8rem;
+  margin-top: 0.7em;
+}
+@media (max-width: 1250px) {
+  .accessories__online__store {
+    margin: 0;
+  }
+  .honda__accessories__container {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+}
+@media (max-width: 1200px) {
+  .accessories__online__store__img img {
+    height: 100%;
+    min-height: 450px;
+    width: 100%;
+  }
+}
+@media (max-width: 950px) {
+  .track__order__container {
+    padding-top: 2em;
+    padding-bottom: 0;
+  }
+
+  .honda__accessories__img {
+    display: none;
+  }
+  .honda__accessories__text {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .honda__accessories__text__btn {
+    width: 100%;
+    max-width: 300px;
+  }
+  .track__container__img {
+    display: none;
+  }
+  .track__container__from__warper {
+    width: 100%;
+    align-items: center;
+    margin: 0;
+  }
+  .create__container__from__heading {
+    margin-bottom: 1em;
+  }
+  .submit__btn {
+    padding: 0;
+  }
+}
+@media (max-width: 850px) {
+  .accessories__online__store__container {
+    padding: 2em;
+  }
+  .track__container__from__warper {
+    margin: 0;
+    padding: 0 2em;
+  }
+  .review__entry__col__content__review {
+    font-size: 11px;
+  }
+  .track__order__items__container {
+    padding: 1em;
+  }
+}
+@media (max-width: 700px) {
+  .check__box__entry {
+    width: 100%;
+    display: flex;
+    align-items: end;
+    justify-content: flex-end;
+    padding-right: 1em;
+  }
+  .track__order__items__container {
+    padding: 0.5em;
+  }
+  .accessories__online__store__img img {
+    min-height: 550px;
+  }
+  .accessories__container__heading {
+    font-size: 1.3rem;
+  }
+  .accessories__container__sub__heading {
+    text-align: justify;
+  }
+  .accessories__container__sub__heading2 {
+    text-align: justify;
+  }
+  .honda__accessories__bg__image {
+    height: 100%;
+    object-fit: cover;
+  }
+  .honda__accessories__text {
+    align-items: center;
+  }
+
+  .honda__accessories__text__sub__heading {
+    font-size: 16px;
+    margin: 0.5em 0;
+  }
+  .honda__accessories__text__btn {
+    max-width: 200px;
+  }
+}
+@media (max-width: 550px) {
+  .billing__detail__entry {
+    max-width: 100%;
+  }
+  .billing__detail__col__warper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1em;
+  }
+  .billing__detail__col {
+    flex-direction: column;
+    gap: 1em;
+  }
+  .track__order__items__container__heading__warper {
+    flex-direction: column;
+    margin-bottom: 1em;
+  }
+  .review__btn__button {
+    height: 28px;
+    width: 90px;
+    font-size: 0.6rem;
+  }
+  .submit__btn__button {
+    height: 28px;
+    width: 90px;
+  }
+  .track__order__items__container__heading {
+    font-size: 1rem;
+  }
+  .honda__accessories__text__heading {
+    font-size: 1rem;
+  }
+
+  .order__return__from__radio__label {
+    font-size: 14px;
+  }
+  .order__return__from__radio {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5em;
+  }
+
+  .accessories__online__store__img img {
+    min-height: 650px;
+  }
+  .order__return__entry__label {
+    font-size: 14px;
+  }
+}

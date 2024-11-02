@@ -112,6 +112,7 @@ export default function Header() {
           <button onClick={() => router.push("/")} className="nav__log">
             <Image className="nav__log__image" src={menuLogo} alt="logo" />
           </button>
+
           <div className="nav__register">
             <button
               onClick={() => router.push("/signIn")}
@@ -132,6 +133,12 @@ export default function Header() {
                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                 <circle cx="12" cy="7" r="4"></circle>
               </svg>
+            </button>
+            <button
+              onClick={() => router.push("/dashboard")}
+              className="nav__register__button"
+            >
+              My Account
             </button>
             <button
               onClick={() => router.push("/signIn")}

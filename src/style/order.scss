@@ -171,8 +171,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5em 1em;
-  font-size: 15px;
+  padding: 0.5em;
 }
 .order__products__card__col__frt:hover {
   border: 1px solid #eb4c18;
@@ -459,5 +458,13 @@
   }
   .order__footer {
     display: flex;
+  }
+}
+@media (max-width: 600px) {
+  .order__products__container__bottom {
+    padding: 1em;
+  }
+  .order__products__card__title {
+    font-size: 0.9rem;
   }
 }
