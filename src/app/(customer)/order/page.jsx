@@ -368,13 +368,14 @@ export default function Home() {
         <div className="order__products__container__cart">
           <div className="order__products__cart__title">Cart</div>
           <div className="order__products__cart__subtitle">Items</div>
+          <Image src={burger} alt="fast food" height={50} width={50} />
           <div className="order__products__cart__name">Hot Mexican</div>
           <div className="order__price">
             <div className="order__price__col">$50</div>
             <div className="order__price__col">
               <div className="order__price__col__num">
                 <div className="order__price__num__less">-</div>
-                <div className="order__price__num__count">50</div>
+                <div className="order__price__num__count">5</div>
                 <div className="order__price__num__grater">+</div>
               </div>
             </div>
