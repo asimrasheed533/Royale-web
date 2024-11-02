@@ -20,7 +20,7 @@ export default function Home() {
     if (targetElement) {
       let yOffset = 0;
       if (window.innerWidth >= 1220) {
-        yOffset = -450;
+        yOffset = -0;
       } else if (window.innerWidth >= 950) {
         yOffset = -195;
       } else {
@@ -294,6 +294,7 @@ export default function Home() {
               <a
                 className="order__products__container__content__warper"
                 href={`#${item.scrollId}`}
+                onClick={(e) => scrollToSection(e)}
               >
                 <Image
                   src={item.img}
@@ -315,7 +316,6 @@ export default function Home() {
         <ScrollSpy scrollThrottle={10} useBoxMethod={false} offsetTop={-250}>
           {items.map((item, itemIndex) => (
             <div
-              onClick={(e) => scrollToSection(e, 100)}
               id={`f${itemIndex + 1}`}
               className="order__products__card__warper"
               key={itemIndex}
