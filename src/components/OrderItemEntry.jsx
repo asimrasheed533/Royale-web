@@ -14,7 +14,7 @@ export default function OrderItemEntry({ item }) {
               <img
                 className="checkout__product__col__img__image"
                 src={item}
-                alt="honda now"
+                alt="store"
               />
             </div>
             <div className="shop__cart__entry__content">
