@@ -41,7 +41,7 @@ export default function signIn() {
     try {
       setProcessing(true);
       const result = signIn("google", {
-        callbackUrl: "/dashboard",
+        callbackUrl: "/",
         redirect: false,
       });
 
@@ -49,7 +49,7 @@ export default function signIn() {
         toast.error("Failed to sign in with Google");
       } else {
         toast.success("Signed in successfully!");
-        router.push("/dashboard");
+        router.push("/");
         router.refresh();
       }
     } catch (error) {

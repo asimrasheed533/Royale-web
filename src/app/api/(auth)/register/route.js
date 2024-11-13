@@ -1,6 +1,7 @@
 import bcrypt from "bcryptjs";
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
+import NextAuth from "next-auth";
 
 export async function POST(req) {
   try {
@@ -37,3 +38,4 @@ export async function POST(req) {
     return new NextResponse("An error occurred", { status: 500 });
   }
 }
+export default NextAuth(authOptions);

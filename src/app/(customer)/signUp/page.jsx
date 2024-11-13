@@ -280,7 +280,11 @@ export default function signIn() {
               disabled={processing}
               className="forgot__account__button"
             >
-              {processing ? <MoonLoader color="#fff" size={16} /> : "Sign In"}
+              {processing ? (
+                <MoonLoader color="#fff" size={16} />
+              ) : (
+                "Create Account"
+              )}
             </button>
           </div>
         </form>
