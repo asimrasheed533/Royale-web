@@ -1,7 +1,6 @@
 import "react-toastify/dist/ReactToastify.css";
 import "@/style/global.scss";
 
-import { AuthProvider } from "@/app/provider";
 import { ToastContainer } from "react-toastify";
 
 import { Plus_Jakarta_Sans } from "next/font/google";
@@ -16,14 +15,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={plus_jakarta_sans.className}>
-        <AuthProvider>
-          {children}
-          <ToastContainer
-            position="bottom-right"
-            theme="dark"
-            autoClose={1500}
-          />
-        </AuthProvider>
+        {children}
+        <ToastContainer position="bottom-right" theme="dark" autoClose={1500} />
       </body>
     </html>
   );
