@@ -9,6 +9,8 @@ import { useState } from "react";
 import Image from "next/image";
 import axios from "axios";
 
+import { GoogleLogin } from "@react-oauth/google";
+
 export default function SignIn() {
   const router = useRouter();
 
@@ -132,7 +134,6 @@ export default function SignIn() {
         <Link href="/forgot" className="forgot__password">
           Forgot Password?
         </Link>
-
         <div className="signin__submit__btn">
           <button
             type="submit"
@@ -142,6 +143,14 @@ export default function SignIn() {
             {processing ? <MoonLoader color="#fff" size={16} /> : "Sign In"}
           </button>
         </div>
+        <GoogleLogin
+          onSuccess={(credentialResponse) => {
+            console.log(credentialResponse);
+          }}
+          onError={() => {
+            console.log("Login Failed");
+          }}
+        />
       </form>
     </div>
   );
