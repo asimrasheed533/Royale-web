@@ -1,7 +1,6 @@
 import bcrypt from "bcryptjs";
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
-import NextAuth from "next-auth";
 
 export async function POST(req) {
   try {
@@ -9,7 +8,7 @@ export async function POST(req) {
     const { email, name, password } = body;
 
     if (!email || !name || !password) {
-      return new NextResponse("Missing Fields", { status: 400 });
+      return NextResponse.json({ message: "Missing fields" }, { status: 400 });
     }
 
     const exist = await prisma.user.findUnique({
@@ -19,7 +18,10 @@ export async function POST(req) {
     });
 
     if (exist) {
-      return new NextResponse("Email already exists", { status: 400 });
+      return NextResponse.json(
+        { message: "User already exists" },
+        { status: 400 }
+      );
     }
 
     const hashedPassword = await bcrypt.hash(password, 12);
@@ -35,7 +37,6 @@ export async function POST(req) {
     return NextResponse.json(user);
   } catch (error) {
     console.log(error);
-    return new NextResponse("An error occurred", { status: 500 });
+    return NextResponse.json({ message: "Internal Error" }, { status: 500 });
   }
 }
-export default NextAuth(authOptions);
