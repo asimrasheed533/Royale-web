@@ -9,7 +9,7 @@ import { toast } from "react-toastify";
 import { useState } from "react";
 import Image from "next/image";
 
-export default function signIn() {
+export default function SignUp() {
   const router = useRouter();
 
   const [name, setName] = useState("");
@@ -273,7 +273,6 @@ export default function signIn() {
               Confirm Password
             </div>
           </div>
-
           <div className="signin__submit__btn">
             <button
               type="submit"
