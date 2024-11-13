@@ -1,6 +1,7 @@
 "use client";
-import { useRouter } from "next/navigation";
 import "@/style/signin.scss";
+
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import axios from "axios";
 import MoonLoader from "react-spinners/MoonLoader";
@@ -28,45 +29,50 @@ export default function SignUp() {
       setProcessing(true);
       if (!name) {
         setNameError("Enter name");
+        return;
       }
       if (!email) {
         setEmailError("Enter email");
+        return;
       }
+
       if (!password) {
         setPasswordError("Enter password");
+        return;
       }
       if (!confirmPassword) {
         setConfirmPasswordError("Enter confirm password");
+        return;
       }
       if (password !== confirmPassword) {
         setConfirmPasswordError("Password not match");
+        return;
       }
-      if (name && email && email.includes("@") && password && confirmPassword) {
-        const res = await axios.post("/api/register", {
-          name,
-          email,
-          password,
-        });
 
-        if (res.data.error) {
-          toast.error(res.data.error);
-          console.log(res.data.error);
-          return;
-        }
-        toast.success("Account created successfully");
-        setNameError("");
-        setEmailError("");
-        setPasswordError("");
-        setConfirmPasswordError("");
-        setName("");
-        setEmail("");
-        setPassword("");
-        setConfirmPassword("");
-        router("/signIn", {
-          replace: true,
-        });
+      const res = await axios.post("/api/register", {
+        name,
+        email,
+        password,
+      });
+
+      if (res.data.error) {
+        toast.error(res.data.error);
+        return;
       }
+
+      toast.success("Account created successfully");
+      setNameError("");
+      setEmailError("");
+      setPasswordError("");
+      setConfirmPasswordError("");
+      setName("");
+      setEmail("");
+      setPassword("");
+      setConfirmPassword("");
+
+      router.push("/signIn");
     } catch (error) {
+      console.log(error);
       const errorMessage =
         error.response?.data?.message || "An error occurred while registering";
       console.log(errorMessage, "errorMessage");
