@@ -5,9 +5,7 @@ export default function layout({ children }) {
   return (
     <div>
       <div className="cart__container">
-        {/* {isOpen === false && <SideBar onClick={() => setIsOpen(!isOpen)} />} */}
         <SideBar />
-
         {children}
       </div>
     </div>
