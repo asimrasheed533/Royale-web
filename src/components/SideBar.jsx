@@ -1,11 +1,13 @@
 "use client";
 import "@/style/myCart.scss";
-import ClickAwayListener from "react-click-away-listener";
+
 import Link from "next/link";
 import { Fragment, useLayoutEffect, useState } from "react";
 import dashboardEntries from "../../constant/dashboardEntries";
+import { useRouter } from "next/navigation";
 
 export default function SideBar() {
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const checkWidth = () => {
     if (window.innerWidth > 1050) {
@@ -62,9 +64,14 @@ export default function SideBar() {
                 )}
               </Fragment>
             ))}
-            <Link
+            <button
               style={{ padding: "15px 10px", marginTop: "50px" }}
-              href="/"
+              onClick={() => {
+                document.cookie =
+                  "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                router.push("/");
+                router.refresh();
+              }}
               className="container__sidebar__subentry__sub"
             >
               <svg
@@ -91,7 +98,7 @@ export default function SideBar() {
               >
                 Logout
               </div>
-            </Link>
+            </button>
           </div>
         </div>
       )}
