@@ -7,6 +7,7 @@ import banner from "@/public/banner_1.jpg";
 import { toast } from "react-toastify";
 import { useState } from "react";
 import Image from "next/image";
+import axios from "axios";
 
 export default function SignIn() {
   const router = useRouter();
@@ -22,7 +23,7 @@ export default function SignIn() {
     setProcessing(true);
 
     try {
-      const result = await signIn("credentials", {
+      const result = await axios.post("/api/login", {
         email,
         password,
         redirect: false,
