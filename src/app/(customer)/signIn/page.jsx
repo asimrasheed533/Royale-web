@@ -35,7 +35,7 @@ export default function SignIn() {
         toast.error(result.error || "Failed to sign in");
       } else {
         toast.success("Signed in successfully!");
-        router.push("/dashboard");
+        router.push("/");
         router.refresh();
       }
     } catch (error) {
@@ -46,6 +46,29 @@ export default function SignIn() {
     }
   };
 
+  const handleSuccess = async (credentialResponse) => {
+    try {
+      const response = await axios("/api/google", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          credential: credentialResponse.credential,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Authentication failed");
+      }
+
+      const data = await response.json();
+
+      console.log("Authenticated user:", data);
+    } catch (error) {
+      console.error("Authentication error:", error);
+    }
+  };
   return (
     <div className="create__container">
       <div className="create__container__img">
@@ -142,9 +165,10 @@ export default function SignIn() {
           </button>
         </div>
         <GoogleLogin
-          onSuccess={(credentialResponse) => {
-            console.log(credentialResponse);
-          }}
+          // onSuccess={(credentialResponse) => {
+          //   console.log(decodeJWT(credentialResponse.credential));
+          // }}
+          onSuccess={handleSuccess}
           onError={() => {
             console.log("Login Failed");
           }}

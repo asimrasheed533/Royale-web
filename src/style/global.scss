@@ -1,11 +1,14 @@
 :root {
   --white: #ffffff;
-  --offWhite: #f2eee9;
+  --whiteShadow: #fcfcfc;
   --offLightWhite: #f8f7f6;
-  --black: #1e1e1e;
-  --black2: #1e1e1e;
-  --primary: #948a7f;
-  --darkGray: #484847;
+  --lightGrey: #f6f7f8;
+  --grey: #e5e8eb;
+  --blue: #212b36;
+  --golden: #ffffffbb;
+  --lightBlue: #637381;
+  --goldenLight: rgba(255, 199, 76, 0.1);
+  --shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 *,
 *::before,

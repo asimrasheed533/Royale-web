@@ -3,7 +3,7 @@ import "@/style/myCart.scss";
 
 import Link from "next/link";
 import { Fragment, useLayoutEffect, useState } from "react";
-import dashboardEntries from "../../constant/dashboardEntries";
+import dashboardEntries from "../constant/dashboardEntries";
 import { useRouter } from "next/navigation";
 
 export default function SideBar() {
