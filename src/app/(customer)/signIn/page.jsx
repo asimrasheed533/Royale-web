@@ -89,7 +89,6 @@ export default function SignIn() {
             }}
             className="create__account__input__entry"
             type="email"
-            placeholder="Email"
           />
           {emailError && <div className="error__input">{emailError}</div>}
           <div className="create__account__input__label">Email</div>
@@ -125,7 +124,6 @@ export default function SignIn() {
             }}
             className="create__account__input__entry"
             type="password"
-            placeholder="Password"
           />
           {passwordError && <div className="error__input">{passwordError}</div>}
           <div className="create__account__input__label">Password</div>
