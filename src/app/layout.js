@@ -16,10 +16,16 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={plus_jakarta_sans.className}>
-        {children}
-        <ToastContainer position="bottom-right" theme="dark" autoClose={1500} />
-      </body>
+      <GoogleOAuthProvider clientId={process.env.GOOGLE_CLIENT_ID}>
+        <body className={plus_jakarta_sans.className}>
+          {children}
+          <ToastContainer
+            position="bottom-right"
+            theme="dark"
+            autoClose={1500}
+          />
+        </body>
+      </GoogleOAuthProvider>
     </html>
   );
 }
