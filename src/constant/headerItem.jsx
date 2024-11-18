@@ -2,8 +2,9 @@ export default {
   order: [
     { key: "id", name: "id" },
     {
-      key: "name",
-      name: "product Name",
+      key: "product",
+      name: "product",
+      style: { width: "200px" },
     },
     { key: "city", name: "City" },
     { key: "status", name: "Status" },
