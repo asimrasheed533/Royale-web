@@ -2,6 +2,7 @@ import listing from "@/style/listing.scss";
 import headerItem from "@/constant/headerItem";
 import ListingHeaderEntry from "./ListingHeaderEntry";
 import ListingPagination from "./ListingPagination";
+import ListingCheckbox from "./ListingCheckbox";
 export default function ListingTable({
   children,
   actions,
@@ -9,6 +10,7 @@ export default function ListingTable({
   setSelectedRows,
   page,
   setPage,
+  totalPages,
   sortData,
   setSortData,
   headerItem,
@@ -35,12 +37,13 @@ export default function ListingTable({
           ))}
         </ListingActionBar> */}
         <div className="listing__page__table__header">
-          {/* <ListingHeaderEntry className="checkbox">
+          <ListingHeaderEntry className="checkbox">
             <ListingCheckbox
-              checked={selectedRows.length === data.length}
-              partiallyChecked={
-                selectedRows.length > 0 && selectedRows.length < data.length
-              }
+              // checked={selectedRows.length === data.length}
+              checked={selectedRows.length > 0}
+              // partiallyChecked={
+              //   selectedRows.length > 0 && selectedRows.length < data.length
+              // }
               onClick={() => {
                 if (selectedRows.length === data.length) {
                   setSelectedRows([]);
@@ -49,7 +52,7 @@ export default function ListingTable({
                 }
               }}
             />
-          </ListingHeaderEntry> */}
+          </ListingHeaderEntry>
           {headerItem?.map((item) => (
             <ListingHeaderEntry
               key={item.key}
@@ -64,22 +67,21 @@ export default function ListingTable({
         </div>
         <div className="listing__page__table__content">{children}</div>
       </div>
-      <div className="listing__page__table__footer">
-        <div className="listing__page__table__footer__stats">
-          <div className="listing__page__table__footer__stats__entry">
-            {selectedRows.length} selected
+      {totalPages && (
+        <div className="listing__page__table__footer">
+          <div className="listing__page__table__footer__stats">
+            {selectedRows && (
+              <div className="listing__page__table__footer__stats__entry">
+                {selectedRows.length} {"Selected"}
+              </div>
+            )}
+            <div className="listing__page__table__footer__stats__entry">
+              {data.length} {"Entries"}
+            </div>
           </div>
-          <div className="listing__page__table__footer__stats__entry">
-            {data?.length} data
-          </div>
+          <ListingPagination totalPages={totalPages} />
         </div>
-        <ListingPagination
-          currentPage={page}
-          totalPages={data?.length / 10}
-          // totalPages={10}
-          onPageChange={(value) => setPage(value)}
-        />
-      </div>
+      )}
     </div>
   );
 }
