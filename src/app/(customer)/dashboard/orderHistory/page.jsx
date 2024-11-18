@@ -20,12 +20,7 @@ export default function orderHistory() {
         setPage={setPage}
       >
         {data.map((item) => (
-          <Link
-            // href={pathname + "/" + item.id}
-            href={"/"}
-            key={item.id}
-            className="listing__page__table__content__row"
-          >
+          <div key={item.id} className="listing__page__table__content__row">
             <div className="listing__page__table__content__row__entry checkbox">
               <ListingCheckbox
                 checked={selectedRows.includes(item.id)}
@@ -44,19 +39,22 @@ export default function orderHistory() {
               {item.number}
             </div>
             <div className="listing__page__table__content__row__entry">
-              {item.logo && (
-                <img
-                  loading="lazy"
-                  src={item.logo}
-                  alt="logo"
-                  className="listing__page__table__content__row__entry__img"
-                />
-              )}
+              {item.name}
             </div>
             <div className="listing__page__table__content__row__entry">
               {item.city}
             </div>
-          </Link>
+
+            <div className="listing__page__table__content__row__entry">
+              {item.status}
+            </div>
+            <div className="listing__page__table__content__row__entry">
+              {item.quantity}
+            </div>
+            <div className="listing__page__table__content__row__entry">
+              {item.totalPrice}
+            </div>
+          </div>
         ))}
       </ListingTable>
     </>
