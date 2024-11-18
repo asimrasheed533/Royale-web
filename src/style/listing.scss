@@ -4,6 +4,46 @@
   height: 100dvh;
   padding: 2em;
 }
+
+.dashboard__main__header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.8em 1em;
+  gap: 1em;
+}
+.dashboard__main__header__title {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  font-size: 1.4em;
+  font-weight: 600;
+  flex: 1;
+}
+.dashboard__main__header__title svg {
+  color: var(--goldenLight);
+  width: 25px;
+  height: 25px;
+}
+.dashboard__main__header__title__back {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 50px;
+  border: none;
+  background-color: var(--whiteShadow);
+}
+.dashboard__main__header__title__back svg {
+  width: 18px;
+  height: 18px;
+  color: var(--blue);
+}
+.dashboard__main__header__title__back:hover {
+  background-color: var(--lightGrey);
+  cursor: pointer;
+}
 .dashboard__main__content {
   padding: 0 1em;
   overflow-y: auto;
@@ -264,7 +304,7 @@
   justify-content: center;
   cursor: pointer;
   padding: 0;
-  border: 1px solid var(--golden);
+  border: 1px solid var(--goldenLight);
 }
 .listing__checkbox svg {
   width: 15px;
