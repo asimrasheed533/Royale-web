@@ -807,6 +807,10 @@
   }
 }
 @media (max-width: 600px) {
+  .dashboard {
+    padding: 0em;
+    padding-top: 2em;
+  }
   .listing__page__header__actions {
     display: flex;
     gap: 0.7em;
