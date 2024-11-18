@@ -69,12 +69,15 @@
   position: absolute;
   top: 0;
   left: 0;
+  padding: 0.6em;
+  background-color: #92090933;
+  border-radius: 40px;
 }
 
 .container__main__menu svg {
   color: black;
-  height: 30px;
-  width: 30px;
+  height: 24px;
+  width: 24px;
   padding: 0.1em;
   border-radius: 60px;
   z-index: 99999;
@@ -755,7 +758,9 @@
     font-size: 14px;
     margin-left: 0.5em;
   }
-
+  .container__sidebar__subentry__content__sub {
+    color: white;
+  }
   .container__sidebar__content {
     width: 35%;
     position: absolute;
@@ -811,6 +816,9 @@
   .cart__header__main {
     margin-top: 3.5em;
     font-size: 1.1rem;
+  }
+  .container__sidebar__subentry__sub {
+    color: white;
   }
   .recent__order__content__upper__row {
     padding: 1em 0.5em;
