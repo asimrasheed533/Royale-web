@@ -6,12 +6,17 @@ import React, { useState } from "react";
 import Link from "next/link";
 import ListingCheckbox from "@/components/ListingCheckbox";
 import headerItem from "@/constant/headerItem";
+import SearchInput from "@/components/SearchInput";
 
 export default function orderHistory() {
   const [selectedRows, setSelectedRows] = useState([]);
+  const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
   return (
     <>
+      <div className="listing__page__header__actions">
+        <SearchInput value={search} onChange={setSearch} />
+      </div>
       <ListingTable
         headerItem={headerItem.order}
         selectedRows={selectedRows}
@@ -39,6 +44,14 @@ export default function orderHistory() {
               {item.number}
             </div>
             <div className="listing__page__table__content__row__entry">
+              {item.logo && (
+                <img
+                  loading="lazy"
+                  src={item.logo}
+                  alt={item.product}
+                  className="listing__page__table__content__row__entry__img"
+                />
+              )}
               {item.name}
             </div>
             <div className="listing__page__table__content__row__entry">
