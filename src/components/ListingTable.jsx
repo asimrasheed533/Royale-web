@@ -72,11 +72,11 @@ export default function ListingTable({
           <div className="listing__page__table__footer__stats">
             {selectedRows && (
               <div className="listing__page__table__footer__stats__entry">
-                {selectedRows.length} {"Selected"}
+                {selectedRows.length} Selected
               </div>
             )}
             <div className="listing__page__table__footer__stats__entry">
-              {data.length} {"Entries"}
+              {data?.length} Entries
             </div>
           </div>
           <ListingPagination totalPages={totalPages} />
