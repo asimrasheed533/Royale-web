@@ -47,7 +47,7 @@
 .dashboard__main__content {
   padding: 0 1em;
   overflow-y: auto;
-  height: calc(100% - 75.59px);
+  height: calc(100% - -40px);
 }
 .listing__page {
   display: flex;
@@ -277,23 +277,7 @@
 .listing__page__header__actions__icon__button__popup__footer__button.secondary:hover {
   background-color: var(--lightGrey);
 }
-.listing__page__header__actions__button {
-  background-color: var(--golden);
-  color: white;
-  padding: 0.5em 1.5em;
-  border-radius: 50px;
-  box-shadow: var(--shadow);
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 0.5em;
-  height: 38px;
-  white-space: nowrap;
-}
-.listing__page__header__actions__button:hover {
-  background-color: var(--goldenDark);
-}
+
 .listing__checkbox {
   width: 22px;
   height: 22px;
@@ -786,7 +770,7 @@
   justify-content: center;
   transition: width 0.3s ease;
   border: none;
-  background-color: var(--whiteShadow);
+  background-color: var(--goldenLight);
   border-radius: 25px;
   overflow: hidden;
   width: 40px;
