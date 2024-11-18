@@ -5,14 +5,15 @@ import { order as data } from "@/constant/mocks";
 import React, { useState } from "react";
 import Link from "next/link";
 import ListingCheckbox from "@/components/ListingCheckbox";
-// import headerItem from "@/constant/headerItem";
+import headerItem from "@/constant/headerItem";
+
 export default function orderHistory() {
   const [selectedRows, setSelectedRows] = useState([]);
   const [page, setPage] = useState(1);
   return (
     <>
       <ListingTable
-        // headerItem={headerItem.order}
+        headerItem={headerItem.order}
         selectedRows={selectedRows}
         setSelectedRows={setSelectedRows}
         page={page}
