@@ -11,7 +11,7 @@ import SearchInput from "@/components/SearchInput";
 export default function orderHistory() {
   const [selectedRows, setSelectedRows] = useState([]);
   const [search, setSearch] = useState("");
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(10);
   return (
     <>
       <div className="listing__page__header__actions">
@@ -23,6 +23,7 @@ export default function orderHistory() {
         setSelectedRows={setSelectedRows}
         page={page}
         setPage={setPage}
+        totalPages={10}
       >
         {data.map((item) => (
           <div key={item.id} className="listing__page__table__content__row">
