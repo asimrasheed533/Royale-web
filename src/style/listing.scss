@@ -173,7 +173,11 @@
   font-size: 0.9em;
 }
 .listing__page__header__actions {
+  width: 100%;
   display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 1em;
   gap: 0.7em;
 }
 .listing__page__header__actions__icon__button {
