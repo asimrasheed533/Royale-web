@@ -42,7 +42,6 @@ export default function SideBar() {
                   />
                 ) : (
                   <Link
-                    end
                     href={item.path}
                     className="container__sidebar__subentry__sub"
                     style={{ padding: "15px 10px" }}
