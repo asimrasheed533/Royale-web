@@ -40,20 +40,6 @@ export default function page() {
       price: 35.5,
       imageSrc: banner,
     },
-    {
-      id: 5,
-      title: "Veggie Delight",
-      subtitle: "2 Veggie Wraps, Fries",
-      price: 35.5,
-      imageSrc: banner,
-    },
-    {
-      id: 6,
-      title: "Veggie Delight",
-      subtitle: "2 Veggie Wraps, Fries",
-      price: 35.5,
-      imageSrc: banner,
-    },
   ];
 
   return (
@@ -130,6 +116,24 @@ export default function page() {
         </div>
       </div>
       <div className="fast__delivery__warper">
+        <div className="fast__delivery__entry">
+          <div className="fast__delivery__entry__svg">
+            <Image src={fast01} />
+          </div>
+          <div className="fast__delivery__entry__title">Fast Delivery</div>
+          <div className="fast__delivery__entry__subTitle">
+            Fastest Delivery
+          </div>
+        </div>
+        <div className="fast__delivery__entry">
+          <div className="fast__delivery__entry__svg">
+            <Image src={fast01} />
+          </div>
+          <div className="fast__delivery__entry__title">Fast Delivery</div>
+          <div className="fast__delivery__entry__subTitle">
+            Fastest Delivery
+          </div>
+        </div>
         <div className="fast__delivery__entry">
           <div className="fast__delivery__entry__svg">
             <Image src={fast01} />
