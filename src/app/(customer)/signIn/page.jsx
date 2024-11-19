@@ -1,6 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
-import "@/style/SignIn.scss";
+import "@/style/signin.scss";
 import Link from "next/link";
 import MoonLoader from "react-spinners/MoonLoader";
 import banner from "@/public/banner_1.jpg";

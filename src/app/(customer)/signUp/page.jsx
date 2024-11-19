@@ -1,5 +1,5 @@
 "use client";
-import "@/style/SignIn.scss";
+import "@/style/signin.scss";
 
 import { useRouter } from "next/navigation";
 import Link from "next/link";
