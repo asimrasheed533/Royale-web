@@ -47,6 +47,8 @@
 .dashboard__main__content {
   padding: 0 1em;
   overflow-y: auto;
+  width: 100%;
+  max-width: 1920px;
   height: calc(100% - -40px);
 }
 .listing__page {
