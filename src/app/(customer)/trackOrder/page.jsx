@@ -1,5 +1,5 @@
 import "@/style/trackOrder.scss";
-import "@/style/signIn.scss";
+import "@/style/SignIn.scss";
 import banner_1 from "@/public/banner_1.jpg";
 import Link from "next/link";
 import Image from "next/image";
