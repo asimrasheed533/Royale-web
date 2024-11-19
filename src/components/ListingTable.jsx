@@ -1,15 +1,11 @@
-import listing from "@/style/listing.scss";
-import headerItem from "@/constant/headerItem";
+import "@/style/listing.scss";
 import ListingHeaderEntry from "./ListingHeaderEntry";
 import ListingPagination from "./ListingPagination";
 import ListingCheckbox from "./ListingCheckbox";
 export default function ListingTable({
   children,
-  actions,
   selectedRows,
   setSelectedRows,
-  page,
-  setPage,
   totalPages,
   sortData,
   setSortData,
