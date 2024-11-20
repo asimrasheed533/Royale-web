@@ -1,6 +1,6 @@
 "use client";
 import { usePathname } from "next/navigation";
-import Header from "./Header";
+import Header from "@/components/Header";
 const ROUTES_NO_HEADER_FOOTER = ["/signIn", "/signUp", "/dashboard"];
 export default function Layout({ children, token }) {
   const pathname = usePathname();
