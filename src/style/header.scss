@@ -25,11 +25,11 @@
 .nav__entry {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 1em;
   transition: 300ms ease-in-out;
   position: relative;
-  flex: 1;
+  // flex: 1;
 }
 .nav__entry__item {
   font-weight: 500;
@@ -50,14 +50,15 @@
 .nav__register {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   color: white;
-  flex: 1;
+  // flex: 1;
 }
 .nav__register__button__svg {
   background-color: transparent;
   border: none;
   color: white;
+  display: none;
 }
 .nav__register__button {
   background-color: transparent;
@@ -67,9 +68,12 @@
   font-size: 0.9rem;
   font-weight: 500;
   color: white;
+  background-color: #dd9747;
+  border-radius: 5px;
+  padding: 0.7em 1em;
 }
 .nav__register__button:hover {
-  color: #dd9747;
+  background-color: #754003;
   transition: 300ms ease-in-out;
 }
 
@@ -167,7 +171,7 @@
   .nav__register {
     flex: unset;
   }
-  .nav__register__button {
-    display: none;
-  }
+  // .nav__register__button {
+  //   display: none;
+  // }
 }
