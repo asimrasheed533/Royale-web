@@ -5,7 +5,6 @@ import Link from "next/link";
 import { Fragment, useLayoutEffect, useState } from "react";
 import dashboardEntries from "../constant/dashboardEntries";
 import { useRouter } from "next/navigation";
-
 export default function SideBar() {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
@@ -23,11 +22,6 @@ export default function SideBar() {
   }, []);
   return (
     <>
-      {/* <ClickAwayListener
-        onClickAway={() => {
-          if (window.innerWidth < 1050) onClick();
-        }}
-      > */}
       {!isOpen && (
         <div className="container__sidebar__content">
           <div className="container__sidebar__subentry__content">
@@ -139,8 +133,6 @@ export default function SideBar() {
           </svg>
         )}
       </div>
-
-      {/* </ClickAwayListener> */}
     </>
   );
 }
