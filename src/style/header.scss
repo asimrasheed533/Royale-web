@@ -54,6 +54,11 @@
   color: white;
   flex: 1;
 }
+.nav__register__button__svg {
+  background-color: transparent;
+  border: none;
+  color: white;
+}
 .nav__register__button {
   background-color: transparent;
   border: none;
@@ -156,5 +161,13 @@
   .menu__close {
     display: flex;
     cursor: pointer;
+  }
+}
+@media (max-width: 700px) {
+  .nav__register {
+    flex: unset;
+  }
+  .nav__register__button {
+    display: none;
   }
 }

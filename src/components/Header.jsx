@@ -125,7 +125,7 @@ export default function Header({ token }) {
               <>
                 <button
                   onClick={() => router.push("/signIn")}
-                  className="nav__register__button"
+                  className="nav__register__button__svg"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
