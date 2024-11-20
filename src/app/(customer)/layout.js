@@ -1,6 +1,7 @@
 import React from "react";
-import Layout from "@/components/layout";
+
 import { cookies } from "next/headers";
+import Layout from "@/components/Layout";
 
 export default async function layout({ children }) {
   const token = cookies().get("token")?.value || null;

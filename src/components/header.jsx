@@ -158,13 +158,6 @@ export default function Header({ token }) {
                 >
                   Login
                 </button>
-                /
-                <button
-                  onClick={() => router.push("/signUp")}
-                  className="nav__register__button"
-                >
-                  Register
-                </button>
               </>
             )}
           </div>
