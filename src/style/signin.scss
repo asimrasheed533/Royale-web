@@ -449,6 +449,21 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 30px white inset !important;
 }
+
+.google__login__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  width: fit-content;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.google__login__wrapper:hover {
+  transform: scale(1.05);
+}
 @media (max-width: 1250px) {
   .customer__say__card__col__left {
     width: 75%;
