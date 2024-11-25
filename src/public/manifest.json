@@ -1,7 +1,7 @@
 {
-  "name": "Rotal",
-  "short_name": "Royal Fast Food",
-  "description": "Royel Fast Food is a food delivery app that provides a fast and convenient way to order food from a wide variety of restaurants.",
+  "name": "Royal Fast Food",
+  "short_name": "Royal Food",
+  "description": "Royal Fast Food is a food delivery app that offers a fast and convenient way to order meals from a wide variety of restaurants.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
@@ -9,11 +9,41 @@
   "icons": [
     {
       "src": "/burger.webp",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "/burger.webp",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "/burger.webp",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "/burger.webp",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "/burger.webp",
+      "sizes": "152x152",
+      "type": "image/png"
+    },
+    {
+      "src": "/burger.webp",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
       "src": "/burger.webp",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/burger-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
