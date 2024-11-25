@@ -129,7 +129,9 @@ export default function page() {
           <div className="fast__delivery__entry__svg">
             <Image src={fast01} />
           </div>
-          <div className="fast__delivery__entry__title">Fast Delivery</div>
+          <div className="fast__delivery__entry__title">
+            Easy Payment Method
+          </div>
           <div className="fast__delivery__entry__subTitle">
             Fastest Delivery
           </div>
