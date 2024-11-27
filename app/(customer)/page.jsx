@@ -46,7 +46,13 @@ export default function page() {
     <>
       <div className="page__title__row">
         <div className="page__title__col">
-          <Image className="page__title__col__img" src={s_banner} alt="food" />
+          <Image
+            className="page__title__col__img"
+            width={1000}
+            height={70}
+            src="/s_banner.png"
+            alt="food"
+          />
         </div>
         <div className="page__title__col">
           <div className="page__title__col__heading">Open</div>
@@ -55,7 +61,13 @@ export default function page() {
           </div>
         </div>
         <div className="page__title__col">
-          <Image className="page__title__col__img" src={s_banner} alt="food" />
+          <Image
+            width={1000}
+            height={170}
+            className="page__title__col__img"
+            src={s_banner}
+            alt="food"
+          />
         </div>
       </div>
       <Swiper
@@ -64,13 +76,31 @@ export default function page() {
         navigation={true}
       >
         <SwiperSlide>
-          <Image className="page__banner__img" src={banner} alt="food" />
+          <Image
+            width={1000}
+            height={500}
+            className="page__banner__img"
+            src={banner}
+            alt="food"
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <Image className="page__banner__img" src={banner} alt="food" />
+          <Image
+            width={1000}
+            height={100}
+            className="page__banner__img"
+            src={banner}
+            alt="food"
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <Image className="page__banner__img" src={banner} alt="food" />
+          <Image
+            width={1000}
+            height={100}
+            className="page__banner__img"
+            src={banner}
+            alt="food"
+          />
         </SwiperSlide>
       </Swiper>
       <div className="product__container">
@@ -81,6 +111,8 @@ export default function page() {
             <div key={product.id} className="product__main__card">
               <div className="product__main__card__img">
                 <Image
+                  width={100}
+                  height={100}
                   className="product__main__card__img__image"
                   src={product.imageSrc}
                   alt={product.title}
@@ -118,7 +150,7 @@ export default function page() {
       <div className="fast__delivery__warper">
         <div className="fast__delivery__entry">
           <div className="fast__delivery__entry__svg">
-            <Image src={fast01} />
+            <Image width={100} height={100} src={fast01} />
           </div>
           <div className="fast__delivery__entry__title">Fast Delivery</div>
           <div className="fast__delivery__entry__subTitle">
@@ -127,7 +159,7 @@ export default function page() {
         </div>
         <div className="fast__delivery__entry">
           <div className="fast__delivery__entry__svg">
-            <Image src={fast01} />
+            <Image width={100} height={100} src={fast01} />
           </div>
           <div className="fast__delivery__entry__title">
             Easy Payment Method

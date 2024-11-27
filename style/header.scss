@@ -29,7 +29,7 @@
   gap: 1em;
   transition: 300ms ease-in-out;
   position: relative;
-  // flex: 1;
+  flex: 1;
 }
 .nav__entry__item {
   font-weight: 500;
@@ -52,7 +52,7 @@
   align-items: center;
   justify-content: flex-end;
   color: white;
-  // flex: 1;
+  flex: 1;
 }
 .nav__register__button__svg {
   background-color: transparent;

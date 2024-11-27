@@ -297,6 +297,8 @@ export default function Home() {
                 onClick={(e) => scrollToSection(e)}
               >
                 <Image
+                  width={100}
+                  height={70}
                   src={item.img}
                   className="order__products__img"
                   alt="burger"
@@ -334,6 +336,8 @@ export default function Home() {
                     <div className="order__products__card__col">
                       <div className="order__products__card__col__img">
                         <Image
+                          width={100}
+                          height={70}
                           src={product.image}
                           alt="fast food"
                           className="order__products__card__image"

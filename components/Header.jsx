@@ -118,7 +118,13 @@ export default function Header({ token }) {
             </svg>
           </button>
           <button onClick={() => router.push("/")} className="nav__log">
-            <Image className="nav__log__image" src={menuLogo} alt="logo" />
+            <Image
+              width={100}
+              height={100}
+              className="nav__log__image"
+              src={menuLogo}
+              alt="logo"
+            />
           </button>
           <div className="nav__register">
             {token ? (

@@ -86,6 +86,8 @@ export default function SignUp() {
       <div className="create__container">
         <div className="create__container__img">
           <Image
+            width={100}
+            height={100}
             className="create__container__img__image"
             src={banner}
             alt="fast food"
