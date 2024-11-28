@@ -3,7 +3,7 @@
 import { ToastContainer } from "react-toastify";
 import { memo } from "react";
 
-function Toast() {
+const Toast: React.FC = () => {
   return (
     <ToastContainer
       position="bottom-center"
@@ -12,6 +12,6 @@ function Toast() {
       stacked={true}
     />
   );
-}
+};
 
 export default memo(Toast);

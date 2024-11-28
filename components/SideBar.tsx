@@ -3,11 +3,21 @@ import "@/style/myCart.scss";
 
 import Link from "next/link";
 import { Fragment, useLayoutEffect, useState } from "react";
-import dashboardEntries from "../constant/dashboardEntries";
 import { useRouter } from "next/navigation";
-export default function SideBar() {
+interface DashboardEntry {
+  name: string;
+  path: string;
+  icon: React.ReactNode;
+}
+
+interface SideBarProps {
+  dashboardEntries: DashboardEntry[];
+}
+
+export default function SideBar({ dashboardEntries }: SideBarProps) {
   const router = useRouter();
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
   const checkWidth = () => {
     if (window.innerWidth > 1050) {
       setIsOpen(false);
@@ -19,13 +29,21 @@ export default function SideBar() {
   useLayoutEffect(() => {
     checkWidth();
     window.addEventListener("resize", checkWidth);
+    return () => {
+      window.removeEventListener("resize", checkWidth);
+    };
   }, []);
+
+  const onClick = () => {
+    setIsOpen(false);
+  };
+
   return (
     <>
       {!isOpen && (
         <div className="container__sidebar__content">
           <div className="container__sidebar__subentry__content">
-            {dashboardEntries.map((item, index) => (
+            {dashboardEntries?.map((item, index) => (
               <Fragment key={index}>
                 {item.name === "line" ? (
                   <div
@@ -42,7 +60,6 @@ export default function SideBar() {
                     onClick={() => {
                       if (window.innerWidth < 1050) onClick();
                     }}
-                    key={index}
                   >
                     {item.icon}
                     <div

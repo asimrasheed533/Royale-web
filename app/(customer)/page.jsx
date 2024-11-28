@@ -150,7 +150,7 @@ export default function page() {
       <div className="fast__delivery__warper">
         <div className="fast__delivery__entry">
           <div className="fast__delivery__entry__svg">
-            <Image width={100} height={100} src={fast01} />
+            <Image width={100} height={100} src={fast01} alt="fastFood" />
           </div>
           <div className="fast__delivery__entry__title">Fast Delivery</div>
           <div className="fast__delivery__entry__subTitle">
@@ -159,7 +159,7 @@ export default function page() {
         </div>
         <div className="fast__delivery__entry">
           <div className="fast__delivery__entry__svg">
-            <Image width={100} height={100} src={fast01} />
+            <Image width={100} height={100} src={fast01} alt="fastFood" />
           </div>
           <div className="fast__delivery__entry__title">
             Easy Payment Method
@@ -170,7 +170,7 @@ export default function page() {
         </div>
         <div className="fast__delivery__entry">
           <div className="fast__delivery__entry__svg">
-            <Image src={fast01} />
+            <Image src={fast01} width={100} height={100} alt="fastFood" />
           </div>
           <div className="fast__delivery__entry__title">Fast Delivery</div>
           <div className="fast__delivery__entry__subTitle">

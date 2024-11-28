@@ -5,7 +5,6 @@ import { order as data } from "@/constant/mocks";
 import React, { useState } from "react";
 import Link from "next/link";
 import ListingCheckbox from "@/components/ListingCheckbox";
-import headerItem from "@/constant/headerItem";
 import SearchInput from "@/components/SearchInput";
 
 export default function orderHistory() {
@@ -18,7 +17,7 @@ export default function orderHistory() {
         <SearchInput value={search} onChange={setSearch} />
       </div>
       <ListingTable
-        headerItem={headerItem.order}
+        headerItem=""
         selectedRows={selectedRows}
         setSelectedRows={setSelectedRows}
         page={page}
