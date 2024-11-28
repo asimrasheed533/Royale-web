@@ -23,7 +23,7 @@
     "react-spinners": "^0.14.1",
     "react-toastify": "^10.0.6",
     "react-ui-scrollspy": "^2.3.0",
-    "sass": "^1.80.2",
+    "sass": "^1.81.0",
     "swiper": "^11.1.14"
   },
   "devDependencies": {
@@ -31,6 +31,7 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "prisma": "^5.22.0",
+    "sass-loader": "^16.0.3",
     "typescript": "^5"
   }
 }
