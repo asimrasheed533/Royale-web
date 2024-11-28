@@ -2,16 +2,18 @@ import "react-toastify/dist/ReactToastify.css";
 import "@/style/global.scss";
 
 import { GoogleOAuthProvider } from "@react-oauth/google";
-
 import { ToastContainer } from "react-toastify";
-
 import { Plus_Jakarta_Sans } from "next/font/google";
+
+// Initialize the font
 const plus_jakarta_sans = Plus_Jakarta_Sans({ subsets: ["latin"] });
+
 const APP_NAME = "Royal";
 const APP_DEFAULT_TITLE = "Royal Fast Food";
 const APP_TITLE_TEMPLATE = "%L | Royal Fast Food";
 const APP_DESCRIPTION =
   "Royel Fast Food is a food delivery app that provides a fast and convenient way to order food from a wide variety of restaurants.";
+
 export const metadata = {
   applicationName: APP_NAME,
   title: {
@@ -51,10 +53,15 @@ export const viewport = {
   themeColor: "#161c24",
 };
 
-export default function RootLayout({ children }) {
+// Define the RootLayoutProps interface
+interface RootLayoutProps {
+  children: React.ReactNode;
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
-      <GoogleOAuthProvider clientId={process.env.GOOGLE_CLIENT_ID}>
+      <GoogleOAuthProvider clientId={process.env.GOOGLE_CLIENT_ID || ""}>
         <body className={plus_jakarta_sans.className}>
           {children}
           <ToastContainer

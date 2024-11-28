@@ -1,5 +1,5 @@
 {
-  "name": "next-store",
+  "name": "royal-food",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -12,15 +12,12 @@
   "dependencies": {
     "@ducanh2912/next-pwa": "^10.2.9",
     "@faker-js/faker": "^9.2.0",
-    "@prisma/client": "^5.21.1",
+    "@prisma/client": "^5.22.0",
     "@react-oauth/google": "^0.12.1",
-    "axios": "^1.7.7",
-    "bcryptjs": "^2.4.3",
-    "framer-motion": "^11.11.17",
-    "next": "14.2.15",
-    "react": "^18",
+    "next": "15.0.3",
+    "react": "19.0.0-rc-66855b96-20241106",
     "react-click-away-listener": "^2.2.3",
-    "react-dom": "^18",
+    "react-dom": "19.0.0-rc-66855b96-20241106",
     "react-spinners": "^0.14.1",
     "react-toastify": "^10.0.6",
     "react-ui-scrollspy": "^2.3.0",
@@ -28,6 +25,10 @@
     "swiper": "^11.1.14"
   },
   "devDependencies": {
-    "prisma": "^5.21.1"
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "prisma": "^5.21.1",
+    "typescript": "^5"
   }
 }
