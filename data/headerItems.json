@@ -1,11 +1,14 @@
 {
-  "OrderHistory": [
-    { "key": "number", "label": "Order Number" },
-    { "key": "name", "label": "Name" },
-    { "key": "city", "label": "City" },
-    { "key": "logo", "label": "Logo" },
-    { "key": "status", "label": "Status" },
-    { "key": "quantity", "label": "Quantity" },
-    { "key": "totalPrice", "label": "Total Price" }
+  "OrderHistoryItem": [
+    { "key": "number", "name": "Order Number" },
+    {
+      "key": "name",
+      "name": "Name",
+      "style": { "width": "200px" }
+    },
+    { "key": "city", "name": "City" },
+    { "key": "status", "name": "Status" },
+    { "key": "quantity", "name": "Quantity" },
+    { "key": "totalPrice", "name": "Total Price" }
   ]
 }

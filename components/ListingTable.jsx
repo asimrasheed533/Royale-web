@@ -2,7 +2,6 @@ import "@/style/listing.scss";
 import ListingHeaderEntry from "./ListingHeaderEntry";
 import ListingPagination from "./ListingPagination";
 import ListingCheckbox from "./ListingCheckbox";
-// import headerItem from "@/data/headerItems.json";
 export default function ListingTable({
   children,
   selectedRows,
@@ -19,11 +18,10 @@ export default function ListingTable({
         <div className="listing__page__table__header">
           <ListingHeaderEntry className="checkbox">
             <ListingCheckbox
-              // checked={selectedRows.length === data.length}
               checked={selectedRows.length > 0}
-              // partiallyChecked={
-              //   selectedRows.length > 0 && selectedRows.length < data.length
-              // }
+              partiallyChecked={
+                selectedRows.length > 0 && selectedRows.length < data.length
+              }
               onClick={() => {
                 if (selectedRows.length === data.length) {
                   setSelectedRows([]);
