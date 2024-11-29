@@ -1,8 +1,27 @@
+import React from "react";
 import "@/style/listing.scss";
 import ListingHeaderEntry from "./ListingHeaderEntry";
 import ListingPagination from "./ListingPagination";
 import ListingCheckbox from "./ListingCheckbox";
-export default function ListingTable({
+
+interface HeaderItem {
+  key: string;
+  name: string;
+  hasImage?: boolean;
+}
+
+interface ListingTableProps {
+  children: React.ReactNode;
+  selectedRows: string[]; // Assuming IDs are strings, update to number[] if they are numbers
+  setSelectedRows: (rows: string[]) => void;
+  totalPages: number;
+  sortData: string; // Adjust type if sortData is more complex
+  setSortData: (sortKey: string) => void;
+  headerItem: HeaderItem[];
+  data: { id: string; [key: string]: any }[]; // Replace `any` with a more specific type for your data structure
+}
+
+const ListingTable: React.FC<ListingTableProps> = ({
   children,
   selectedRows,
   setSelectedRows,
@@ -11,7 +30,7 @@ export default function ListingTable({
   setSortData,
   headerItem,
   data,
-}) {
+}) => {
   return (
     <div className="listing__page__table">
       <div className="listing__page__table__scrollable">
@@ -35,8 +54,6 @@ export default function ListingTable({
             <ListingHeaderEntry
               key={item.key}
               sortKey={item.key}
-              sortData={sortData}
-              onSort={(value) => setSortData(value)}
               hasImage={item.hasImage}
             >
               {item.name}
@@ -45,10 +62,10 @@ export default function ListingTable({
         </div>
         <div className="listing__page__table__content">{children}</div>
       </div>
-      {totalPages && (
+      {totalPages > 0 && (
         <div className="listing__page__table__footer">
           <div className="listing__page__table__footer__stats">
-            {selectedRows && (
+            {selectedRows.length > 0 && (
               <div className="listing__page__table__footer__stats__entry">
                 {selectedRows.length} Selected
               </div>
@@ -57,9 +74,15 @@ export default function ListingTable({
               {data?.length} Entries
             </div>
           </div>
-          <ListingPagination totalPages={totalPages} />
+          <ListingPagination
+            currentPage={1}
+            totalPages={totalPages}
+            onPageChange={() => {}}
+          />
         </div>
       )}
     </div>
   );
-}
+};
+
+export default ListingTable;

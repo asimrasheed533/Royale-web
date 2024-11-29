@@ -1,13 +1,20 @@
 "use client";
 
-import { useMemo } from "react";
-export default function ListingPagination({
+import React, { useMemo } from "react";
+
+interface ListingPaginationProps {
+  currentPage: number;
+  totalPages: number;
+  onPageChange: (page: number) => void;
+}
+
+const ListingPagination: React.FC<ListingPaginationProps> = ({
   currentPage,
   totalPages,
   onPageChange,
-}) {
+}) => {
   const pagesToShow = useMemo(() => {
-    const pages = [];
+    const pages: number[] = [];
     const startPage = Math.max(1, currentPage - 2);
     const endPage = Math.min(totalPages, currentPage + 2);
 
@@ -88,4 +95,6 @@ export default function ListingPagination({
       </button>
     </div>
   );
-}
+};
+
+export default ListingPagination;
