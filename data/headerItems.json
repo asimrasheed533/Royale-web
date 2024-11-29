@@ -1,0 +1,11 @@
+{
+  "OrderHistory": [
+    { "key": "number", "label": "Order Number" },
+    { "key": "name", "label": "Name" },
+    { "key": "city", "label": "City" },
+    { "key": "logo", "label": "Logo" },
+    { "key": "status", "label": "Status" },
+    { "key": "quantity", "label": "Quantity" },
+    { "key": "totalPrice", "label": "Total Price" }
+  ]
+}

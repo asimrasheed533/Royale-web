@@ -2,6 +2,7 @@ import "@/style/listing.scss";
 import ListingHeaderEntry from "./ListingHeaderEntry";
 import ListingPagination from "./ListingPagination";
 import ListingCheckbox from "./ListingCheckbox";
+// import headerItem from "@/data/headerItems.json";
 export default function ListingTable({
   children,
   selectedRows,
@@ -15,23 +16,6 @@ export default function ListingTable({
   return (
     <div className="listing__page__table">
       <div className="listing__page__table__scrollable">
-        {/* <ListingActionBar selectedItems={selectedRows.length}>
-          {actions.map((action) => (
-            <button
-              key={action.name}
-              className={`listing__page__table__actions__button ${
-                action.danger ? "danger" : ""
-              }`}
-              onClick={() => {
-                setSelectedRows([]);
-                action.onClick();
-              }}
-            >
-              {action.icon}
-              {action.name}
-            </button>
-          ))}
-        </ListingActionBar> */}
         <div className="listing__page__table__header">
           <ListingHeaderEntry className="checkbox">
             <ListingCheckbox

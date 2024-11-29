@@ -6,6 +6,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import ListingCheckbox from "@/components/ListingCheckbox";
 import SearchInput from "@/components/SearchInput";
+import headerItem from "@/data/headerItems.json";
 
 export default function orderHistory() {
   const [selectedRows, setSelectedRows] = useState([]);
@@ -17,7 +18,7 @@ export default function orderHistory() {
         <SearchInput value={search} onChange={setSearch} />
       </div>
       <ListingTable
-        headerItem=""
+        headerItem={headerItem.orderHistory}
         selectedRows={selectedRows}
         setSelectedRows={setSelectedRows}
         page={page}
