@@ -1,10 +1,4 @@
-interface DashboardEntry {
-  category: string;
-  name: string;
-  path: string;
-  icon: React.ReactNode;
-}
-const dashboardEntries: DashboardEntry[] = [
+export default [
   {
     category: "My Account",
     name: "Dashboard",

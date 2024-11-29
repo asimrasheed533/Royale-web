@@ -1,5 +1,3 @@
-import { CSSProperties, ReactNode } from "react";
-
 export default function ListingHeaderEntry({
   className,
   children,

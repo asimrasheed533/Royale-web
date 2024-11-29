@@ -4,17 +4,8 @@ import "@/style/myCart.scss";
 import Link from "next/link";
 import { Fragment, useLayoutEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-interface DashboardEntry {
-  name: string;
-  path: string;
-  icon: React.ReactNode;
-}
-
-interface SideBarProps {
-  dashboardEntries: DashboardEntry[];
-}
-
-export default function SideBar({ dashboardEntries }: SideBarProps) {
+import dashboardEntries from "@/constant/dashboardEntries";
+export default function SideBar() {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
