@@ -6,6 +6,7 @@
       "name": "Name",
       "style": { "width": "200px" }
     },
+    { "key": "date", "name": "Date" },
     { "key": "city", "name": "City" },
     { "key": "status", "name": "Status" },
     { "key": "quantity", "name": "Quantity" },

@@ -55,6 +55,9 @@ export default function orderHistory() {
               {item.name}
             </div>
             <div className="listing__page__table__content__row__entry">
+              {item.date}
+            </div>
+            <div className="listing__page__table__content__row__entry">
               {item.city}
             </div>
 

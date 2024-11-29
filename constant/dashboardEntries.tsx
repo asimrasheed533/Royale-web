@@ -49,11 +49,10 @@ export default [
       </svg>
     ),
   },
-
   {
     category: "My Account",
     name: "Profile",
-    path: "/dashboard/Profile",
+    path: "/dashboard/profile",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"

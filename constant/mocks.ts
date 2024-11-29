@@ -7,6 +7,7 @@ export const order = Array.from({ length: 100 }, (_, index) => ({
   id: faker.string.uuid(),
   number: padNumber(index + 1, 4),
   name: faker.company.name(),
+  date: faker.date.past().toISOString().split("T")[0],
   city: faker.location.city(),
   logo: faker.image.url(),
   status: faker.helpers.arrayElement(["Visible", "Hidden"]),

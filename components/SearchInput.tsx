@@ -1,17 +1,29 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
-export default function SearchInput({ value, onChange = () => {} }) {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const inputRef = useRef(null);
+interface SearchInputProps {
+  value: string;
+  onChange?: (value: string) => void;
+}
+
+const SearchInput: React.FC<SearchInputProps> = ({
+  value,
+  onChange = () => {},
+}) => {
+  const [isExpanded, setIsExpanded] = useState<boolean>(false);
+  const inputRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (inputRef.current && !inputRef.current.contains(event.target)) {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        inputRef.current &&
+        !inputRef.current.contains(event.target as Node)
+      ) {
         setIsExpanded(false);
       }
     };
+
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
@@ -60,4 +72,6 @@ export default function SearchInput({ value, onChange = () => {} }) {
       )}
     </div>
   );
-}
+};
+
+export default SearchInput;
