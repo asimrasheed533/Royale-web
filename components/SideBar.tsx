@@ -9,7 +9,7 @@ import dashboardEntries from "@/constant/dashboardEntries";
 export default function SideBar() {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [activePath, setActivePath] = useState<string>(""); // Track the active path
+  const [activePath, setActivePath] = useState<string>("");
 
   const checkWidth = () => {
     if (window.innerWidth > 1050) {
