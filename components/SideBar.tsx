@@ -5,9 +5,11 @@ import Link from "next/link";
 import { Fragment, useLayoutEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import dashboardEntries from "@/constant/dashboardEntries";
+
 export default function SideBar() {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [activePath, setActivePath] = useState<string>(""); // Track the active path
 
   const checkWidth = () => {
     if (window.innerWidth > 1050) {
@@ -25,6 +27,11 @@ export default function SideBar() {
     };
   }, []);
 
+  // // Update active path on route change
+  // useLayoutEffect(() => {
+  //   setActivePath(router.pathname);
+  // }, [router.pathname]);
+
   const onClick = () => {
     setIsOpen(false);
   };
@@ -36,33 +43,27 @@ export default function SideBar() {
           <div className="container__sidebar__subentry__content">
             {dashboardEntries?.map((item, index) => (
               <Fragment key={index}>
-                {item.name === "line" ? (
+                <Link
+                  href={item.path}
+                  className={`container__sidebar__subentry__sub ${
+                    activePath === item.path ? "active" : ""
+                  }`}
+                  style={{ padding: "15px 10px" }}
+                  onClick={() => {
+                    if (window.innerWidth < 1050) onClick();
+                    setActivePath(item.path);
+                  }}
+                >
+                  {item.icon}
                   <div
                     style={{
-                      borderBottom: "1px solid #e0e0e0",
-                      margin: "10px 0",
+                      marginLeft: "10px",
                     }}
-                  />
-                ) : (
-                  <Link
-                    href={item.path}
-                    className="container__sidebar__subentry__sub"
-                    style={{ padding: "15px 10px" }}
-                    onClick={() => {
-                      if (window.innerWidth < 1050) onClick();
-                    }}
+                    className="container__sidebar__subentry__content__sub"
                   >
-                    {item.icon}
-                    <div
-                      style={{
-                        marginLeft: "10px",
-                      }}
-                      className="container__sidebar__subentry__content__sub"
-                    >
-                      {item.name}
-                    </div>
-                  </Link>
-                )}
+                    {item.name}
+                  </div>
+                </Link>
               </Fragment>
             ))}
             <button

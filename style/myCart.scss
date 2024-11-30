@@ -67,10 +67,10 @@
   cursor: pointer;
   display: none;
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 33px;
+  left: 5px;
   padding: 0.6em;
-  background-color: #92090933;
+  background-color: #ffffff33;
   border-radius: 40px;
 }
 
@@ -107,8 +107,11 @@
   color: var(--orange);
   transition: 300ms ease-in-out;
 }
+.container__sidebar__subentry__content {
+  margin-top: 2.5em;
+}
 .container__sidebar__subentry__content__sub:hover {
-  color: var(--orange);
+  color: var(--goldenLight);
   transition: 300ms ease-in-out;
 }
 
@@ -223,15 +226,15 @@
 }
 
 .container__sidebar__content *[aria-current="page"] {
-  color: var(--orange);
+  color: var(--goldenLight);
 
   .container__sidebar__entry {
-    color: var(--orange);
+    color: var(--goldenLight);
   }
 }
 
 .container__sidebar__entry__content__entry:hover .container__sidebar__entry {
-  color: var(--orange);
+  color: var(--goldenLight);
   transition: 300ms ease-in-out;
 }
 
@@ -253,6 +256,10 @@
 
 .container__sidebar__entry__content__subentry:hover {
   background-color: var(--orange);
+}
+.container__sidebar__subentry__sub.active {
+  background-color: #f0f0f0;
+  color: var(--goldenLight);
 }
 
 .container__sidebar__subentry {
@@ -288,7 +295,7 @@
 }
 
 .container__sidebar__subentry__sub:hover {
-  color: orange;
+  color: var(--goldenLight);
   transition: 300ms ease-in-out;
 }
 
@@ -764,10 +771,10 @@
   .container__sidebar__content {
     width: 35%;
     position: absolute;
-    top: 15;
+    top: 0;
     height: fit-content;
     max-height: 90vh;
-    left: 15px;
+    left: 0;
     z-index: 9999;
     background-color: var(--blue);
   }
@@ -775,6 +782,15 @@
   .container__main__menu {
     display: flex;
     margin-right: 1em;
+    top: 12px;
+    background-color: #ffffff;
+    border-radius: 50px;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 99999;
   }
 
   .product__main__menu {
@@ -791,6 +807,9 @@
 
   .account__info__cart__list__row__entry__des__mobile {
     display: flex;
+  }
+  .container__sidebar__subentry__sub {
+    color: white;
   }
 }
 
@@ -817,9 +836,7 @@
     margin-top: 3.5em;
     font-size: 1.1rem;
   }
-  .container__sidebar__subentry__sub {
-    color: white;
-  }
+
   .recent__order__content__upper__row {
     padding: 1em 0.5em;
     border-bottom: 1px solid #848484;
@@ -856,7 +873,6 @@
 
   .container__sidebar__content {
     width: 100%;
-    left: 0;
   }
 
   .address__book__container {

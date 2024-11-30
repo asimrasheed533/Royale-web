@@ -8,7 +8,6 @@
 .dashboard__main__header {
   display: flex;
   justify-content: space-between;
-  padding: 0.8em 1em;
   gap: 1em;
 }
 .dashboard__main__header__title {
@@ -837,6 +836,9 @@
   }
 }
 @media (max-width: 600px) {
+  .dashboard__main__header {
+    padding: 0 2em;
+  }
   .dashboard {
     padding: 0em;
     padding-top: 2em;
