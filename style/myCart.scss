@@ -52,7 +52,6 @@
   padding: 0.9em;
   width: calc(100% - 30px - 1em);
   height: calc(100vh - 40px - 2em);
-  // background-color: #ffffff;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-radius: 10px;
 }
@@ -67,7 +66,7 @@
   cursor: pointer;
   display: none;
   position: absolute;
-  top: 33px;
+  top: 22px;
   left: 5px;
   padding: 0.6em;
   background-color: #ffffff33;
@@ -736,7 +735,10 @@
   justify-content: center;
   align-items: center;
 }
-
+.dashboard__main__header__title__text {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
 @media (max-width: 1050px) {
   .container__sidebar__entry__content__entry__svg {
     color: white;
@@ -782,8 +784,8 @@
   .container__main__menu {
     display: flex;
     margin-right: 1em;
-    top: 12px;
-    background-color: #ffffff;
+    // top: 12px;
+    background-color: var(--blue);
     border-radius: 50px;
     width: 40px;
     height: 40px;
