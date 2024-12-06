@@ -20,3 +20,11 @@
   max-width: 1920px;
   margin: 0 auto;
 }
+.dashboard__sidebar__content {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  overflow-y: auto;
+  height: calc(100% - 82px - 53px - 195px - 32px);
+  padding: 0 1em;
+}
