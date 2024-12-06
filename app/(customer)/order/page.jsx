@@ -395,20 +395,20 @@ export default function Home() {
               type="radio"
               name="tab"
               id="tab1"
-              class="tab tab--1"
+              className="tab tab--1"
             />
-            <label class="tab_label" for="tab1">
+            <label className="tab_label" htmlFor="tab1">
               <div className="deliver__toggle__entry__title">Delivery</div>
               <div className="deliver__toggle__entry__time">40-60 min </div>
             </label>
 
-            <input type="radio" name="tab" id="tab2" class="tab tab--2" />
-            <label class="tab_label" for="tab2">
+            <input type="radio" name="tab" id="tab2" className="tab tab--2" />
+            <label className="tab_label" htmlFor="tab2">
               <div className="deliver__toggle__entry__title">Collection</div>
               <div className="deliver__toggle__entry__time">15-30 min </div>
             </label>
 
-            <div class="indicator"></div>
+            <div className="indicator"></div>
           </div>
           <div className="order__checkout__button">Checkout</div>
         </div>
