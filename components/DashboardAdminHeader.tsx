@@ -2,9 +2,10 @@
 import { useBackLocation } from "@/hooks/useBackLocation";
 import useSidebar from "@/hooks/useSidebar";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 export default function AdminDashboardHeader() {
+  const pathname = usePathname();
   const backLocation = useBackLocation();
   const router = useRouter();
   const [isCollapsed, setIsCollapsed] = useSidebar();
@@ -63,17 +64,12 @@ export default function AdminDashboardHeader() {
           </svg>
         </button>
         <div className="dashboard__main__header__title__text">
-          {location.pathname === "/admin"
-            ? location.pathname
-
+          {pathname === "/admin"
+            ? "Admin Dashboard"
+            : pathname
                 .replace("/admin/", "")
-                .replace("/", "")
-                .replace("-", " ")
-            : location.pathname
-
-                .replace("/admin/", "")
-                .replace("/", " > ")
-                .replace("-", " ")}
+                .replace(/\//g, " > ")
+                .replace(/-/g, " ")}
         </div>
       </div>
     </div>
