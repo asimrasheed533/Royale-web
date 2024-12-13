@@ -1,6 +1,5 @@
 import SideBar from "@/components/SideBar";
 import React from "react";
-import "@/style/listing.scss";
 import DashboardHeader from "@/components/DashboardHeader";
 export default function layout({ children }) {
   return (

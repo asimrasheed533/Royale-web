@@ -1,10 +1,11 @@
 "use client";
+import { useBackLocation } from "@/hooks/useBackLocation";
 import useSidebar from "@/hooks/useSidebar";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 export default function AdminDashboardHeader() {
-  const pathname = usePathname();
+  const backLocation = useBackLocation();
   const router = useRouter();
   const [isCollapsed, setIsCollapsed] = useSidebar();
   return (
@@ -42,11 +43,7 @@ export default function AdminDashboardHeader() {
       )}
       <div className="dashboard__main__header__title">
         <button
-          onClick={() => {
-            if (location.pathname.toLowerCase() !== "/admin") {
-              router.back();
-            }
-          }}
+          onClick={() => router.push(backLocation)}
           type="button"
           className="dashboard__main__header__title__back"
         >
