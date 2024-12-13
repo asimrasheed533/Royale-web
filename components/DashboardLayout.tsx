@@ -1,6 +1,6 @@
 import React from "react";
 import AdminSideBar from "./AdminSideBar";
-import DashboardAdminHeader from "./DashboardAdminHeader";
+import AdminDashboardHeader from "./DashboardAdminHeader";
 
 export default function DashboardLayout({
   children,
@@ -11,7 +11,7 @@ export default function DashboardLayout({
     <div className="dashboard">
       <AdminSideBar />
       <div className="dashboard__main">
-        <DashboardAdminHeader />
+        <AdminDashboardHeader />
         <div className="dashboard__main__content">
           <div className="dashboard__main__content__inner">{children}</div>
         </div>

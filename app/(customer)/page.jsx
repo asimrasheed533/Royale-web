@@ -1,6 +1,6 @@
 "use client";
-import React, { useEffect, useState } from "react";
 import "@/style/home.scss";
+import React, { useEffect, useState } from "react";
 import s_banner from "@/public/s_banner.png";
 import banner from "@/public/banner_1.jpg";
 import banner_2 from "@/public/banner_2.jpg";

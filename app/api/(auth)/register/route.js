@@ -7,10 +7,12 @@ export async function POST(req) {
     const body = await req.json();
     const { email, name, password } = body;
 
+    // Check for missing fields
     if (!email || !name || !password) {
       return NextResponse.json({ message: "Missing fields" }, { status: 400 });
     }
 
+    // Check if user already exists
     const exist = await prisma.user.findUnique({
       where: {
         email,
@@ -24,8 +26,10 @@ export async function POST(req) {
       );
     }
 
+    // Hash the password
     const hashedPassword = await bcrypt.hash(password, 12);
 
+    // Create a new user
     const user = await prisma.user.create({
       data: {
         email,
@@ -34,9 +38,19 @@ export async function POST(req) {
       },
     });
 
-    return NextResponse.json(user);
+    // Return the created user, excluding the password
+    return NextResponse.json(
+      {
+        message: "User created successfully",
+        user: { id: user.id, email: user.email, name: user.name },
+      },
+      { status: 201 }
+    );
   } catch (error) {
-    console.log(error);
-    return NextResponse.json({ message: "Internal Error" }, { status: 500 });
+    console.error("Error in POST /api/register:", error);
+    return NextResponse.json(
+      { message: "Internal Error", error: error.message },
+      { status: 500 }
+    );
   }
 }

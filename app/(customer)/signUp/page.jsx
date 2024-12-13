@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import axios from "axios";
 import MoonLoader from "react-spinners/MoonLoader";
-import banner from "@/public/banner_1.jpg";
+import loginImg from "@/public/loginImg.png";
 import { toast } from "react-toastify";
 import { useState } from "react";
 import Image from "next/image";
@@ -86,10 +86,10 @@ export default function SignUp() {
       <div className="create__container">
         <div className="create__container__img">
           <Image
-            width={100}
+            width={1000}
             height={100}
             className="create__container__img__image"
-            src={banner}
+            src={loginImg}
             alt="fast food"
           />
         </div>

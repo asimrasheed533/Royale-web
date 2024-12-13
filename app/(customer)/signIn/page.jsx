@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 import "@/style/signin.scss";
 import Link from "next/link";
 import MoonLoader from "react-spinners/MoonLoader";
-import banner from "@/public/banner_1.jpg";
+import loginImg from "@/public/loginImg.png";
 import { toast } from "react-toastify";
 import { useState } from "react";
 import Image from "next/image";
@@ -74,7 +74,7 @@ export default function SignIn() {
       <div className="create__container__img">
         <Image
           className="create__container__img__image"
-          src={banner}
+          src={loginImg}
           alt="fast food"
         />
       </div>
@@ -164,14 +164,14 @@ export default function SignIn() {
             {processing ? <MoonLoader color="#fff" size={16} /> : "Sign In"}
           </button>
         </div>
-        <div className="google__login__wrapper">
+        {/* <div className="google__login__wrapper">
           <GoogleLogin
             onSuccess={handleSuccess}
             onError={() => {
               console.log("Login Failed");
             }}
           />
-        </div>
+        </div> */}
       </form>
     </div>
   );
