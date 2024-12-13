@@ -3,13 +3,9 @@
     { "key": "number", "name": "Product Number" },
     {
       "key": "name",
-      "name": "Name",
-      "style": { "width": "200px" }
+      "name": "Name"
     },
-    { "key": "date", "name": "Date" },
-    { "key": "city", "name": "City" },
-    { "key": "status", "name": "Status" },
     { "key": "quantity", "name": "Quantity" },
-    { "key": "totalPrice", "name": "Total Price" }
+    { "key": "status", "name": "Status" }
   ]
 }

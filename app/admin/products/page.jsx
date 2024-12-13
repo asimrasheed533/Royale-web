@@ -43,7 +43,7 @@ export default function Product() {
       </div>
       <ListingTable
         data={[]}
-        headerItems={headerItems.products}
+        headerItems={headerItems.Products}
         selectedRows={selectedRows}
         // setSelectedRows={setSelectedRows}
         // page={page}
@@ -67,10 +67,10 @@ export default function Product() {
               {item.price}
             </div>
             <div className="listing__page__table__content__row__entry">
-              {item.stock}
+              {item.quantity}
             </div>
             <div className="listing__page__table__content__row__entry">
-              {item.price}
+              {item.status}
             </div>
           </Link>
         ))}

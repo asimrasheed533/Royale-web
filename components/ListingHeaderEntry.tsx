@@ -1,5 +1,5 @@
 import React, { CSSProperties, ReactNode } from "react";
-
+import "@/style/listing.scss";
 interface SortData {
   key: string;
   order: "asc" | "desc";
