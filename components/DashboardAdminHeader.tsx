@@ -9,6 +9,13 @@ export default function AdminDashboardHeader() {
   const backLocation = useBackLocation();
   const router = useRouter();
   const [isCollapsed, setIsCollapsed] = useSidebar();
+  const formattedTitle =
+    pathname === "/admin"
+      ? "Admin Dashboard"
+      : pathname
+          .replace("/admin/", "")
+          .replace(/\//g, " > ")
+          .replace(/-/g, " ");
   return (
     <div className="dashboard__main__header">
       {isCollapsed && (
@@ -64,12 +71,7 @@ export default function AdminDashboardHeader() {
           </svg>
         </button>
         <div className="dashboard__main__header__title__text">
-          {pathname === "/admin"
-            ? "Admin Dashboard"
-            : pathname
-                .replace("/admin/", "")
-                .replace(/\//g, " > ")
-                .replace(/-/g, " ")}
+          {formattedTitle}
         </div>
       </div>
     </div>

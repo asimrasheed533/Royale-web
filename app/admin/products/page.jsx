@@ -6,8 +6,10 @@ import Link from "next/link";
 import ListingTabs from "@/components/ListingTabs";
 import ListingTable from "@/components/ListingTable";
 import ListingCheckbox from "@/components/ListingCheckbox";
+import { usePathname } from "next/navigation";
 
 export default function Product() {
+  const pathname = usePathname();
   const [selectedRows, setSelectedRows] = useState([]);
   const [page, setPage] = useState(3);
   return (
@@ -22,7 +24,7 @@ export default function Product() {
           {/* <SearchInput value={search} onChange={setSearch} /> */}
 
           <Link
-            href="/admin/ProductAdd"
+            href={pathname + "/create"}
             className="listing__page__header__actions__button"
           >
             <svg
