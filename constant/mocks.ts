@@ -3,7 +3,7 @@ import { faker } from "@faker-js/faker";
 const padNumber = (num: number, size: number) =>
   String(num).padStart(size, "0");
 
-export const order = Array.from({ length: 100 }, (_, index) => ({
+export const products = Array.from({ length: 100 }, (_, index) => ({
   id: faker.string.uuid(),
   number: padNumber(index + 1, 4),
   name: faker.company.name(),

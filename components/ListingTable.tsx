@@ -1,66 +1,95 @@
-import React from "react";
 import "@/style/listing.scss";
 import ListingHeaderEntry from "./ListingHeaderEntry";
-import ListingPagination from "./ListingPagination";
 import ListingCheckbox from "./ListingCheckbox";
+import ListingPagination from "./ListingPagination";
+import { IListingTable } from "@/interfaces";
+import ListingActionBar from "./ListingActionBar";
 
-interface HeaderItem {
-  key: string;
-  name: string;
-  hasImage?: boolean;
-}
-
-interface ListingTableProps {
-  children: React.ReactNode;
-  selectedRows: string[]; // Assuming IDs are strings, update to number[] if they are numbers
-  setSelectedRows: (rows: string[]) => void;
-  totalPages: number;
-  sortData: string; // Adjust type if sortData is more complex
-  setSortData: (sortKey: string) => void;
-  headerItem: HeaderItem[];
-  data: { id: string; [key: string]: any }[]; // Replace `any` with a more specific type for your data structure
-}
-
-const ListingTable: React.FC<ListingTableProps> = ({
+export default function ListingTable({
+  style,
   children,
-  selectedRows,
-  setSelectedRows,
-  totalPages,
+  actions,
+  selectedRows = [],
+  setSelectedRows = () => {},
+  totalPages = 0,
   sortData,
-  setSortData,
-  headerItem,
-  data,
-}) => {
+  setSortData = () => {},
+  headerItems,
+  data = [],
+  noCheckbox,
+}: IListingTable) {
   return (
-    <div className="listing__page__table">
-      <div className="listing__page__table__scrollable">
-        <div className="listing__page__table__header">
+    <div className="listing__page__table" style={style}>
+      <div className="listing__page__table__header">
+        {selectedRows && !noCheckbox && (
           <ListingHeaderEntry className="checkbox">
             <ListingCheckbox
-              checked={selectedRows.length > 0}
+              checked={selectedRows.length === data?.length && data?.length > 0}
               partiallyChecked={
                 selectedRows.length > 0 && selectedRows.length < data.length
               }
               onClick={() => {
-                if (selectedRows.length === data.length) {
+                if (selectedRows.length === data?.length) {
                   setSelectedRows([]);
                 } else {
-                  setSelectedRows(data.map((item) => item.id));
+                  setSelectedRows(data?.map((item) => item.id));
                 }
               }}
             />
           </ListingHeaderEntry>
-          {headerItem?.map((item) => (
-            <ListingHeaderEntry
-              key={item.key}
-              sortKey={item.key}
-              hasImage={item.hasImage}
-            >
-              {item.name}
-            </ListingHeaderEntry>
-          ))}
-        </div>
+        )}
+        {headerItems?.map((item) => (
+          <ListingHeaderEntry
+            key={item.key}
+            sortKey={item.key}
+            sortData={sortData}
+            onSort={(value) => setSortData(value)}
+            hasImage={item.hasImage}
+            style={item.style}
+          >
+            {item.name}
+          </ListingHeaderEntry>
+        ))}
+      </div>
+      <div className="listing__page__table__scrollable">
+        {selectedRows && (actions?.length ?? 0) > 0 && (
+          <ListingActionBar selectedItems={selectedRows?.length}>
+            {actions?.map((action) => (
+              <button
+                type="button"
+                key={action.name}
+                className={`listing__page__table__actions__button ${
+                  action.danger ? "danger" : ""
+                }`}
+                onClick={async () => {
+                  await action.onClick();
+                  setSelectedRows([]);
+                }}
+              >
+                {action.icon}
+                {action.name}
+              </button>
+            ))}
+          </ListingActionBar>
+        )}
         <div className="listing__page__table__content">{children}</div>
+        {/* <div
+          className={
+            "listing__page__table__content" + (isStale ? " stale" : "")
+          }
+        >
+          {isFetchingData ? (
+            <div className="listing__page__table__content__empty">
+              <Loader />
+            </div>
+          ) : data?.length === 0 ? (
+            <div className="listing__page__table__content__empty">
+              <NoData />
+            </div>
+          ) : (
+            children
+          )}
+        </div> */}
       </div>
       {totalPages > 0 && (
         <div className="listing__page__table__footer">
@@ -83,6 +112,4 @@ const ListingTable: React.FC<ListingTableProps> = ({
       )}
     </div>
   );
-};
-
-export default ListingTable;
+}

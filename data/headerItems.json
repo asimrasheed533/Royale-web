@@ -1,6 +1,6 @@
 {
-  "OrderHistoryItem": [
-    { "key": "number", "name": "Order Number" },
+  "Products": [
+    { "key": "number", "name": "Product Number" },
     {
       "key": "name",
       "name": "Name",
