@@ -1,24 +1,24 @@
 import GeneralIcon from "@/icons/GeneralIcon";
 
-export const SideBarLink = [
+export const UserSideBarLink = [
   {
     name: "Dashboard",
     path: "",
     icon: <GeneralIcon />,
     children: [
       {
-        name: "Order",
+        name: "Al Order",
         path: "/customer/orders",
       },
       {
-        name: "Users",
-        path: "/users",
+        name: "On Going Order",
+        path: "/customer/orders",
       },
     ],
   },
   {
-    name: "Orders",
-    path: "",
+    name: "User",
+    path: "/customer/users",
   },
 ];
 export const AdminSideBarLink = [
