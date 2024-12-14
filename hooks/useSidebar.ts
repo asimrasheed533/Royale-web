@@ -1,9 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
+import { useAtom } from "jotai";
+import { sidebarCollapsedAtom } from "@/constant/state";
 export default function useSidebar() {
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useAtom(sidebarCollapsedAtom);
 
   useEffect(() => {
     if (typeof window === "undefined") return;

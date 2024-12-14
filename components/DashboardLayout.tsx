@@ -2,6 +2,7 @@ import React from "react";
 import AdminSideBar from "./AdminSideBar";
 import AdminDashboardHeader from "./DashboardAdminHeader";
 import "@/style/listing.scss";
+
 export default function DashboardLayout({
   children,
 }: {
