@@ -1,7 +1,7 @@
 import React from "react";
-import AdminSideBar from "./AdminSideBar";
-import AdminDashboardHeader from "./DashboardAdminHeader";
 import "@/style/listing.scss";
+import DashboardSidebar from "./DashboardSidebar";
+import DashboardHeader from "./DashboardHeader";
 
 export default function DashboardLayout({
   children,
@@ -10,9 +10,9 @@ export default function DashboardLayout({
 }) {
   return (
     <div className="dashboard">
-      <AdminSideBar />
+      <DashboardSidebar />
       <div className="dashboard__main">
-        <AdminDashboardHeader />
+        <DashboardHeader />
         <div className="dashboard__main__content">
           <div className="dashboard__main__content__inner">{children}</div>
         </div>

@@ -4,7 +4,7 @@ import useSidebar from "@/hooks/useSidebar";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 
-export default function AdminDashboardHeader() {
+export default function DashboardHeader() {
   const pathname = usePathname();
   const backLocation = useBackLocation();
   const router = useRouter();

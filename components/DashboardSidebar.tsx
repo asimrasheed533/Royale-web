@@ -1,12 +1,11 @@
 "use client";
-
-import { UserSideBarLink } from "@/data/SlideBarEntries";
+import { AdminSideBarLink } from "@/data/SlideBarEntries";
 import useSidebar from "@/hooks/useSidebar";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
 
-export default function UserSideBar() {
+export default function DashboardSidebar() {
   const [isCollapsed, setIsCollapsed] = useSidebar();
 
   const handleSidebarClick = () => {
@@ -68,20 +67,56 @@ export default function UserSideBar() {
           </button>
         </div>
         <div className="container__sidebar__content">
-          {UserSideBarLink.map((index) => (
-            <Link
-              key={index.path}
-              className="sidebar__category__btn"
-              href={index.path}
-            >
-              {index.icon && (
-                <span className="sidebar__nav__icon">{index.icon}</span>
-              )}
-              <span className="sidebar__nav__text">{index.name}</span>
-            </Link>
+          {AdminSideBarLink.map((index) => (
+            <SideBarEntry sidebarEntry={index} key={index.name} />
           ))}
         </div>
       </motion.div>
     </motion.div>
+  );
+}
+
+function SideBarEntry({
+  sidebarEntry: AdminSideBarLink,
+}: {
+  sidebarEntry: any;
+}) {
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <>
+      <div className="sidebar__nav__warper__header">
+        <Link
+          href={AdminSideBarLink.path}
+          onClick={() => setIsOpen(!isOpen)}
+          className={`sidebar__category__btn ${isOpen ? "active" : ""}`}
+        >
+          <div className="sidebar__category__btn__icon">
+            {AdminSideBarLink.icon}
+          </div>
+          <div className="sidebar__category__btn__name">
+            {AdminSideBarLink.name}
+          </div>
+        </Link>
+      </div>
+      {isOpen && (
+        <div className="sidebar__nav__warper">
+          {AdminSideBarLink.children.map((entry: any) => (
+            <Link
+              key={entry.path}
+              className="sidebar__nav__entry"
+              // className={({ isActive }) =>
+              //   `sidebar__nav__entry ${isActive ? "active" : ""}`
+              // }
+              href={entry.path}
+            >
+              {entry.icon && (
+                <span className="sidebar__nav__icon">{entry.icon}</span>
+              )}
+              <span className="sidebar__nav__text">{entry.name}</span>
+            </Link>
+          ))}
+        </div>
+      )}
+    </>
   );
 }
