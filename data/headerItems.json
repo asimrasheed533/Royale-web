@@ -7,5 +7,12 @@
     },
     { "key": "quantity", "name": "Quantity" },
     { "key": "status", "name": "Status" }
+  ],
+  "Orders": [
+    { "key": "name", "name": "Order Name" },
+
+    { "key": "quantity", "name": "Quantity" },
+    { "key": "price", "name": "Price" },
+    { "key": "status", "name": "Status" }
   ]
 }
