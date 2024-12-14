@@ -67,3 +67,12 @@ export interface ISelect {
   isMulti?: boolean;
   disabled?: boolean;
 }
+export interface ILinks {
+  label: string;
+  children: {
+    href: string;
+    label: string;
+    icon: ReactNode;
+    preloadLink?: string;
+  }[];
+}

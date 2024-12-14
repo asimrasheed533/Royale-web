@@ -1,11 +1,12 @@
 "use client";
 import { AdminSideBarLink } from "@/data/SlideBarEntries";
 import useSidebar from "@/hooks/useSidebar";
+import { ILinks } from "@/interfaces";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
 
-export default function DashboardSidebar() {
+export default function DashboardSidebar({ links }: { links: ILinks[] }) {
   const [isCollapsed, setIsCollapsed] = useSidebar();
 
   const handleSidebarClick = () => {
