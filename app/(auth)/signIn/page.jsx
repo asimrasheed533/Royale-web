@@ -9,7 +9,7 @@ import { useState } from "react";
 import Image from "next/image";
 import axios from "axios";
 
-import { GoogleLogin } from "@react-oauth/google";
+// import { GoogleLogin } from "@react-oauth/google";
 
 export default function SignIn() {
   const router = useRouter();
@@ -46,29 +46,29 @@ export default function SignIn() {
     }
   };
 
-  const handleSuccess = async (credentialResponse) => {
-    try {
-      const response = await axios("/api/google", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          credential: credentialResponse.credential,
-        }),
-      });
+  // const handleSuccess = async (credentialResponse) => {
+  //   try {
+  //     const response = await axios("/api/google", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({
+  //         credential: credentialResponse.credential,
+  //       }),
+  //     });
 
-      if (!response.ok) {
-        throw new Error("Authentication failed");
-      }
+  //     if (!response.ok) {
+  //       throw new Error("Authentication failed");
+  //     }
 
-      const data = await response.json();
+  //     const data = await response.json();
 
-      console.log("Authenticated user:", data);
-    } catch (error) {
-      console.error("Authentication error:", error);
-    }
-  };
+  //     console.log("Authenticated user:", data);
+  //   } catch (error) {
+  //     console.error("Authentication error:", error);
+  //   }
+  // };
   return (
     <div className="create__container">
       <div className="create__container__img">
