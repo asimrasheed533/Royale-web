@@ -3,16 +3,12 @@ import "@/style/listing.scss";
 import "@/style/dashboard.scss";
 import DashboardHeader from "./DashboardHeader";
 import DashboardSidebar from "./DashboardSidebar";
-import customerLinks from "@/data/customerLinks";
+import { IDashboardLayout } from "@/interfaces";
 
-export default function DashboardLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function DashboardLayout({ children, links }: IDashboardLayout) {
   return (
     <div className="dashboard">
-      <DashboardSidebar links={customerLinks} />
+      <DashboardSidebar links={links} />
       <div className="dashboard__main">
         <DashboardHeader />
         <div className="dashboard__main__content">

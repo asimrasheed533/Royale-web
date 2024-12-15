@@ -2,11 +2,16 @@ import GeneralIcon from "@/icons/GeneralIcon";
 
 export default [
   {
-    label: "General",
+    label: "Dashboard",
     children: [
       {
         href: "/",
         label: "Dashboard",
+        icon: <GeneralIcon />,
+      },
+      {
+        href: "/admin/products",
+        label: "Products",
         icon: <GeneralIcon />,
       },
       {

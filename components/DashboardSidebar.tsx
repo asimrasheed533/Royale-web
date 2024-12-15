@@ -1,6 +1,6 @@
 "use client";
-import { AdminSideBarLink } from "@/data/SlideBarEntries";
 import useSidebar from "@/hooks/useSidebar";
+import GeneralIcon from "@/icons/GeneralIcon";
 import { ILinks } from "@/interfaces";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -14,6 +14,7 @@ export default function DashboardSidebar({ links }: { links: ILinks[] }) {
   };
 
   if (isCollapsed) return null;
+  console.log(links);
 
   return (
     <motion.div
@@ -68,52 +69,49 @@ export default function DashboardSidebar({ links }: { links: ILinks[] }) {
           </button>
         </div>
         <div className="container__sidebar__content">
-          {AdminSideBarLink.map((index) => (
-            <SideBarEntry sidebarEntry={index} key={index.name} />
-          ))}
+          {links?.length > 0 ? (
+            links.map((link) => (
+              <SideBarEntry key={link.label} entryLink={link} />
+            ))
+          ) : (
+            <p>No links available</p>
+          )}
         </div>
       </motion.div>
     </motion.div>
   );
 }
 
-function SideBarEntry({
-  sidebarEntry: AdminSideBarLink,
-}: {
-  sidebarEntry: any;
-}) {
+function SideBarEntry({ entryLink }: { entryLink: any }) {
   const [isOpen, setIsOpen] = useState(false);
+  console.log("entryLink.name:", entryLink.name);
   return (
     <>
       <div className="sidebar__nav__warper__header">
         <Link
-          href={AdminSideBarLink.path}
+          href="#"
           onClick={() => setIsOpen(!isOpen)}
           className={`sidebar__category__btn ${isOpen ? "active" : ""}`}
         >
-          <div className="sidebar__category__btn__icon">
-            {AdminSideBarLink.icon}
-          </div>
-          <div className="sidebar__category__btn__name">
-            {AdminSideBarLink.name}
-          </div>
+          <div className="sidebar__category__btn__icon">{entryLink.icon}</div>
+          <div className="sidebar__category__btn__name">{entryLink.name}</div>
         </Link>
       </div>
       {isOpen && (
         <div className="sidebar__nav__warper">
-          {AdminSideBarLink.children.map((entry: any) => (
+          {entryLink?.children?.map((subEntry: any) => (
             <Link
-              key={entry.path}
+              key={subEntry.name}
+              href={subEntry.href}
               className="sidebar__nav__entry"
-              // className={({ isActive }) =>
+              // className={({ isActive }: any) =>
               //   `sidebar__nav__entry ${isActive ? "active" : ""}`
               // }
-              href={entry.path}
             >
-              {entry.icon && (
-                <span className="sidebar__nav__icon">{entry.icon}</span>
+              {subEntry.icon && (
+                <span className="sidebar__nav__icon">{subEntry.icon}</span>
               )}
-              <span className="sidebar__nav__text">{entry.name}</span>
+              <span className="sidebar__nav__text">{subEntry.name}</span>
             </Link>
           ))}
         </div>
