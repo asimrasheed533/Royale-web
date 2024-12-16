@@ -1,6 +1,5 @@
 "use client";
 import useSidebar from "@/hooks/useSidebar";
-import GeneralIcon from "@/icons/GeneralIcon";
 import { ILinks } from "@/interfaces";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -84,7 +83,6 @@ export default function DashboardSidebar({ links }: { links: ILinks[] }) {
 
 function SideBarEntry({ entryLink }: { entryLink: any }) {
   const [isOpen, setIsOpen] = useState(false);
-  console.log("entryLink.name:", entryLink.name);
   return (
     <>
       <div className="sidebar__nav__warper__header">
@@ -94,7 +92,7 @@ function SideBarEntry({ entryLink }: { entryLink: any }) {
           className={`sidebar__category__btn ${isOpen ? "active" : ""}`}
         >
           <div className="sidebar__category__btn__icon">{entryLink.icon}</div>
-          <div className="sidebar__category__btn__name">{entryLink.name}</div>
+          <div className="sidebar__category__btn__name">{entryLink.label}</div>
         </Link>
       </div>
       {isOpen && (
@@ -111,7 +109,7 @@ function SideBarEntry({ entryLink }: { entryLink: any }) {
               {subEntry.icon && (
                 <span className="sidebar__nav__icon">{subEntry.icon}</span>
               )}
-              <span className="sidebar__nav__text">{subEntry.name}</span>
+              <span className="sidebar__nav__text">{subEntry.label}</span>
             </Link>
           ))}
         </div>
