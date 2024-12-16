@@ -13,11 +13,10 @@
 }
 .container__main__input__login__field {
   padding: 1.2em 1.5em;
-  border-radius: 50px;
+  border-radius: 12px;
   color: var(--white);
   width: 100%;
   padding: 1.2em 1.5em;
-  border-radius: 50px;
   border: 1px solid var(--whiteShadow);
   background-color: transparent;
   outline: none;
@@ -45,6 +44,7 @@
 }
 .container__main__content__details__main__input__label__login.focused {
   color: var(--blue);
+  background-color: var(--blue);
 }
 .container__main__input__login__field:focus
   + .container__main__content__details__main__input__label__login,
@@ -118,4 +118,20 @@
 }
 .css-1nkbmlc-control {
   min-height: 50px !important;
+}
+.input__color__container {
+  height: 49px;
+  border: 1px solid var(--grey);
+  position: relative;
+  width: 100%;
+  border-radius: 25px;
+}
+.input__color__container__input {
+  opacity: 0;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 2;
 }

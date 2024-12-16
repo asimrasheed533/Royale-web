@@ -55,11 +55,15 @@ export default function Product() {
         {data.map((item) => (
           <Link
             className="listing__page__table__content__row"
-            href={`/admin/products/${item.id}`}
+            href={pathname + "/" + item.id}
             key={item.id}
           >
             <div className="listing__page__table__content__row__entry checkbox">
-              <ListingCheckbox checked={false} onClick={() => {}} />
+              <ListingCheckbox
+                partiallyChecked={false}
+                checked={false}
+                onClick={() => {}}
+              />
             </div>
 
             <div className="listing__page__table__content__row__entry">

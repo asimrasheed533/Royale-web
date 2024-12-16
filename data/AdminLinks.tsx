@@ -5,13 +5,13 @@ export default [
     label: "Dashboard",
     children: [
       {
-        href: "/",
-        label: "Dashboard",
+        href: "/admin/products",
+        label: "Products",
         icon: <GeneralIcon />,
       },
       {
-        href: "/admin/products",
-        label: "Products",
+        href: "/admin/categories",
+        label: "Categories",
         icon: <GeneralIcon />,
       },
       {

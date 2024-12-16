@@ -1,11 +1,11 @@
 {
   "Products": [
-    { "key": "number", "name": "Product Number" },
     {
       "key": "name",
-      "name": "Name"
+      "name": "Product Name"
     },
     { "key": "quantity", "name": "Quantity" },
+    { "key": "price", "name": "Price" },
     { "key": "status", "name": "Status" }
   ],
   "Orders": [

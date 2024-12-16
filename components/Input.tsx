@@ -1,3 +1,4 @@
+"use client";
 import { IInput } from "@/interfaces";
 import { useState } from "react";
 import "@/style/input.scss";

@@ -83,6 +83,7 @@ export default function DashboardSidebar({ links }: { links: ILinks[] }) {
 
 function SideBarEntry({ entryLink }: { entryLink: any }) {
   const [isOpen, setIsOpen] = useState(false);
+
   return (
     <>
       <div className="sidebar__nav__warper__header">
