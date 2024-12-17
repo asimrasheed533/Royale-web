@@ -230,6 +230,13 @@
   background-color: var(--lightBlue);
   padding: 1.5em;
 }
+.input__row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+}
 @media (max-width: 768px) {
   .dashboard__sidebar__wrapper {
     position: fixed;

@@ -11,7 +11,10 @@ export default function ProductAdd() {
     <>
       <div className="product__container">
         <InputFile label="Product Image" onChange={setFiles} value={files} />
-        <Input label="Product Name" type="text" name="name" />
+        <div className="input__row">
+          <Input label="Product Name" type="text" name="name" />
+          <Input label="Product Name" type="text" name="name" />
+        </div>
       </div>
     </>
   );

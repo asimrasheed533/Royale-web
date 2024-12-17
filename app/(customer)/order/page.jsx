@@ -7,7 +7,7 @@ import burger from "@/public/burger.webp";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Navigation } from "swiper/modules";
-
+import { motion } from "framer-motion";
 import "swiper/css/navigation";
 import ScrollTicket from "@/components/ScrollTicket";
 const cartItem = [
@@ -460,7 +460,19 @@ export default function Home() {
 
 function CartCard({ cartProducts, mobile, setShowCart }) {
   return (
-    <div
+    <motion.div
+      initial={{
+        opacity: 0,
+        y: 300,
+      }}
+      animate={{
+        opacity: 1,
+        y: 0,
+      }}
+      transition={{
+        duration: 0.7,
+        ease: "easeInOut",
+      }}
       className={`order__products__container__cart ${
         mobile ? "order__products__container__cart__mobile" : ""
       }`}
@@ -536,6 +548,6 @@ function CartCard({ cartProducts, mobile, setShowCart }) {
       </div>
 
       <div className="order__checkout__button">Checkout</div>
-    </div>
+    </motion.div>
   );
 }
