@@ -413,63 +413,7 @@ export default function Home() {
             </div>
           ))}
         </ScrollSpy>
-        <div className="order__products__container__cart">
-          <div className="order__products__cart__title">Cart</div>
-          <div className="order__products__cart__subtitle">Items</div>
-          <div className="order__products__cart__item__scroll">
-            {cartItem.map((item) => (
-              <div key={item.id} className="order__products__cart__item__one">
-                <div className="order__products__cart__img__header">
-                  <Image
-                    src={item.img}
-                    alt="fast food"
-                    height={50}
-                    width={50}
-                  />
-                  <div className="order__products__cart__name">{item.name}</div>
-                </div>
-                <div className="order__price">
-                  <div className="order__price__col">$ {item.price}</div>
-                  <div className="order__price__col">
-                    <div className="order__price__col__num">
-                      <div className="order__price__num__less">-</div>
-                      <div className="order__price__num__count">
-                        {item.count}
-                      </div>
-                      <div className="order__price__num__grater">+</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="order__price__subtotal">
-            <div className="order__price__subtotal__title">Subtotal</div>
-            <div className="order__price__subtotal__price">$ 43.80</div>
-          </div>
-          <div class="deliver__toggle__container">
-            <input
-              defaultChecked
-              type="radio"
-              name="tab"
-              id="tab1"
-              className="tab tab--1"
-            />
-            <label className="tab_label" htmlFor="tab1">
-              <div className="deliver__toggle__entry__title">Delivery</div>
-              <div className="deliver__toggle__entry__time">40-60 min </div>
-            </label>
-
-            <input type="radio" name="tab" id="tab2" className="tab tab--2" />
-            <label className="tab_label" htmlFor="tab2">
-              <div className="deliver__toggle__entry__title">Collection</div>
-              <div className="deliver__toggle__entry__time">15-30 min </div>
-            </label>
-
-            <div className="indicator"></div>
-          </div>
-          <div className="order__checkout__button">Checkout</div>
-        </div>
+        <CartCard cartProducts={cartItem} />
       </div>
       <div className="order__footer">
         <div className="order__footer__col">
@@ -478,9 +422,64 @@ export default function Home() {
           <div className="order__footer__item">1 item</div>
         </div>
         <div className="order__footer__col">
-          <div className="order__footer__button">Checkout</div>
+          <div className="order__footer__button">Cart</div>
         </div>
       </div>
     </>
+  );
+}
+
+function CartCard({ cartProducts }) {
+  return (
+    <div className="order__products__container__cart">
+      <div className="order__products__cart__title">Cart</div>
+      <div className="order__products__cart__subtitle">Items</div>
+      <div className="order__products__cart__item__scroll">
+        {cartProducts.map((item) => (
+          <div key={item.id} className="order__products__cart__item__one">
+            <div className="order__products__cart__img__header">
+              <Image src={item.img} alt="fast food" height={50} width={50} />
+              <div className="order__products__cart__name">{item.name}</div>
+            </div>
+            <div className="order__price">
+              <div className="order__price__col">$ {item.price}</div>
+              <div className="order__price__col">
+                <div className="order__price__col__num">
+                  <div className="order__price__num__less">-</div>
+                  <div className="order__price__num__count">{item.count}</div>
+                  <div className="order__price__num__grater">+</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="order__price__subtotal">
+        <div className="order__price__subtotal__title">Subtotal</div>
+        <div className="order__price__subtotal__price">$ 43.80</div>
+      </div>
+      <div class="deliver__toggle__container">
+        <input
+          defaultChecked
+          type="radio"
+          name="tab"
+          id="tab1"
+          className="tab tab--1"
+        />
+        <label className="tab_label" htmlFor="tab1">
+          <div className="deliver__toggle__entry__title">Delivery</div>
+          <div className="deliver__toggle__entry__time">40-60 min </div>
+        </label>
+
+        <input type="radio" name="tab" id="tab2" className="tab tab--2" />
+        <label className="tab_label" htmlFor="tab2">
+          <div className="deliver__toggle__entry__title">Collection</div>
+          <div className="deliver__toggle__entry__time">15-30 min </div>
+        </label>
+
+        <div className="indicator"></div>
+      </div>
+      <div className="order__checkout__button">Checkout</div>
+    </div>
   );
 }
