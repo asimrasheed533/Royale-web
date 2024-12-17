@@ -1,6 +1,6 @@
 "use client";
 import "@/style/order.scss";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import Image from "next/image";
 import ScrollSpy from "react-ui-scrollspy";
 import burger from "@/public/burger.webp";
@@ -286,8 +286,21 @@ const items = [
     ],
   },
 ];
+
 export default function Home() {
-  const [isSelected, setISSelected] = useState(false);
+  const [showCart, setShowCart] = useState(false);
+  function checkNavOpen() {
+    if (window.innerWidth <= 1200) {
+      setShowCart(false);
+    } else {
+      setShowCart(true);
+    }
+  }
+  useEffect(() => {
+    checkNavOpen();
+
+    window.addEventListener("resize", checkNavOpen);
+  }, []);
   const scrollToSection = (e, offset = 0) => {
     e.preventDefault();
     const targetId = e.currentTarget.href.split("#")[1];
@@ -309,6 +322,7 @@ export default function Home() {
       window.scrollTo({ top: y, behavior: "smooth" });
     }
   };
+  console.log("showcart", showCart);
 
   return (
     <>
@@ -416,22 +430,61 @@ export default function Home() {
         <CartCard cartProducts={cartItem} />
       </div>
       <div className="order__footer">
-        <div className="order__footer__col">
-          <div className="order__footer__title">Total</div>
-          <div className="order__footer__price">$50.90</div>
-          <div className="order__footer__item">1 item</div>
+        <div className="order__footer__bottom">
+          <div className="order__footer__col">
+            <div className="order__footer__title">Total</div>
+            <div className="order__footer__price">$50.90</div>
+            <div className="order__footer__item">1 item</div>
+          </div>
+          <div className="order__footer__col">
+            <button
+              onClick={() => setShowCart(!showCart)}
+              className="order__footer__button"
+            >
+              Cart
+            </button>
+          </div>
         </div>
-        <div className="order__footer__col">
-          <div className="order__footer__button">Cart</div>
-        </div>
+
+        {showCart && (
+          <CartCard
+            setShowCart={setShowCart}
+            mobile={true}
+            cartProducts={cartItem}
+          />
+        )}
       </div>
     </>
   );
 }
 
-function CartCard({ cartProducts }) {
+function CartCard({ cartProducts, mobile, setShowCart }) {
   return (
-    <div className="order__products__container__cart">
+    <div
+      className={`order__products__container__cart ${
+        mobile ? "order__products__container__cart__mobile" : ""
+      }`}
+    >
+      <button
+        onClick={() => setShowCart(false)}
+        className="order__products__container__cart__mobile__close"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="feather feather-x"
+        >
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
       <div className="order__products__cart__title">Cart</div>
       <div className="order__products__cart__subtitle">Items</div>
       <div className="order__products__cart__item__scroll">
@@ -458,27 +511,30 @@ function CartCard({ cartProducts }) {
         <div className="order__price__subtotal__title">Subtotal</div>
         <div className="order__price__subtotal__price">$ 43.80</div>
       </div>
-      <div class="deliver__toggle__container">
-        <input
-          defaultChecked
-          type="radio"
-          name="tab"
-          id="tab1"
-          className="tab tab--1"
-        />
-        <label className="tab_label" htmlFor="tab1">
-          <div className="deliver__toggle__entry__title">Delivery</div>
-          <div className="deliver__toggle__entry__time">40-60 min </div>
-        </label>
+      <div className="deliver__toggle__container__warper">
+        <div class="deliver__toggle__container">
+          <input
+            defaultChecked
+            type="radio"
+            name="tab"
+            id="tab1"
+            className="tab tab__1"
+          />
+          <label className="tab_label" htmlFor="tab1">
+            <div className="deliver__toggle__entry__title">Delivery</div>
+            <div className="deliver__toggle__entry__time">40-60 min </div>
+          </label>
 
-        <input type="radio" name="tab" id="tab2" className="tab tab--2" />
-        <label className="tab_label" htmlFor="tab2">
-          <div className="deliver__toggle__entry__title">Collection</div>
-          <div className="deliver__toggle__entry__time">15-30 min </div>
-        </label>
+          <input type="radio" name="tab" id="tab2" className="tab tab__2" />
+          <label className="tab_label" htmlFor="tab2">
+            <div className="deliver__toggle__entry__title">Collection</div>
+            <div className="deliver__toggle__entry__time">15-30 min </div>
+          </label>
 
-        <div className="indicator"></div>
+          <div className="indicator"></div>
+        </div>
       </div>
+
       <div className="order__checkout__button">Checkout</div>
     </div>
   );
