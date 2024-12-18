@@ -4,7 +4,6 @@ import "@/style/global.scss";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { ToastContainer } from "react-toastify";
 import { Plus_Jakarta_Sans } from "next/font/google";
-
 // Initialize the font
 const plus_jakarta_sans = Plus_Jakarta_Sans({ subsets: ["latin"] });
 

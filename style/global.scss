@@ -31,3 +31,13 @@ input:-webkit-autofill:active {
 input:-webkit-autofill {
   -webkit-text-fill-color: #ffffff !important;
 }
+.cursor {
+  width: 15px;
+  height: 15px;
+  background-color: rgba(224, 108, 108, 0.534);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
