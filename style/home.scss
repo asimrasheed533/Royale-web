@@ -247,14 +247,24 @@
   text-align: center;
 }
 @media (max-width: 600px) {
+  .page__banner__text__title {
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
   .page__banner__img {
     height: 400px;
   }
   .page__banner__text__heading {
-    font-size: 1.7rem;
+    font-size: 1.5rem;
   }
   .page__banner__text__warper {
-    left: 15%;
+    left: 12%;
+    top: 30%;
+    background-color: rgba(0, 0, 0, 0.575);
+    border-radius: 6px;
+    padding: 1em;
+    width: 100%;
+    max-width: 300px;
   }
   .swiper-button-next:after {
     height: 20px !important;
