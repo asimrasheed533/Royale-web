@@ -81,12 +81,15 @@
   justify-content: center;
   flex-direction: column;
   scale: 0.9;
+  background-color: var(--lightBlue);
+  border-radius: 12px;
 }
 
 .create__container__from__heading {
   font-size: 24px;
   font-weight: 700;
   margin-bottom: 0.3em;
+  color: var(--white);
 }
 
 .create__container__from__sub__heading {
@@ -97,7 +100,7 @@
 }
 
 .create__container__link {
-  color: black;
+  color: var(--white);
   cursor: pointer;
   margin-left: 0.4em;
   transition: 300ms ease-in-out;
