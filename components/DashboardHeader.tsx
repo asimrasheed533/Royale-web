@@ -12,10 +12,7 @@ export default function DashboardHeader() {
   const formattedTitle =
     pathname === "/admin"
       ? "Admin Dashboard"
-      : pathname
-          .replace("/admin/", "")
-          .replace(/\//g, " > ")
-          .replace(/-/g, " ");
+      : pathname.replace("/admin/", "").replace(/\//g, "  ").replace(/-/g, " ");
   return (
     <div className="dashboard__main__header">
       {isCollapsed && (
