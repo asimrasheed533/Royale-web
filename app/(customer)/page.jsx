@@ -51,6 +51,8 @@ export default function page() {
       setSwiperSlides(1.3);
     } else if (window.innerWidth > 900) {
       setSwiperSlides(1);
+    } else {
+      setSwiperSlides(1);
     }
   };
   useEffect(() => {
