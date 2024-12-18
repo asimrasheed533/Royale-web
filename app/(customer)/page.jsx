@@ -10,7 +10,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
+import { useRouter } from "next/navigation";
 export default function page() {
+  const router = useRouter();
   const products = [
     {
       id: 1,
@@ -41,7 +43,21 @@ export default function page() {
       imageSrc: banner,
     },
   ];
-
+  const [swiperSlides, setSwiperSlides] = React.useState(3);
+  const checkWidth = () => {
+    if (window.innerWidth > 1366) {
+      setSwiperSlides(1.8);
+    } else if (window.innerWidth > 1200) {
+      setSwiperSlides(1.3);
+    } else if (window.innerWidth > 900) {
+      setSwiperSlides(1);
+    }
+  };
+  useEffect(() => {
+    checkWidth();
+    window.addEventListener("resize", checkWidth);
+    return () => window.removeEventListener("resize", checkWidth);
+  }, [swiperSlides]);
   return (
     <>
       <div className="page__title__row">
@@ -74,32 +90,40 @@ export default function page() {
         className="Swiper__container"
         modules={[Navigation]}
         navigation={true}
+        slidesPerView={swiperSlides}
+        spaceBetween={20}
+        centeredSlides={true}
       >
         <SwiperSlide>
-          <Image
-            width={1000}
-            height={500}
-            className="page__banner__img"
-            src={banner}
-            alt="food"
+          <SlideCard
+            image="https://res.cloudinary.com/dsxbqyjwo/image/upload/v1734540904/image_2110_mn8txv.png"
+            title="Super Discount"
+            heading="Up To 50% Off"
+            subtitle="Off All Products"
           />
         </SwiperSlide>
         <SwiperSlide>
-          <Image
-            width={1000}
-            height={100}
-            className="page__banner__img"
-            src={banner}
-            alt="food"
+          <SlideCard
+            image="https://res.cloudinary.com/dsxbqyjwo/image/upload/v1734540905/image_2111_hhkbzh.png"
+            title="Royal Fast Food App"
+            heading="Order Quickly & Easily"
+            subtitle="Fast Delivery"
           />
         </SwiperSlide>
         <SwiperSlide>
-          <Image
-            width={1000}
-            height={100}
-            className="page__banner__img"
-            src={banner}
-            alt="food"
+          <SlideCard
+            image="/banner_1.jpg"
+            title="Crazy Beefy Burgers"
+            heading="Quality Ingredients."
+            subtitle="Quality Burgers."
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <SlideCard
+            image="https://res.cloudinary.com/dsxbqyjwo/image/upload/v1734540906/image_2112_sllxzw.png"
+            title="Crazy Beefy Burgers"
+            heading="Quality Ingredients."
+            subtitle="Quality Burgers."
           />
         </SwiperSlide>
       </Swiper>
@@ -179,5 +203,32 @@ export default function page() {
         </div>
       </div>
     </>
+  );
+}
+
+function SlideCard({ image, title, heading, subtitle }) {
+  return (
+    <div className="page__banner__img__warper">
+      <Image
+        width={1200}
+        height={500}
+        className="page__banner__img"
+        src={image}
+        alt="food"
+      />
+      <div className="page__banner__text__warper">
+        <div className="page__banner__text__title">{title}</div>
+        <div className="page__banner__text__heading">{heading}</div>
+        <div className="page__banner__text__heading">{subtitle}</div>
+        <div className="banner__button">
+          <button
+            onClick={() => router.push("/order")}
+            className="banner__button__btn"
+          >
+            View Details
+          </button>
+        </div>
+      </div>
+    </div>
   );
 }
