@@ -102,9 +102,10 @@ function SideBarEntry({ entryLink }: { entryLink: any }) {
             <Link
               key={subEntry.name}
               href={subEntry.href}
-              className={({ isActive }: any) =>
-                `sidebar__nav__entry ${isActive ? "active" : ""}`
-              }
+              className="sidebar__nav__entry"
+              // className={({ isActive }: any) =>
+              //   `sidebar__nav__entry ${isActive ? "active" : ""}`
+              // }
             >
               {subEntry.icon && (
                 <span className="sidebar__nav__icon">{subEntry.icon}</span>
