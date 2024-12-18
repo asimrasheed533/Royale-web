@@ -158,7 +158,7 @@
   border-bottom: 1px solid #aaaaaa;
   background-color: transparent;
   outline: none;
-  color: black;
+  color: white;
   font-weight: 500;
   padding-left: 3em;
   padding-bottom: 0.5em;
@@ -171,31 +171,6 @@
   bottom: 35px;
   color: rgb(167, 165, 165);
   transform: translateY(-12px);
-}
-
-.input__buttom {
-  width: 100%;
-  max-width: 480px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 0.5em;
-}
-
-.rember__container {
-  display: flex;
-  align-items: center;
-}
-
-.rember__container input {
-  width: 15px;
-  height: 15px;
-  margin-right: 0.5em;
-  cursor: pointer;
-}
-
-.rember__container input:checked {
-  background-color: #ff9300;
 }
 
 .forgot__password {
@@ -239,14 +214,13 @@
 }
 
 .submit__btn__back__title:hover {
-  border-bottom: 1px solid var(--orange);
   transition: 300ms ease-in-out;
 }
 
 .submit__btn__back__title {
   margin-left: 0.5em;
   text-decoration: none;
-  color: var(--orange);
+  color: var(--white);
 }
 
 .create__account__button {
