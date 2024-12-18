@@ -31,10 +31,68 @@
     var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate)
     var(--tw-sepia) var(--tw-drop-shadow);
 }
-.page__banner__img {
+.Swiper__container {
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  padding: 1em;
+}
+.page__banner__img__warper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.page__banner__img {
   height: 500px;
+  width: 100%;
+  max-width: 1200px;
   object-fit: cover;
+  border-radius: 16px;
+}
+.page__banner__text__warper {
+  position: absolute;
+  top: 40%;
+  left: 10%;
+  font-weight: 600;
+  color: var(--white);
+}
+.page__banner__text__title {
+  font-size: 1rem;
+}
+.page__banner__text__heading {
+  font-size: 2.2rem;
+  font-weight: 800;
+}
+.banner__button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 1em;
+}
+.banner__button__btn {
+  padding: 1em 1.9em;
+  background-color: var(--golden);
+  color: var(--white);
+  border-radius: 20px;
+  transition: 300ms ease-in-out;
+  border: none;
+}
+.banner__button__btn:hover {
+  background-color: var(--white);
+  color: var(--golden);
+  transition: 300ms ease-in-out;
+  cursor: pointer;
+}
+.Swiper__container .swiper-slide {
+  transform: translateY(10px); /* Lower all slides */
+  transition: transform 0.3s;
+}
+.Swiper__container .swiper-slide-active {
+  transform: translateY(0); /* Bring active slide to normal */
 }
 
 .swiper-button-next:after {
@@ -190,7 +248,13 @@
 }
 @media (max-width: 600px) {
   .page__banner__img {
-    height: 300px;
+    height: 400px;
+  }
+  .page__banner__text__heading {
+    font-size: 1.7rem;
+  }
+  .page__banner__text__warper {
+    left: 15%;
   }
   .swiper-button-next:after {
     height: 20px !important;
