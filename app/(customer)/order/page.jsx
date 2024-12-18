@@ -322,7 +322,6 @@ export default function Home() {
       window.scrollTo({ top: y, behavior: "smooth" });
     }
   };
-  console.log("showcart", showCart);
 
   return (
     <>

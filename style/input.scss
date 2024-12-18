@@ -77,15 +77,15 @@
 .container__main__content__details__select {
   position: relative;
   width: 100%;
-  color: gray;
+  color: var(--whiteShadow);
 }
 .container__main__content__details__select__label {
   position: absolute;
   top: 15px;
   font-size: 0.8em !important;
-  left: 15px;
+  left: 11px;
   font-weight: 500;
-  background-color: var(--blueLight);
+  background-color: var(--blue);
   color: var(--white);
   padding: 0 0.5em;
   z-index: 1;
@@ -98,7 +98,7 @@
 }
 
 .css-9jq23d {
-  color: var(--blue) !important;
+  color: var(--white) !important;
 }
 .container__main__content__details__select__label.active {
   transition: all 0.3s;
@@ -272,4 +272,66 @@
   left: 0;
   z-index: 2;
   cursor: pointer;
+}
+// .container__main__content__details__main__input {
+//   width: 100%;
+//   display: flex;
+//   position: relative;
+//   flex-direction: column;
+// }
+.container__main__content__details__main__input__error {
+  color: #ff3333;
+  position: absolute;
+  bottom: -20px;
+  text-transform: capitalize;
+}
+.container__main__content__details__main__input__field__textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0.8em 0.9em;
+  font-size: 0.9em;
+  height: 100%;
+  border-radius: 20px;
+  border: 1px solid var(--whiteShadow);
+  resize: none;
+  height: 200px;
+}
+.container__main__content__details__main__input {
+  width: 100%;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+}
+
+.container__main__content__details__main__input__label {
+  position: absolute;
+  top: 13px;
+  left: 20px;
+  transition: all 0.2s ease;
+  pointer-events: none;
+  font-size: 0.8em;
+  color: var(--white);
+  z-index: 999;
+  width: 120px;
+  font-weight: 400;
+  border-radius: 40px;
+  width: fit-content;
+}
+.container__main__content__details__main__input:has(
+    .container__main__content__details__main__input__field__textarea:focus
+  )
+  .container__main__content__details__main__input__label,
+.container__main__content__details__main__input:has(
+    .container__main__content__details__main__input__field__textarea.has__value
+  )
+  .container__main__content__details__main__input__label {
+  top: -10px;
+  font-size: 0.7em;
+  color: var(--white);
+  background-color: var(--blue);
+  z-index: 1;
+  padding: 0 1em;
+  transition: 300ms ease-in-out;
 }

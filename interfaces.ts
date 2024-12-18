@@ -80,3 +80,20 @@ export interface ILinks {
     preloadLink?: string;
   }[];
 }
+export interface ITextArea {
+  help?: string;
+  example?: string;
+  label?: string;
+  id?: string;
+  error?: boolean;
+  type?: string;
+  secure?: boolean;
+  style?: CSSProperties;
+  defaultOptions?: string;
+  prefix?: string;
+  isRtl?: boolean;
+  value?: string;
+  placeholder?: string;
+  onChange?: (e: any) => void;
+  [x: string]: any;
+}
