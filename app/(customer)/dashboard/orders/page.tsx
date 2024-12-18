@@ -2,7 +2,6 @@
 import headerItems from "@/data/headerItems.json";
 import { orders as data } from "@/constant/mocks";
 import { useState } from "react";
-import Link from "next/link";
 import ListingTabs from "@/components/ListingTabs";
 import ListingTable from "@/components/ListingTable";
 import { usePathname } from "next/navigation";
