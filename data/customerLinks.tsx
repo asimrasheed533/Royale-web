@@ -4,13 +4,13 @@ export default [
   {
     label: "General",
     children: [
+      // {
+      //   href: "/dashboard",
+      //   label: "Dashboard",
+      //   icon: <GeneralIcon />,
+      // },
       {
-        href: "/",
-        label: "Dashboard",
-        icon: <GeneralIcon />,
-      },
-      {
-        href: "/admin/orders",
+        href: "/dashboard/orders",
         label: "Orders",
         icon: <GeneralIcon />,
       },
