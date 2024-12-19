@@ -333,12 +333,297 @@
   transform: translateY(-75px);
   transition: 300ms ease-in-out;
 }
+.combo__container {
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #fff4ea;
+  padding: 6em 2em;
+}
+.combo__container__inner {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 2em;
+  margin-top: 2em;
+  width: 100%;
+  max-width: 1366px;
+  margin: 0 auto;
+}
+.combo__container__inner__text {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 0.5em;
+  width: 100%;
+}
+.combo__container__inner__text__title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #dc0505;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+.combo__container__inner__text__subTitle {
+  font-size: 2.4rem;
+  font-weight: 800;
+  position: relative;
+}
+.combo__container__inner__text__subTitle::before {
+  content: "";
+  height: 4px;
+  width: 140px;
+  border-radius: 6px;
+  background-color: var(--golden);
+  position: absolute;
+  bottom: -13px;
+  left: 70px;
+  transform: translateX(-50%);
+}
+.combo__arrow {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5em;
+  margin-top: 1em;
+  transition: 300ms ease-in-out;
+
+  gap: 1em;
+}
+.combo__arrow__col__pre {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 300ms ease-in-out;
+  background-color: #121212;
+  height: 60px;
+  width: 60px;
+  border-radius: 40px;
+  border: none;
+}
+.combo__arrow__col__next {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 300ms ease-in-out;
+  background-color: #121212;
+  height: 60px;
+  width: 60px;
+  border-radius: 40px;
+  border: none;
+}
+.combo__arrow__col__pre svg {
+  color: #ffffff;
+}
+.combo__arrow__col__next svg {
+  color: #ffffff;
+}
+.combo__arrow__col__next:hover {
+  transition: 300ms ease-in-out;
+  background-color: #ff000075;
+}
+.combo__arrow__col__next:hover {
+  transition: 300ms ease-in-out;
+  background-color: #ff000075;
+}
+.combo__container__slider {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1366px;
+  margin: 0 auto;
+  padding: 2em;
+}
+.combo__container__slider__card__upper {
+  width: 100%;
+  max-width: 650px;
+  background-color: white;
+  gap: 1em;
+  position: relative;
+  border-radius: 22px;
+  min-height: 400px;
+}
+.combo__container__slider__card {
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 2em;
+  background-color: white;
+  border-radius: 30;
+  gap: 1em;
+  position: relative;
+  border-radius: 22px;
+  min-height: 430px;
+}
+.combo__container__slider__card__bg {
+  position: absolute;
+  height: 100%;
+  width: 280px;
+  right: 0;
+  top: 0;
+  border-top-left-radius: 200px;
+  border-bottom-left-radius: 200px;
+  background-color: #ff0d0d;
+  opacity: 0.8;
+  transform: translateX(10%);
+  transition: all 0.5s ease;
+  z-index: -1px;
+}
+
+.combo__container__slider__card:hover .combo__container__slider__card__bg {
+  transform: translateX(0);
+  width: 100%;
+  border-radius: 0;
+}
+.combo__container__slider__card:hover * {
+  color: white; /* Change text color to white */
+}
+.combo__container__slider__card__sub__title {
+  padding: 1em 0;
+  font-size: 0.9rem;
+  font-weight: 400;
+  max-width: 400px;
+  line-height: 22px;
+}
+.combo__container__slider__card__button {
+  background-color: var(--golden);
+  padding: 1.2em 2em;
+  border-radius: 30px;
+  color: #ffffff;
+  font-weight: 600;
+  border: none;
+  margin-top: 1em;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: 300ms ease-in-out;
+}
+.combo__container__slider__card__button:hover {
+  background-color: #000000;
+  transition: 300ms ease-in-out;
+}
+.combo__container__slider__card__entry {
+  position: relative;
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 0 0.9em;
+  margin-bottom: 0.5em;
+}
+.combo__container__slider__card__entry::after {
+  content: "";
+  height: 8px;
+  width: 8px;
+  border-radius: 20px;
+  background-color: var(--golden);
+  position: absolute;
+  bottom: 6px;
+  left: 0px;
+  transform: translateX(-50%);
+}
+.combo__container__slider__card__content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  z-index: 1;
+}
+.combo__container__slider__card__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  position: relative;
+}
+.combo__container__slider__card__title::after {
+  content: "";
+  height: 4px;
+  width: 100px;
+  border-radius: 6px;
+  background-color: var(--golden);
+  position: absolute;
+  bottom: -8px;
+  left: 0px;
+}
+.combo__container__slider__card__img {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+.combo__container__slider__card__img__image {
+  height: 250px;
+  width: 250px;
+  margin-top: 2em;
+
+  object-fit: contain;
+}
+.combo__container__slider__card__price {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 1rem;
+  font-weight: 700;
+  background-color: #000000;
+  padding: 0.7em 1.5em;
+  border-radius: 30px;
+  color: white;
+}
+// .swiper {
+//   overflow: unset !important;
+// }
 @media (max-width: 850px) {
+  .combo__container__slider__card__img {
+    width: 100%;
+    justify-content: center;
+  }
+  .combo__container__slider__card {
+    flex-direction: column-reverse;
+  }
   .fast__delivery__entry {
     border: none;
   }
+  .combo__container__inner__text__subTitle {
+    font-size: 1.8rem;
+  }
+  .combo__container__inner__text__title {
+    font-size: 0.9rem;
+  }
+  .combo__container__slider__card__bg {
+    width: 200px;
+  }
+  .combo__container__slider__card__img__image {
+    height: 180px;
+    width: 180px;
+  }
+  .combo__container__inner {
+    padding: 0;
+    flex-direction: column;
+  }
+  .combo__container__inner__text {
+    align-items: center;
+    justify-content: center;
+  }
 }
 @media (max-width: 600px) {
+  .combo__arrow {
+    margin: 2em 0;
+    width: 100%;
+  }
+  .combo__arrow__col__pre {
+    height: 40px;
+    width: 40px;
+  }
+  .combo__arrow__col__next {
+    height: 40px;
+    width: 40px;
+  }
+  .combo__container__slider__card__title {
+    font-size: 1.1rem;
+  }
   .page__banner__text__title {
     font-size: 0.8rem;
     font-weight: 600;
