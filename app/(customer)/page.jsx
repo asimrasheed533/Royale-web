@@ -11,6 +11,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 import { useRouter } from "next/navigation";
+import ComboOffer from "@/components/ComboOffer";
 export default function page() {
   const router = useRouter();
   const products = [
@@ -297,6 +298,7 @@ export default function page() {
           />
         </div>
       </div>
+      <ComboOffer />
     </>
   );
 }
