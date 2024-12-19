@@ -3,7 +3,6 @@
 import React, { ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import Header from "./Header";
-import Cursor from "./cursor";
 
 const ROUTES_NO_HEADER_FOOTER: string[] = ["/signIn", "/signUp", "/dashboard"];
 
@@ -21,7 +20,7 @@ export default function LayoutWrapper({ children, token }: LayoutProps) {
   return (
     <div>
       {shouldShowHeaderFooter && <Header token={token} />}
-      <Cursor />
+
       {children}
     </div>
   );
