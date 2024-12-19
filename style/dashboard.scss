@@ -238,6 +238,9 @@
   gap: 1em;
 }
 @media (max-width: 768px) {
+  .input__row {
+    flex-direction: column;
+  }
   .dashboard__sidebar__wrapper {
     position: fixed;
     width: 100%;
