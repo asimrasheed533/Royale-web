@@ -36,7 +36,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1em;
   padding: 1em;
 }
 .page__banner__img__warper {
@@ -45,11 +44,11 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  max-width: 900px;
 }
 .page__banner__img {
-  height: 500px;
+  height: 450px;
   width: 100%;
-  max-width: 1200px;
   object-fit: cover;
   border-radius: 16px;
 }
@@ -89,13 +88,13 @@
   transition: 300ms ease-in-out;
   cursor: pointer;
 }
-.Swiper__container .swiper-slide {
-  transform: translateY(10px); /* Lower all slides */
-  transition: transform 0.3s;
-}
-.Swiper__container .swiper-slide-active {
-  transform: translateY(0); /* Bring active slide to normal */
-}
+// .Swiper__container .swiper-slide {
+//   transform: translateY(10px); /* Lower all slides */
+//   transition: transform 0.3s;
+// }
+// .Swiper__container .swiper-slide-active {
+//   transform: translateY(0); /* Bring active slide to normal */
+// }
 
 .swiper-button-next:after {
   height: 40px !important;
