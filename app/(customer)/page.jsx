@@ -41,50 +41,7 @@ export default function page() {
   return (
     <>
       <BannerSection />
-      <div className="product__container">
-        <div className="product__main__text__title">Most Popular Food</div>
 
-        <div className="product__main__cards">
-          {products.map((product) => (
-            <div key={product.id} className="product__main__card">
-              <div className="product__main__card__img">
-                <Image
-                  width={100}
-                  height={100}
-                  className="product__main__card__img__image"
-                  src={product.imageSrc}
-                  alt={product.title}
-                />
-              </div>
-              <div className="product__main__card__title">{product.title}</div>
-              <div className="product__main__card__sub__title">
-                {product.subtitle}
-              </div>
-              <div className="product__main__card__price__warper">
-                <div className="products__price">
-                  ${product.price.toFixed(2)}
-                </div>
-                <button className="products__add">
-                  <svg
-                    width="40"
-                    height="40"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="feather feather-plus"
-                  >
-                    <line x1="12" y1="5" x2="12" y2="19"></line>
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                  </svg>
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
       <div className="fast__delivery__container">
         <div className="fast__delivery__warper">
           <div className="fast__delivery__entry__Sub__img">

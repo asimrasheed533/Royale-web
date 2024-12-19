@@ -11,7 +11,7 @@ export default function BannerSection() {
   const [swiperSlides, setSwiperSlides] = React.useState(3);
   const checkWidth = () => {
     if (window.innerWidth > 1366) {
-      setSwiperSlides(2.4);
+      setSwiperSlides(2.2);
     } else if (window.innerWidth > 1200) {
       setSwiperSlides(1.3);
     } else if (window.innerWidth > 900) {

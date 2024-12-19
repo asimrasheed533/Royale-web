@@ -64,7 +64,7 @@ export default function Header({ token }) {
                       pathname === "/reviews" ? "active" : ""
                     }`}
                   >
-                    Reviews
+                    Menu
                   </Link>
                 </>
               )}
