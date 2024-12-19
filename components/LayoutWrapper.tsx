@@ -3,6 +3,7 @@
 import React, { ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import Header from "./Header";
+import Footer from "./Footer";
 
 const ROUTES_NO_HEADER_FOOTER: string[] = ["/signIn", "/signUp", "/dashboard"];
 
@@ -22,6 +23,7 @@ export default function LayoutWrapper({ children, token }: LayoutProps) {
       {shouldShowHeaderFooter && <Header token={token} />}
 
       {children}
+      {shouldShowHeaderFooter && <Footer />}
     </div>
   );
 }
