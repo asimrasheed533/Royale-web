@@ -232,12 +232,10 @@
   padding: 2em;
   border-radius: 22px;
   flex-wrap: wrap;
-  background: rgb(43, 43, 43);
-  background: linear-gradient(
-    0deg,
-    rgba(43, 43, 43, 1) 0%,
-    rgba(29, 29, 29, 1) 78%
-  );
+  overflow: hidden;
+  background-color: transparent;
+  background-image: linear-gradient(354deg, #121212 0%, #3d3d3d 100%);
+  position: relative;
 }
 .fast__delivery__entry {
   height: 220px;
@@ -249,6 +247,12 @@
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease-in-out;
+  border-style: dashed;
+  border-width: 0px 1px 0px 0px;
+  border-color: #5b5b5b;
+}
+.fast__delivery__entry:last-child {
+  border-width: 0px 0px 0px 0px;
 }
 .fast__delivery__entry__Sub {
   display: flex;
@@ -257,6 +261,7 @@
   flex-direction: column;
   transform: translateY(60px);
   transition: 300ms ease-in-out;
+  position: relative;
 }
 .fast__delivery__entry__svg {
   background-color: rgba(255, 0, 0, 0.459);
@@ -272,9 +277,31 @@
   width: 60px;
   color: var(--white);
 }
-
+.fast__delivery__entry__Sub__img {
+  width: 100%;
+  position: absolute;
+  left: 0px;
+  bottom: -20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.fast__delivery__entry__Sub__img__left {
+  position: absolute;
+  bottom: -20px;
+  left: -10px;
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+}
+.fast__delivery__entry__Sub__img__right {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  object-fit: cover;
+}
 .fast__delivery__entry__title {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 700;
   color: aliceblue;
   padding: 1em 0;
@@ -305,6 +332,11 @@
 .fast__delivery__entry:hover .fast__delivery__entry__Sub {
   transform: translateY(-75px);
   transition: 300ms ease-in-out;
+}
+@media (max-width: 850px) {
+  .fast__delivery__entry {
+    border: none;
+  }
 }
 @media (max-width: 600px) {
   .page__banner__text__title {
@@ -338,5 +370,8 @@
     height: 20px !important;
     width: 20px !important;
     font-size: 16px !important;
+  }
+  .fast__delivery__container {
+    padding: 2em 0;
   }
 }
