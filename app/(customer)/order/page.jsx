@@ -488,8 +488,8 @@ function CartCard({ cartProducts, mobile, setShowCart }) {
           fill="none"
           stroke="currentColor"
           strokeWidth="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeLinecap="round"
+          strokeLinejoin="round"
           class="feather feather-x"
         >
           <line x1="18" y1="6" x2="6" y2="18"></line>

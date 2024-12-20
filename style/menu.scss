@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 1400px;
+  // max-width: 1400px;
   margin: 0 auto;
   padding: 2em;
 }
@@ -131,6 +131,13 @@
   transition: 300ms ease-in-out;
 }
 @media (max-width: 700px) {
+  .banner__page__container__text {
+    font-size: 1.5rem;
+  }
+  .banner__page__container__text::after {
+    bottom: 42%;
+    width: 100px;
+  }
   .deal__card {
     flex-direction: column;
     align-items: center;
@@ -139,6 +146,9 @@
   }
   .deal__card__img {
     width: 400px;
+  }
+  .banner__page__container__overlay__img {
+    height: 300px;
   }
   .deal__card__text {
     width: 100%;
