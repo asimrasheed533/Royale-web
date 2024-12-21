@@ -129,32 +129,32 @@ export default function Header({ token }) {
           <div className="nav__register">
             {token ? (
               <>
-                <button
-                  onClick={() => router.push("/signIn")}
-                  className="nav__register__button__svg"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="30"
-                    height="30"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="feather feather-user"
+                <div className="nav__register__btns">
+                  <button
+                    onClick={() => router.push("/cart")}
+                    className="nav__register__cart"
                   >
-                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                    <circle cx="12" cy="7" r="4"></circle>
-                  </svg>
-                </button>
-                <button
-                  onClick={() => router.push("/dashboard")}
-                  className="nav__register__button"
-                >
-                  My Account
-                </button>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      id="Filled"
+                      viewBox="0 0 24 24"
+                      width="28"
+                      height="30"
+                      fill="currentColor"
+                    >
+                      <path d="M18,12a5.993,5.993,0,0,1-5.191-9H4.242L4.2,2.648A3,3,0,0,0,1.222,0H1A1,1,0,0,0,1,2h.222a1,1,0,0,1,.993.883l1.376,11.7A5,5,0,0,0,8.557,19H19a1,1,0,0,0,0-2H8.557a3,3,0,0,1-2.821-2H17.657a5,5,0,0,0,4.921-4.113l.238-1.319A5.984,5.984,0,0,1,18,12Z" />
+                      <circle cx="7" cy="22" r="2" />
+                      <circle cx="17" cy="22" r="2" />
+                      <path d="M15,7h2V9a1,1,0,0,0,2,0V7h2a1,1,0,0,0,0-2H19V3a1,1,0,0,0-2,0V5H15a1,1,0,0,0,0,2Z" />
+                    </svg>
+                  </button>
+                  <button
+                    onClick={() => router.push("/dashboard")}
+                    className="nav__register__button"
+                  >
+                    My Account
+                  </button>
+                </div>
               </>
             ) : (
               <>

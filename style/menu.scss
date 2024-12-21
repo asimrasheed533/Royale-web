@@ -13,7 +13,7 @@
 .banner__page__container__overlay__img {
   width: 100%;
   object-fit: cover;
-  border-radius: 50px;
+  border-radius: 30px;
 }
 .banner__page__container__text {
   position: absolute;
@@ -22,7 +22,7 @@
   transform: translate(-50%, -55%);
   color: #fff;
   text-align: center;
-  width: 100%;
+  width: fit-content;
   height: 400px;
   display: flex;
   flex-direction: column;
@@ -145,7 +145,10 @@
     max-width: 100%;
   }
   .deal__card__img {
-    width: 400px;
+    width: 100%;
+  }
+  .banner__page__container {
+    padding: 1em;
   }
   .banner__page__container__overlay__img {
     height: 300px;

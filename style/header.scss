@@ -60,6 +60,12 @@
   color: white;
   display: none;
 }
+.nav__register__btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+}
 .nav__register__button {
   background-color: transparent;
   border: none;
@@ -71,6 +77,22 @@
   background-color: #dd9747;
   border-radius: 5px;
   padding: 0.7em 1em;
+}
+.nav__register__cart {
+  background-color: transparent;
+  border: none;
+  transition: 300ms ease-in-out;
+  cursor: pointer;
+  font-weight: 500;
+  border-radius: 5px;
+  padding: 0.7em 1em;
+}
+.nav__register__cart svg {
+  color: #dd9747;
+}
+.nav__register__cart svg:hover {
+  color: #754003;
+  transition: 300ms ease-in-out;
 }
 .nav__register__button:hover {
   background-color: #754003;
