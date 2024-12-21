@@ -19,7 +19,6 @@ export default function DashboardSidebar({ links }: { links: ILinks[] }) {
   }, [pathname]);
 
   if (isCollapsed) return null;
-  console.log(links);
 
   return (
     <motion.div
@@ -30,7 +29,6 @@ export default function DashboardSidebar({ links }: { links: ILinks[] }) {
     >
       <ClickAwayListener
         onClickAway={() => {
-          console.log("clicked away");
           if (window.innerWidth <= 768) {
             setIsCollapsed(true);
           }
