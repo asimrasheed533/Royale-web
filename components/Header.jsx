@@ -10,7 +10,6 @@ import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
 
 export default function Header({ token }) {
-  console.log(token);
   const router = useRouter();
   const pathname = usePathname();
   const [isOpenMenu, setIsOpenMenu] = useState(false);
