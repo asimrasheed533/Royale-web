@@ -6,5 +6,9 @@ const nextConfig: NextConfig = {
   },
   // Add other configurations here
 };
-
+module.exports = {
+  images: {
+    domains: ["avatars.githubusercontent.com"],
+  },
+};
 export default nextConfig;

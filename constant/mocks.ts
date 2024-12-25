@@ -17,6 +17,12 @@ export const products = Array.from({ length: 100 }, (_, index) => ({
   price: faker.commerce.price(),
 }));
 
+export const Categories = Array.from({ length: 10 }, (_, index) => ({
+  id: faker.string.uuid(),
+  image: faker.image.avatar(),
+  name: faker.commerce.department(),
+}));
+
 export const orders = Array.from({ length: 20 }, (_, index) => ({
   id: faker.string.uuid(),
   name: faker.commerce.productName(),

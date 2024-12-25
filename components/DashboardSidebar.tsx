@@ -10,10 +10,6 @@ export default function DashboardSidebar({ links }: { links: ILinks[] }) {
   const [isCollapsed, setIsCollapsed] = useSidebar();
   const pathname = usePathname();
 
-  // const handleSidebarClick = () => {
-  //   if (window.innerWidth < 768) setIsCollapsed(true);
-  // };
-
   useEffect(() => {
     if (window.innerWidth < 768) setIsCollapsed(true);
   }, [pathname]);
@@ -25,7 +21,6 @@ export default function DashboardSidebar({ links }: { links: ILinks[] }) {
       className="dashboard__sidebar__wrapper"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      // onClick={handleSidebarClick}
     >
       <ClickAwayListener
         onClickAway={() => {
@@ -96,6 +91,7 @@ export default function DashboardSidebar({ links }: { links: ILinks[] }) {
 
 function SideBarEntry({ entryLink }: { entryLink: any }) {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <>
@@ -115,10 +111,9 @@ function SideBarEntry({ entryLink }: { entryLink: any }) {
             <Link
               key={subEntry.name}
               href={subEntry.href}
-              className="sidebar__nav__entry"
-              // className={({ isActive }: any) =>
-              //   `sidebar__nav__entry ${isActive ? "active" : ""}`
-              // }
+              className={`sidebar__nav__entry ${
+                pathname.startsWith(subEntry.href) ? "active" : ""
+              }`}
             >
               {subEntry.icon && (
                 <span className="sidebar__nav__icon">{subEntry.icon}</span>

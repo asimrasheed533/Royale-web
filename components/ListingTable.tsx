@@ -103,11 +103,11 @@ export default function ListingTable({
               {data?.length} Entries
             </div>
           </div>
-          <ListingPagination
+          {/* <ListingPagination
             currentPage={1}
             totalPages={totalPages}
             onPageChange={() => {}}
-          />
+          /> */}
         </div>
       )}
     </div>

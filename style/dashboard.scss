@@ -196,7 +196,12 @@
   text-decoration: none;
   color: var(--white);
 }
-
+.sidebar__nav__entry:hover,
+.sidebar__nav__entry.active {
+  background-color: var(--goldenLight);
+  cursor: pointer;
+  color: var(--white);
+}
 .sidebar__nav__entry:hover {
   background: linear-gradient(90deg, #f2a734 0.33%, #74511b 127.63%);
 }

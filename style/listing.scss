@@ -232,6 +232,18 @@
   gap: 0.5em;
   padding: 0 0.5em;
 }
+.listing__page__table__content__row__entry__img {
+  font-size: 0.85em;
+  color: var(--white);
+  width: 60px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  object-fit: cover;
+  gap: 0.5em;
+  padding: 0 0.5em;
+  border-radius: 120px;
+}
 .listing__page__table__content__row {
   display: flex;
   gap: 1em;
