@@ -6,13 +6,32 @@ import InputFile from "@/components/InputFile";
 import { useState } from "react";
 import Select from "@/components/Select";
 import TextArea from "@/components/TextArea";
+// import PictureInput from "@/components/PictureInput";
+import "@uploadthing/react/styles.css";
+import { UploadButton } from "@/utils/uploadthing";
 
 export default function ProductAdd() {
   const [files, setFiles] = useState<File[] | null>(null);
   return (
     <>
       <div className="product__container">
-        <InputFile label="Product Image" onChange={setFiles} value={files} />
+        {/* <PictureInput
+          label="Product Image"
+          value={files ? files[0] : null}
+          onChange={(file) => setFiles([file])}
+        /> */}
+        <UploadButton
+          endpoint="imageUploader"
+          onClientUploadComplete={(res) => {
+            // Do something with the response
+            console.log("Files: ", res);
+            alert("Upload Completed");
+          }}
+          onUploadError={(error: Error) => {
+            // Do something with the error.
+            alert(`ERROR! ${error.message}`);
+          }}
+        />
         <div className="input__row">
           <Input label="Product Name" type="text" name="name" />
           <Select label="Category" options={[]} />
