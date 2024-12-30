@@ -1,5 +1,5 @@
 import { CSSProperties, ReactNode } from "react";
-
+import { ToastOptions } from "react-toastify";
 export interface IListingAction {
   name: string;
   onClick: () => void;
@@ -96,4 +96,18 @@ export interface ITextArea {
   placeholder?: string;
   onChange?: (e: any) => void;
   [x: string]: any;
+}
+export interface UseActionParams<TArgs = any, TData = any> {
+  promise: (args: TArgs, signal?: AbortSignal) => Promise<{ data: TData }>;
+  successMessage?: string;
+  errorMessage?: string;
+  mutatePath?: string;
+  goBack?: boolean;
+  onSuccess?: (data: TData) => void;
+  onError?: (error: Error) => void;
+  logError?: (error: Error) => void;
+  retryCount?: number;
+  successToastOptions?: ToastOptions;
+  errorToastOptions?: ToastOptions;
+  needsConfirmation?: boolean;
 }
