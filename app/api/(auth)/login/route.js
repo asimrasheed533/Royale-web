@@ -12,21 +12,16 @@ export async function POST(req) {
       console.error("Missing fields:", { email, password });
       return NextResponse.json({ message: "Missing fields" }, { status: 400 });
     }
-
-    console.log("Querying user with email:", email);
     const exist = await prisma.user.findUnique({
       where: { email },
       select: { password: true, id: true },
     });
-    console.log("Query result:", exist);
 
     if (!exist) {
       return NextResponse.json({ message: "User not found" }, { status: 400 });
     }
 
     const isPasswordCorrect = await bcrypt.compare(password, exist.password);
-    console.log("Password match:", isPasswordCorrect);
-
     if (!isPasswordCorrect) {
       return NextResponse.json(
         { message: "Incorrect password" },

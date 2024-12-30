@@ -1,6 +1,6 @@
 "use client";
 import headerItems from "@/data/headerItems.json";
-import { Categories as data } from "@/constant/mocks";
+// import { Categories as data } from "@/constant/mocks";
 import ListingTable from "@/components/ListingTable";
 import ListingTabs from "@/components/ListingTabs";
 import Link from "next/link";
@@ -8,11 +8,12 @@ import React, { useState } from "react";
 import { usePathname } from "next/navigation";
 import ListingCheckbox from "@/components/ListingCheckbox";
 import Image from "next/image";
-
+import useQuery from "@/hooks/useQuery";
 export default function Categories() {
   const pathname = usePathname();
   const [selectedRows, setSelectedRows] = useState([]);
   const [page, setPage] = useState(3);
+  const { data, error, isLoading } = useQuery("/api/category");
   return (
     <>
       <div className="listing__page">
@@ -49,10 +50,10 @@ export default function Categories() {
           selectedRows={selectedRows}
           // setSelectedRows={setSelectedRows}
           // page={page}
-          // setPage={setPage}
+          // setPage={setPage}next/image
           totalPages={10}
         >
-          {data.map((item) => (
+          {data?.categories?.map((item) => (
             <Link
               className="listing__page__table__content__row"
               href={pathname + "/" + item.id}

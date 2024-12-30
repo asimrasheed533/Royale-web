@@ -72,10 +72,8 @@ export default function SignUp() {
 
       router.push("/signIn");
     } catch (error) {
-      console.log(error);
       const errorMessage =
         error.response?.data?.message || "An error occurred while registering";
-      console.log(errorMessage, "errorMessage");
       toast.error(errorMessage);
     } finally {
       setProcessing(false);

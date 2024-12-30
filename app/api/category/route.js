@@ -19,13 +19,29 @@ export async function POST(req) {
       },
     });
 
-    console.log("Category created successfully:", category);
     return NextResponse.json(
       { message: "Category created successfully", category },
       { status: 200 }
     );
   } catch (error) {
     console.error("Error occurred while creating category:", error);
+
+    return NextResponse.json(
+      { message: "Internal Server Error" },
+      { status: 500 }
+    );
+  }
+}
+
+export async function GET(req) {
+  try {
+    const categories = await prisma.category.findMany();
+    return NextResponse.json(
+      { message: "Categories fetched successfully", categories },
+      { status: 200 }
+    );
+  } catch (error) {
+    console.error("Error occurred while fetching categories:", error);
 
     return NextResponse.json(
       { message: "Internal Server Error" },

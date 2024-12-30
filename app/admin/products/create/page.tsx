@@ -15,16 +15,9 @@ export default function ProductAdd() {
   return (
     <>
       <div className="product__container">
-        {/* <PictureInput
-          label="Product Image"
-          value={files ? files[0] : null}
-          onChange={(file) => setFiles([file])}
-        /> */}
         <UploadButton
           endpoint="imageUploader"
           onClientUploadComplete={(res) => {
-            // Do something with the response
-            console.log("Files: ", res);
             alert("Upload Completed");
           }}
           onUploadError={(error: Error) => {

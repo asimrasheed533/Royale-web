@@ -13,7 +13,6 @@ export async function POST(req) {
     const { credential } = body;
 
     const decodedToken = decodeJWT(credential);
-    console.log("Decoded token:", decodedToken);
 
     const { email, name } = decodedToken;
 

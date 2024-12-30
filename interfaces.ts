@@ -111,3 +111,7 @@ export interface UseActionParams<TArgs = any, TData = any> {
   errorToastOptions?: ToastOptions;
   needsConfirmation?: boolean;
 }
+export interface SWROptions {
+  keepPreviousData?: boolean;
+  [key: string]: any;
+}
