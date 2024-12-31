@@ -73,23 +73,6 @@ export default function ListingTable({
           </ListingActionBar>
         )}
         <div className="listing__page__table__content">{children}</div>
-        {/* <div
-          className={
-            "listing__page__table__content" + (isStale ? " stale" : "")
-          }
-        >
-          {isFetchingData ? (
-            <div className="listing__page__table__content__empty">
-              <Loader />
-            </div>
-          ) : data?.length === 0 ? (
-            <div className="listing__page__table__content__empty">
-              <NoData />
-            </div>
-          ) : (
-            children
-          )}
-        </div> */}
       </div>
       {totalPages > 0 && (
         <div className="listing__page__table__footer">
@@ -103,11 +86,6 @@ export default function ListingTable({
               {data?.length} Entries
             </div>
           </div>
-          {/* <ListingPagination
-            currentPage={1}
-            totalPages={totalPages}
-            onPageChange={() => {}}
-          /> */}
         </div>
       )}
     </div>

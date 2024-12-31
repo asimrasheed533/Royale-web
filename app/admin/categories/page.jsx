@@ -21,7 +21,7 @@ export default function Categories() {
           <ListingTabs
             selectedTab="Products"
             setSelectedTab={() => {}}
-            tabs={[{ name: "Products", number: 120 }]}
+            tabs={[{ name: "Products", number: data?.categories?.length }]}
           />
           <div className="listing__page__header__actions">
             <Link
@@ -75,6 +75,7 @@ export default function Categories() {
                 src={item.image}
                 width={120}
                 height={120}
+                alt="category"
               />
             </Link>
           ))}

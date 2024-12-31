@@ -90,7 +90,7 @@ export default function DashboardSidebar({ links }: { links: ILinks[] }) {
 }
 
 function SideBarEntry({ entryLink }: { entryLink: any }) {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
   return (
