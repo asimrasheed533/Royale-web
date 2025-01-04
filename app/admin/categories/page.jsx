@@ -1,6 +1,6 @@
 "use client";
 import headerItems from "@/data/headerItems.json";
-// import { Categories as data } from "@/constant/mocks";
+import { Categories as data } from "@/constant/mocks";
 import ListingTable from "@/components/ListingTable";
 import ListingTabs from "@/components/ListingTabs";
 import Link from "next/link";
@@ -13,7 +13,6 @@ export default function Categories() {
   const pathname = usePathname();
   const [selectedRows, setSelectedRows] = useState([]);
   const [page, setPage] = useState(3);
-  const { data, error, isLoading } = useQuery("/api/category");
   return (
     <>
       <div className="listing__page">
