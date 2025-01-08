@@ -13,49 +13,41 @@ const ListingCheckbox: React.FC<ListingCheckboxProps> = ({
 }) => {
   return (
     <button
-      className={
-        partiallyChecked || checked
-          ? "listing__checkbox checked"
-          : "listing__checkbox"
-      }
+      className={`listing__checkbox ${
+        partiallyChecked || checked ? "checked" : ""
+      }`}
       type="button"
       onClick={(e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        onClick();
+        e.preventDefault(); // Prevent default button behavior
+        e.stopPropagation(); // Prevent event bubbling
+        onClick(); // Call the onClick handler
       }}
     >
       {partiallyChecked ? (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="feather feather-minus"
+          width="16"
+          height="16"
+          fill="currentColor"
+          className="bi bi-dash"
+          viewBox="0 0 16 16"
         >
-          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <path d="M3.5 8a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 0 1h-8a.5.5 0 0 1-.5-.5z" />
         </svg>
       ) : checked ? (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="feather feather-check"
+          width="16"
+          height="16"
+          fill="currentColor"
+          className="bi bi-check"
+          viewBox="0 0 16 16"
         >
-          <polyline points="20 6 9 17 4 12"></polyline>
+          <path d="M10.854 5.646a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L6.5 9.793l3.646-3.647a.5.5 0 0 1 .708 0z" />
         </svg>
       ) : null}
     </button>
   );
 };
+
+export default ListingCheckbox;
