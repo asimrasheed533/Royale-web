@@ -1,10 +1,16 @@
 "use client";
 
-export default function ListingCheckbox({
+interface ListingCheckboxProps {
+  checked: boolean;
+  partiallyChecked?: boolean;
+  onClick: () => void;
+}
+
+const ListingCheckbox: React.FC<ListingCheckboxProps> = ({
   checked,
-  partiallyChecked,
+  partiallyChecked = false,
   onClick,
-}) {
+}) => {
   return (
     <button
       className={
@@ -52,4 +58,4 @@ export default function ListingCheckbox({
       ) : null}
     </button>
   );
-}
+};
