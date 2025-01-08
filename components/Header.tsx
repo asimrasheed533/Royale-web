@@ -9,7 +9,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
 
-export default function Header({ token }) {
+export default function Header({ token }: { token: string | null }) {
   const router = useRouter();
   const pathname = usePathname();
   const [isOpenMenu, setIsOpenMenu] = useState(false);

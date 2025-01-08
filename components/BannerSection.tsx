@@ -7,7 +7,6 @@ import { Navigation } from "swiper/modules";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 export default function BannerSection() {
-  const router = useRouter();
   const [swiperSlides, setSwiperSlides] = React.useState(3);
   const checkWidth = () => {
     if (window.innerWidth > 1366) {
@@ -98,7 +97,20 @@ export default function BannerSection() {
   );
 }
 
-function SlideCard({ image, title, heading, subtitle }) {
+interface SlideCardProps {
+  image: string;
+  title: string;
+  heading: string;
+  subtitle: string;
+}
+
+const SlideCard: React.FC<SlideCardProps> = ({
+  image,
+  title,
+  heading,
+  subtitle,
+}) => {
+  const router = useRouter();
   return (
     <div className="page__banner__img__warper">
       <Image
@@ -123,4 +135,4 @@ function SlideCard({ image, title, heading, subtitle }) {
       </div>
     </div>
   );
-}
+};

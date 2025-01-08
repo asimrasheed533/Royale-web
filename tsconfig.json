@@ -29,7 +29,7 @@
     ".next/types/**/*.ts",
     "app/(customer)/layout.tsx",
     "components/cursor.jsx",
-    "components/BannerSection.jsx"
+    "components/BannerSection.tsx"
   ],
   "exclude": ["node_modules"]
 }
