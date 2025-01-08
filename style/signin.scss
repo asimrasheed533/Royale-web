@@ -147,7 +147,14 @@
   font-weight: 700;
   transition: all 0.3s ease;
 }
-
+.input__row__login {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 1em;
+  max-width: 480px;
+  margin-top: 1em;
+}
 .create__account__input__entry {
   width: 100%;
   display: flex;

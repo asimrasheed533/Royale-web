@@ -1,6 +1,7 @@
 "use server";
 
 import prisma from "@/lib/prisma";
+import { cookies } from "next/headers";
 
 export async function category(
   prevState: {
@@ -76,5 +77,42 @@ export async function register(
     nameError: null,
     emailError: null,
     passwordError: null,
+  };
+}
+
+export async function signIn(
+  prevState: {
+    emailError: string | null;
+    passwordError: string | null;
+    status: string | null;
+  },
+  formData: FormData
+) {
+  const email = formData.get("email") as string;
+  if (!email) {
+    return { ...prevState, emailError: "Email is required", status: "error" };
+  }
+  const user = await prisma.user.findUnique({
+    where: {
+      email,
+    },
+  });
+  if (!user) {
+    return { ...prevState, emailError: "User not found", status: "error" };
+  }
+  const password = formData.get("password") as string;
+  if (user.password !== password) {
+    return {
+      ...prevState,
+      passwordError: "Password is incorrect",
+      status: "error",
+    };
+  }
+
+  (await cookies()).set("token", user.id, { path: "/" });
+  return {
+    ...prevState,
+    status: "ok",
+    error: "",
   };
 }
