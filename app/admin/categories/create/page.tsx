@@ -2,11 +2,11 @@
 import "@/style/dashboard.scss";
 import Input from "@/components/Input";
 import usePostAction from "@/hooks/usePostAction";
-import { createCategory } from "@/actions/category";
+import { category } from "@/actions/action";
 
 export default function AddCategories() {
   const { action, isPending, data } = usePostAction({
-    action: createCategory,
+    action: category,
     defaultState: { nameError: null },
     onSuccess: () => {
       alert("Category added successfully");
