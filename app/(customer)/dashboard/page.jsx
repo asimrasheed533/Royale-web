@@ -2,7 +2,10 @@
 import React from "react";
 import "@/style/customerDashboard.scss";
 import LogoutIcon from "@/icons/LogoutIcon";
+import usePostAction from "@/hooks/usePostAction";
+import { logout } from "@/actions/action";
 export default function page() {
+  const { actionCallback, isPending } = usePostAction({ action: logout });
   return (
     <div className="dashboard__container">
       <div className="dashboard__logo">
@@ -14,9 +17,20 @@ export default function page() {
       <div className="dashboard__content">
         <p>Here you can see all the information about your account</p>
       </div>
-      <button className="log__out__button">
+      <button onClick={actionCallback} className="log__out__button">
         <LogoutIcon />
-        <div className="log__out__button__btn">Log out</div>
+        <div className="log__out__button__btn">
+          {isPending ? (
+            <span className="log__out__button__btn__text">Loading...</span>
+          ) : (
+            <span
+              className="log__out__button__btn__text"
+              onClick={actionCallback}
+            >
+              Log out
+            </span>
+          )}
+        </div>
       </button>
     </div>
   );

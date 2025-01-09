@@ -3,11 +3,9 @@ import "@/style/signin.scss";
 
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import axios from "axios";
 import MoonLoader from "react-spinners/MoonLoader";
 import loginImg from "@/public/loginImg.png";
 import { toast } from "react-toastify";
-import { useState } from "react";
 import Image from "next/image";
 import usePostAction from "@/hooks/usePostAction";
 import { register } from "@/actions/action";

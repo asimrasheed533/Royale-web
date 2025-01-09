@@ -2,7 +2,8 @@
 
 import prisma from "@/lib/prisma";
 import { cookies } from "next/headers";
-
+import bcryptjs from "bcryptjs";
+import { redirect } from "next/navigation";
 export async function category(
   prevState: {
     nameError: string | null;
@@ -63,11 +64,13 @@ export async function register(
     };
   }
 
+  const hashedPassword = await bcryptjs.hash(password, 10);
+
   await prisma.user.create({
     data: {
       name,
       email,
-      password,
+      password: hashedPassword,
     },
   });
 
@@ -101,7 +104,9 @@ export async function signIn(
     return { ...prevState, emailError: "User not found", status: "error" };
   }
   const password = formData.get("password") as string;
-  if (user.password !== password) {
+
+  const isPasswordValid = await bcryptjs.compare(password, user.password);
+  if (!isPasswordValid) {
     return {
       ...prevState,
       passwordError: "Password is incorrect",
@@ -115,4 +120,9 @@ export async function signIn(
     status: "ok",
     error: "",
   };
+}
+
+export async function logout() {
+  (await cookies()).set("token", "", { path: "/", expires: new Date(0) });
+  return redirect("/");
 }

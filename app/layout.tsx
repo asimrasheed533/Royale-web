@@ -51,12 +51,9 @@ export const metadata = {
 export const viewport = {
   themeColor: "#161c24",
 };
-
-// Define the RootLayoutProps interface
 interface RootLayoutProps {
   children: React.ReactNode;
 }
-
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">

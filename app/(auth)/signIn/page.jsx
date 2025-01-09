@@ -23,7 +23,7 @@ export default function SignIn() {
     },
     onSuccess: () => {
       toast.success("Account created successfully");
-      router.push("/signIn");
+      router.push("/");
     },
   });
 
