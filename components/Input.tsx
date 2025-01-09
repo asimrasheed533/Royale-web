@@ -11,6 +11,7 @@ export default function Input({
   required = false,
   style,
   name,
+  disabled = false,
   ...rest
 }: IInput) {
   const [isFocused, setIsFocused] = useState(false);
@@ -37,6 +38,7 @@ export default function Input({
           style={style}
           {...rest}
           name={name}
+          disabled={disabled}
         />
         <label
           htmlFor={id}

@@ -2,7 +2,7 @@
 import "@/style/dashboard.scss";
 import Input from "@/components/Input";
 import usePostAction from "@/hooks/usePostAction";
-import { category } from "@/actions/action";
+import { category } from "@/action";
 import PictureInput from "@/components/PictureInput";
 
 export default function AddCategories() {

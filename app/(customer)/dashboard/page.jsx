@@ -3,7 +3,8 @@ import React from "react";
 import "@/style/customerDashboard.scss";
 import LogoutIcon from "@/icons/LogoutIcon";
 import usePostAction from "@/hooks/usePostAction";
-import { logout } from "@/actions/action";
+import { logout } from "@/action";
+
 export default function page() {
   const { actionCallback, isPending } = usePostAction({ action: logout });
   return (

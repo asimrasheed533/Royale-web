@@ -53,6 +53,7 @@ export interface IInput {
   autoFocus?: boolean;
   required?: boolean;
   style?: CSSProperties;
+  disabled?: boolean;
 }
 export interface IOption {
   value: any;

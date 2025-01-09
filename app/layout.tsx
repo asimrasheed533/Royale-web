@@ -1,6 +1,6 @@
 import "react-toastify/dist/ReactToastify.css";
 import "@/style/global.scss";
-
+import { GoogleOAuthProvider } from "@react-oauth/google";
 import { ToastContainer } from "react-toastify";
 import { Plus_Jakarta_Sans } from "next/font/google";
 const plus_jakarta_sans = Plus_Jakarta_Sans({ subsets: ["latin"] });
@@ -55,10 +55,16 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
-      <body className={plus_jakarta_sans.className}>
-        {children}
-        <ToastContainer position="bottom-right" theme="dark" autoClose={1500} />
-      </body>
+      <GoogleOAuthProvider clientId={process.env.GOOGLE_CLIENT_ID!}>
+        <body className={plus_jakarta_sans.className}>
+          {children}
+          <ToastContainer
+            position="bottom-right"
+            theme="dark"
+            autoClose={1500}
+          />
+        </body>
+      </GoogleOAuthProvider>
     </html>
   );
 }

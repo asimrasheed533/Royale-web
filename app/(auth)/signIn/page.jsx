@@ -8,12 +8,32 @@ import { toast } from "react-toastify";
 import Image from "next/image";
 import Input from "@/components/Input";
 import usePostAction from "@/hooks/usePostAction";
-import { signIn } from "@/actions/action";
+import { loginWithGoogle, signIn } from "@/action";
+import { GoogleLogin } from "@react-oauth/google";
 
 export default function SignIn() {
   const router = useRouter();
   const { action, isPending, data } = usePostAction({
     action: signIn,
+    defaultState: {
+      emailError: null,
+      passwordError: null,
+    },
+    onError() {
+      toast.error("Account creation failed");
+    },
+    onSuccess: () => {
+      toast.success("Account created successfully");
+      router.push("/");
+    },
+  });
+
+  const {
+    actionCallback,
+    isPending: registerWithGooglePending,
+    data: googleError,
+  } = usePostAction({
+    action: loginWithGoogle,
     defaultState: {
       emailError: null,
       passwordError: null,
@@ -66,7 +86,12 @@ export default function SignIn() {
         <Link href="/forgot" className="forgot__password">
           Forgot Password?
         </Link>
-        <div className="signin__submit__btn">
+        <div
+          style={{
+            marginBottom: "20px",
+          }}
+          className="signin__submit__btn"
+        >
           <button
             disabled={isPending}
             type="submit"
@@ -75,6 +100,25 @@ export default function SignIn() {
             {isPending ? <MoonLoader color="#fff" size={16} /> : "Sign In"}
           </button>
         </div>
+        <GoogleLogin
+          onSuccess={async (credentialResponse) => {
+            if (credentialResponse.credential) {
+              await actionCallback(credentialResponse.credential);
+            }
+          }}
+          onError={() => alert("Login Failed")}
+          shape="pill"
+        />
+        {googleError.error && (
+          <p
+            style={{
+              color: "red",
+              textAlign: "center",
+            }}
+          >
+            {googleError.error}
+          </p>
+        )}
       </form>
     </div>
   );

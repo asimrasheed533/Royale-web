@@ -4,6 +4,129 @@ import prisma from "@/lib/prisma";
 import { cookies } from "next/headers";
 import bcryptjs from "bcryptjs";
 import { redirect } from "next/navigation";
+import { jwtDecode } from "jwt-decode";
+
+export async function loginWithGoogle(
+  prevState: { status: string | null; error: string },
+  credentials: string | undefined
+) {
+  if (!credentials) {
+    return {
+      ...prevState,
+      status: "error",
+      error: "Google login failed",
+    };
+  }
+
+  const { sub } = jwtDecode(credentials) as {
+    sub: string;
+  };
+
+  const user = await prisma.user.findFirst({
+    where: {
+      googleSub: sub,
+    },
+  });
+
+  if (!user) {
+    return {
+      ...prevState,
+      status: "error",
+      error: "User not found",
+    };
+  }
+
+  (await cookies()).set("token", user.id, { path: "/" });
+  return { ...prevState, status: "ok", error: "" };
+}
+
+export async function registerWithGoogle(
+  prevState: { status: string | null; error: string },
+  credentials: string | undefined
+) {
+  if (!credentials) {
+    return {
+      ...prevState,
+      status: "error",
+      error: "Google login failed",
+    };
+  }
+
+  const { name, sub, email } = jwtDecode(credentials) as {
+    sub: string;
+    name: string;
+    email: string;
+  };
+
+  const user = await prisma.user.findUnique({
+    where: {
+      email,
+    },
+  });
+
+  if (user) {
+    return {
+      ...prevState,
+      status: "error",
+      error: "Email is already in use",
+    };
+  }
+
+  await prisma.user.create({
+    data: {
+      name,
+      email,
+      password: sub,
+      googleSub: sub,
+    },
+  });
+
+  return { ...prevState, status: "ok", error: "" };
+}
+
+export async function connectGoogle(
+  prevState: { status: string | null; error: string },
+  credentials: string | undefined
+) {
+  if (!credentials) {
+    return { ...prevState, status: "error", error: "Credentials are required" };
+  }
+
+  const { sub } = jwtDecode(credentials) as {
+    sub: string;
+  };
+
+  const userId = (await cookies()).get("token")?.value;
+
+  if (!userId) {
+    return {
+      ...prevState,
+      status: "error",
+      error: "You need to be logged in to connect Google",
+    };
+  }
+
+  const user = await prisma.user.findUnique({
+    where: { id: userId },
+  });
+
+  if (!user) {
+    return {
+      ...prevState,
+      status: "error",
+      error: "User not found",
+    };
+  }
+
+  await prisma.user.update({
+    where: { id: userId },
+    data: {
+      googleSub: sub,
+    },
+  });
+  return { ...prevState, status: "ok", error: "" };
+}
+
 export async function category(
   prevState: {
     nameError: string | null;
