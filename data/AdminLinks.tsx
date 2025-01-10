@@ -16,7 +16,7 @@ export default [
       },
       {
         href: "/admin/orders",
-        label: "Appartment",
+        label: "Orders",
         icon: <GeneralIcon />,
       },
     ],
