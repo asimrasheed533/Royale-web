@@ -18,7 +18,7 @@ export default function Products() {
         <ListingTabs
           selectedTab="Products"
           setSelectedTab={() => {}}
-          tabs={[{ name: "Products", number: 120 }]}
+          tabs={[{ name: "Products", number: data.length }]}
         />
         <div className="listing__page__header__actions">
           {/* <SearchInput value={search} onChange={setSearch} /> */}

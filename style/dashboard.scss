@@ -195,6 +195,7 @@
   border: none;
   text-decoration: none;
   color: var(--white);
+  background-color: transparent;
 }
 .sidebar__nav__entry:hover,
 .sidebar__nav__entry.active {
@@ -241,6 +242,18 @@
   align-items: center;
   justify-content: center;
   gap: 1em;
+}
+.admin__payment__chart {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  background-color: var(--lightBlue);
+  border-radius: 12px;
+  padding: 1.5em;
+  height: 100%;
+  box-shadow: 0 5px 10px rgba(44, 44, 44, 0.1);
 }
 @media (max-width: 768px) {
   .input__row {

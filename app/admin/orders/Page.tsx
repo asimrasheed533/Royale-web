@@ -1,14 +1,14 @@
 "use client";
 import headerItems from "@/data/headerItems.json";
-import { orders as data } from "@/constant/mocks";
+import { orders as data, orders } from "@/constant/mocks";
 import { useState } from "react";
 import Link from "next/link";
 import ListingTabs from "@/components/ListingTabs";
 import ListingTable from "@/components/ListingTable";
 import ListingCheckbox from "@/components/ListingCheckbox";
 import { usePathname } from "next/navigation";
-
 export default function Orders() {
+  console.log("order", orders);
   const pathname = usePathname();
   const [selectedRows, setSelectedRows] = useState([]);
   const [page, setPage] = useState(3);
@@ -18,7 +18,7 @@ export default function Orders() {
         <ListingTabs
           selectedTab="Orders"
           setSelectedTab={() => {}}
-          tabs={[{ name: "Orders", number: 120 }]}
+          tabs={[{ name: "Orders", number: data.length }]}
         />
         <div className="listing__page__header__actions">
           {/* <SearchInput value={search} onChange={setSearch} /> */}

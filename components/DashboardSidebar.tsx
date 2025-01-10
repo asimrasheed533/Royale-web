@@ -3,9 +3,10 @@ import useSidebar from "@/hooks/useSidebar";
 import { ILinks } from "@/interfaces";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { useEffect, useState, useTransition } from "react";
 import ClickAwayListener from "react-click-away-listener";
+import MoonLoader from "react-spinners/MoonLoader";
 export default function DashboardSidebar({ links }: { links: ILinks[] }) {
   const [isCollapsed, setIsCollapsed] = useSidebar();
   const pathname = usePathname();
@@ -92,12 +93,15 @@ export default function DashboardSidebar({ links }: { links: ILinks[] }) {
 function SideBarEntry({ entryLink }: { entryLink: any }) {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
+
+  const [isLoading, startTransition] = useTransition();
 
   return (
     <>
       <div className="sidebar__nav__warper__header">
         <Link
-          href="#"
+          href={entryLink.href}
           onClick={() => setIsOpen(!isOpen)}
           className={`sidebar__category__btn ${isOpen ? "active" : ""}`}
         >
@@ -108,18 +112,29 @@ function SideBarEntry({ entryLink }: { entryLink: any }) {
       {isOpen && (
         <div className="sidebar__nav__warper">
           {entryLink?.children?.map((subEntry: any) => (
-            <Link
+            <button
               key={subEntry.name}
-              href={subEntry.href}
+              onClick={() => {
+                startTransition(() => {
+                  router.push(subEntry.href);
+                });
+              }}
               className={`sidebar__nav__entry ${
                 pathname.startsWith(subEntry.href) ? "active" : ""
               }`}
             >
               {subEntry.icon && (
-                <span className="sidebar__nav__icon">{subEntry.icon}</span>
+                <span className="sidebar__nav__icon">
+                  {isLoading ? (
+                    <MoonLoader size={15} color="#fff" />
+                  ) : (
+                    subEntry.icon
+                  )}
+                </span>
               )}
+
               <span className="sidebar__nav__text">{subEntry.label}</span>
-            </Link>
+            </button>
           ))}
         </div>
       )}

@@ -1,4 +1,6 @@
 "use client";
+
+import "@/style/dashboard.scss";
 import {
   XAxis,
   YAxis,
@@ -56,7 +58,7 @@ const data = [
 
 export default function Admin() {
   return (
-    <div style={{ width: "100%" }}>
+    <div className="admin__payment__chart">
       <ResponsiveContainer width="100%" height={200}>
         <AreaChart
           width={500}
@@ -74,7 +76,7 @@ export default function Admin() {
           <XAxis dataKey="name" />
           <YAxis />
           <Tooltip />
-          <Area type="monotone" dataKey="pv" stroke="#82ca9d" fill="#82ca9d" />
+          <Area type="monotone" dataKey="pv" stroke="#82ca9d" fill="#00A76F" />
         </AreaChart>
       </ResponsiveContainer>
     </div>

@@ -3,6 +3,8 @@ import GeneralIcon from "@/icons/GeneralIcon";
 export default [
   {
     label: "Dashboard",
+    href: "/admin",
+
     children: [
       {
         href: "/admin/products",
